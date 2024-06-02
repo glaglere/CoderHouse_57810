@@ -6,6 +6,7 @@ from CoderHouse_57810.models.producto import Producto
 from CoderHouse_57810.services.helpers import print_menu, get_option, collect_input
 from tabulate import tabulate
 
+
 def mostrar_menu_administradores():
     """
     Muestra el menú principal de administradores.
@@ -18,6 +19,7 @@ def mostrar_menu_administradores():
         "Regresar al menú principal"
     ]
     print_menu(options)
+
 
 def operaciones_administradores(sistema):
     """
@@ -37,24 +39,36 @@ def operaciones_administradores(sistema):
         ])
         if opcion == 1:
             data = collect_input(["nombre", "email", "contraseña", "dirección", "teléfono", "DNI"])
-            cliente = ClientePersona(data["nombre"], data["email"], data["contraseña"], data["dirección"], data["teléfono"], data["DNI"])
-            sistema.agregar_cliente_persona(cliente)
-            print("Cliente Persona agregado exitosamente.")
+            cliente = ClientePersona(data["nombre"], data["email"], data["contraseña"], data["dirección"],
+                                     data["teléfono"], data["DNI"])
+            if sistema.agregar_cliente_persona(cliente):
+                print("Cliente Persona agregado exitosamente.")
+            else:
+                print("Error al agregar Cliente Persona.")
         elif opcion == 2:
             data = collect_input(["nombre", "email", "contraseña", "dirección", "teléfono", "CUIT"])
-            cliente = ClienteCorporativo(data["nombre"], data["email"], data["contraseña"], data["dirección"], data["teléfono"], data["CUIT"])
-            sistema.agregar_cliente_corporativo(cliente)
-            print("Cliente Corporativo agregado exitosamente.")
+            cliente = ClienteCorporativo(data["nombre"], data["email"], data["contraseña"], data["dirección"],
+                                         data["teléfono"], data["CUIT"])
+            if sistema.agregar_cliente_corporativo(cliente):
+                print("Cliente Corporativo agregado exitosamente.")
+            else:
+                print("Error al agregar Cliente Corporativo.")
         elif opcion == 3:
             data = collect_input(["nombre", "email", "contraseña", "código de funcionario"])
             admin = Administrador(data["nombre"], data["email"], data["contraseña"], data["código de funcionario"])
-            sistema.agregar_administrador(admin)
-            print("Administrador agregado exitosamente.")
+            if sistema.agregar_administrador(admin):
+                print("Administrador agregado exitosamente.")
+            else:
+                print("Error al agregar Administrador.")
         elif opcion == 4:
-            data = collect_input(["nombre del producto", "descripción del producto", "categoría del producto", "precio del producto"])
-            producto = Producto(data["nombre del producto"], data["descripción del producto"], data["categoría del producto"], float(data["precio del producto"]))
-            sistema.agregar_producto(producto)
-            print("Producto agregado exitosamente.")
+            data = collect_input(
+                ["nombre del producto", "descripción del producto", "categoría del producto", "precio del producto"])
+            producto = Producto(data["nombre del producto"], data["descripción del producto"],
+                                data["categoría del producto"], float(data["precio del producto"]))
+            if sistema.agregar_producto(producto):
+                print("Producto agregado exitosamente.")
+            else:
+                print("Error al agregar Producto.")
         elif opcion == 5:
             sistema.mostrar_clientes()
         elif opcion == 6:
@@ -63,33 +77,44 @@ def operaciones_administradores(sistema):
             sistema.mostrar_productos()
         elif opcion == 8:
             email = input("Ingrese el email del cliente persona a eliminar: ")
-            sistema.eliminar_cliente_persona(email)
-            print("Cliente Persona eliminado exitosamente.")
+            if sistema.eliminar_cliente_persona(email):
+                print("Cliente Persona eliminado exitosamente.")
+            else:
+                print("Error al eliminar Cliente Persona.")
         elif opcion == 9:
             email = input("Ingrese el email del cliente corporativo a eliminar: ")
-            sistema.eliminar_cliente_corporativo(email)
-            print("Cliente Corporativo eliminado exitosamente.")
+            if sistema.eliminar_cliente_corporativo(email):
+                print("Cliente Corporativo eliminado exitosamente.")
+            else:
+                print("Error al eliminar Cliente Corporativo.")
         elif opcion == 10:
             email = input("Ingrese el email del administrador a eliminar: ")
-            sistema.eliminar_administrador(email)
-            print("Administrador eliminado exitosamente.")
+            if sistema.eliminar_administrador(email):
+                print("Administrador eliminado exitosamente.")
+            else:
+                print("Error al eliminar Administrador.")
         elif opcion == 11:
             if not sistema.productos:
                 print("No hay productos disponibles para eliminar.")
                 continue
             id_producto = input("Ingrese el ID del producto a eliminar: ")
-            sistema.eliminar_producto(id_producto)
-            print("Producto eliminado exitosamente.")
+            if sistema.eliminar_producto(id_producto):
+                print("Producto eliminado exitosamente.")
+            else:
+                print("Error al eliminar Producto.")
         elif opcion == 12:
             compras = sistema.obtener_historial_compras_todos()
             if compras:
                 print("Historial de Compras de Todos los Clientes:")
                 table = []
                 for compra in compras:
-                    productos_str = ", ".join([f"{prod['producto'].nombre} x{prod['cantidad']}" for prod in compra.productos])
+                    productos_str = ", ".join(
+                        [f"{prod['producto'].nombre} x{prod['cantidad']}" for prod in compra.productos])
                     precio_total = sum([prod['producto'].precio * prod['cantidad'] for prod in compra.productos])
-                    table.append([compra.cliente.nombre, compra.cliente.email, productos_str, precio_total, compra.fecha.strftime('%Y-%m-%d %H:%M:%S')])
-                print(tabulate(table, headers=["Cliente", "Email", "Productos", "Precio Total", "Fecha de Compra"], tablefmt="pretty"))
+                    table.append([compra.cliente.nombre, compra.cliente.email, productos_str, precio_total,
+                                  compra.fecha.strftime('%Y-%m-%d %H:%M:%S')])
+                print(tabulate(table, headers=["Cliente", "Email", "Productos", "Precio Total", "Fecha de Compra"],
+                               tablefmt="pretty"))
             else:
                 print("No hay compras registradas.")
         elif opcion == 13:

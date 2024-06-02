@@ -20,14 +20,17 @@ if __name__ == '__main__':
     # Bucle principal del programa
     try:
         while True:
-            mostrar_menu()
-            opcion = get_option(["Operaciones de Clientes", "Operaciones de Administradores", "Salir"])
-            if opcion == 1:
-                operaciones_clientes(sistema_principal)
-            elif opcion == 2:
-                operaciones_administradores(sistema_principal)
-            elif opcion == 3:
-                print("Saliendo del sistema.")
-                break
+            try:
+                mostrar_menu()
+                opcion = get_option(["Operaciones de Clientes", "Operaciones de Administradores", "Salir"])
+                if opcion == 1:
+                    operaciones_clientes(sistema_principal)
+                elif opcion == 2:
+                    operaciones_administradores(sistema_principal)
+                elif opcion == 3:
+                    print("Saliendo del sistema.")
+                    break
+            except Exception as e:  #Excepciones generales no atrapadas por otros metodos.
+                print(f"Se produjo un error: {e}")
     finally:
         sistema_principal.guardar_datos()
