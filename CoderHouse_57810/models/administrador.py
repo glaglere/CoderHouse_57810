@@ -1,4 +1,4 @@
-from .persona import Persona
+from CoderHouse_57810.models.persona import Persona
 
 class Administrador(Persona):
     def __init__(self, nombre, email, password, codigo_funcionario):
