@@ -5,6 +5,7 @@ from CoderHouse_57810.models.cliente import ClientePersona, ClienteCorporativo
 from CoderHouse_57810.models.compra import Compra
 from CoderHouse_57810.models.producto import Producto
 
+
 class Sistema:
     def __init__(self):
         self.clientes_personas = []
@@ -13,6 +14,7 @@ class Sistema:
         self.productos = []
         self.carritos = {}
         self.compras = []
+        self.product_id_counter = 1  # Initialize product ID counter
 
     def agregar_cliente_persona(self, cliente):
         if isinstance(cliente, ClientePersona):
@@ -36,6 +38,8 @@ class Sistema:
 
     def agregar_producto(self, producto):
         if isinstance(producto, Producto):
+            producto.id_producto = self.product_id_counter  # Assign the next available ID
+            self.product_id_counter += 1  # Increment the ID counter
             self.productos.append(producto)
         else:
             raise TypeError("El producto debe ser una instancia de Producto")
@@ -101,7 +105,8 @@ class Sistema:
 
     def guardar_datos(self):
         with open("personas.json", "w") as f:
-            json.dump([cliente.to_dict() for cliente in self.clientes_personas + self.clientes_corporativos], f, indent=4)
+            json.dump([cliente.to_dict() for cliente in self.clientes_personas + self.clientes_corporativos], f,
+                      indent=4)
         with open("productos.json", "w") as f:
             json.dump([producto.to_dict() for producto in self.productos], f, indent=4)
         with open("compras.json", "w") as f:
@@ -111,12 +116,15 @@ class Sistema:
         try:
             with open("personas.json", "r") as f:
                 personas_data = json.load(f)
-                self.clientes_personas = [ClientePersona.from_dict(p) if "dni" in p else ClienteCorporativo.from_dict(p) for p in personas_data]
+                self.clientes_personas = [ClientePersona.from_dict(p) if "dni" in p else ClienteCorporativo.from_dict(p)
+                                          for p in personas_data]
                 self.carritos = {p["email"]: [] for p in personas_data}
 
             with open("productos.json", "r") as f:
                 productos_data = json.load(f)
                 self.productos = [Producto.from_dict(p) for p in productos_data]
+                self.product_id_counter = max([p["id_producto"] for p in productos_data],
+                                              default=0) + 1  # Update the counter
 
             with open("compras.json", "r") as f:
                 compras_data = json.load(f)

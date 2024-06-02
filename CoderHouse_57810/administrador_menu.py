@@ -1,8 +1,8 @@
+# administrador_menu.py
 from services.sistema import Sistema
 from CoderHouse_57810.models.cliente import ClientePersona, ClienteCorporativo
 from CoderHouse_57810.models.administrador import Administrador
 from CoderHouse_57810.models.producto import Producto
-
 
 def mostrar_menu_administradores():
     print("\nSeleccione una operación de administradores:")
@@ -18,7 +18,6 @@ def mostrar_menu_administradores():
     print("10. Eliminar Administrador")
     print("11. Eliminar Producto")
     print("12. Regresar al menú principal")
-
 
 def operaciones_administradores(sistema):
     while True:
@@ -53,12 +52,11 @@ def operaciones_administradores(sistema):
             sistema.agregar_administrador(admin)
             print("Administrador agregado exitosamente.")
         elif opcion == "4":
-            id_producto = input("Ingrese el ID del producto: ")
             nombre = input("Ingrese el nombre del producto: ")
             descripcion = input("Ingrese la descripción del producto: ")
             categoria = input("Ingrese la categoría del producto: ")
             precio = float(input("Ingrese el precio del producto: "))
-            producto = Producto(id_producto, nombre, descripcion, categoria, precio)
+            producto = Producto(nombre, descripcion, categoria, precio)
             sistema.agregar_producto(producto)
             print("Producto agregado exitosamente.")
         elif opcion == "5":

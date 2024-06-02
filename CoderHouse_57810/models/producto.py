@@ -1,5 +1,6 @@
+# producto.py
 class Producto:
-    def __init__(self, id_producto, nombre, descripcion, categoria, precio):
+    def __init__(self, nombre, descripcion, categoria, precio, id_producto=None):
         self.id_producto = id_producto
         self.nombre = nombre
         self.descripcion = descripcion
@@ -20,4 +21,4 @@ class Producto:
 
     @classmethod
     def from_dict(cls, data):
-        return cls(data["id_producto"], data["nombre"], data["descripcion"], data["categoria"], data["precio"])
+        return cls(data["nombre"], data["descripcion"], data["categoria"], data["precio"], data["id_producto"])
