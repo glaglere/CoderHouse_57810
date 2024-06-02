@@ -1,5 +1,6 @@
 import re
 
+
 class Seguridad:
     """
     Clase que proporciona métodos de validación para los datos del sistema.
@@ -149,7 +150,8 @@ class Seguridad:
         Raises:
             ValueError: Si algún atributo no es válido.
         """
-        if not Seguridad.validar_no_vacio(administrador.nombre) or not Seguridad.validar_nombre_usuario(administrador.nombre):
+        if not Seguridad.validar_no_vacio(administrador.nombre) or not Seguridad.validar_nombre_usuario(
+                administrador.nombre):
             raise ValueError("El nombre del administrador no es válido.")
         if not Seguridad.validar_email(administrador.email):
             raise ValueError("El email del administrador no es válido.")
@@ -157,3 +159,23 @@ class Seguridad:
             raise ValueError("La contraseña del administrador no es válida.")
         if not Seguridad.validar_no_vacio(administrador.codigo_funcionario):
             raise ValueError("El código de funcionario del administrador no puede estar vacío.")
+
+    @staticmethod
+    def validar_producto(producto):
+        """
+        Valida los atributos de un producto.
+
+        Args:
+            producto (Producto): El producto a validar.
+
+        Raises:
+            ValueError: Si algún atributo no es válido.
+        """
+        if not Seguridad.validar_no_vacio(producto.nombre):
+            raise ValueError("El nombre del producto no puede estar vacío.")
+        if not Seguridad.validar_no_vacio(producto.descripcion):
+            raise ValueError("La descripción del producto no puede estar vacía.")
+        if not Seguridad.validar_no_vacio(producto.categoria):
+            raise ValueError("La categoría del producto no puede estar vacía.")
+        if not isinstance(producto.precio, (int, float)) or producto.precio <= 0:
+            raise ValueError("El precio del producto debe ser un número positivo.")

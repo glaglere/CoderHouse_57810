@@ -4,6 +4,7 @@ from tabulate import tabulate
 
 from CoderHouse_57810.models.administrador import Administrador
 from CoderHouse_57810.models.cliente import ClientePersona, ClienteCorporativo
+from CoderHouse_57810.services.helpers import verificar_password
 
 
 class ClienteService:
@@ -30,14 +31,16 @@ class ClienteService:
         """
         print("Clientes Personas:")
         if self.clientes_personas:
-            table = [[cliente.nombre, cliente.email, cliente.direccion, cliente.telefono, cliente.dni] for cliente in self.clientes_personas]
+            table = [[cliente.nombre, cliente.email, cliente.direccion, cliente.telefono, cliente.dni] for cliente in
+                     self.clientes_personas]
             print(tabulate(table, headers=["Nombre", "Email", "Dirección", "Teléfono", "DNI"], tablefmt="pretty"))
         else:
             print("No hay clientes personas registrados.")
 
         print("\nClientes Corporativos:")
         if self.clientes_corporativos:
-            table = [[cliente.nombre, cliente.email, cliente.direccion, cliente.telefono, cliente.cuit] for cliente in self.clientes_corporativos]
+            table = [[cliente.nombre, cliente.email, cliente.direccion, cliente.telefono, cliente.cuit] for cliente in
+                     self.clientes_corporativos]
             print(tabulate(table, headers=["Nombre", "Email", "Dirección", "Teléfono", "CUIT"], tablefmt="pretty"))
         else:
             print("No hay clientes corporativos registrados.")
@@ -87,9 +90,27 @@ class ClienteService:
                 return cliente
         return None
 
+    def verificar_credenciales(self, email, password):
+        """
+        Verifica las credenciales del cliente.
+
+        Args:
+            email (str): El correo electrónico del cliente.
+            password (str): La contraseña del cliente.
+
+        Returns:
+            bool: True si las credenciales son válidas, False en caso contrario.
+        """
+        cliente = self.buscar_cliente(email)
+        if cliente and verificar_password(password, cliente.password):
+            return cliente
+        return None
+
     def guardar_datos(self):
         with open("personas.json", "w", encoding='utf-8') as f:
-            json.dump([cliente.to_dict() for cliente in self.clientes_personas + self.clientes_corporativos + self.administradores], f, indent=4, ensure_ascii=False)
+            json.dump([cliente.to_dict() for cliente in
+                       self.clientes_personas + self.clientes_corporativos + self.administradores], f, indent=4,
+                      ensure_ascii=False)
 
     def cargar_datos(self):
         try:

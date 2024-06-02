@@ -1,7 +1,5 @@
-# helpers.py
-
+import bcrypt
 from tabulate import tabulate
-
 
 def collect_input(fields):
     """
@@ -18,7 +16,6 @@ def collect_input(fields):
         data[field] = input(f"Ingrese {field}: ")
     return data
 
-
 def print_menu(options, title="\nSeleccione una opción:"):
     """
     Muestra un menú con opciones utilizando la biblioteca tabulate.
@@ -30,7 +27,6 @@ def print_menu(options, title="\nSeleccione una opción:"):
     print(title)
     table = [[index + 1, option] for index, option in enumerate(options)]
     print(tabulate(table, headers=["Opción", "Descripción"], tablefmt="pretty"))
-
 
 def get_option(options):
     """
@@ -51,3 +47,29 @@ def get_option(options):
                 print("Opción no válida. Intente nuevamente.")
         except ValueError:
             print("Entrada no válida. Intente nuevamente.")
+
+def encriptar_password(password):
+    """
+    Encripta una contraseña usando bcrypt.
+
+    Args:
+        password (str): La contraseña a encriptar.
+
+    Returns:
+        str: La contraseña encriptada.
+    """
+    hashed = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+    return hashed.decode('utf-8')
+
+def verificar_password(password, hashed):
+    """
+    Verifica una contraseña contra un hash usando bcrypt.
+
+    Args:
+        password (str): La contraseña a verificar.
+        hashed (str): El hash de la contraseña.
+
+    Returns:
+        bool: True si la contraseña es válida, False en caso contrario.
+    """
+    return bcrypt.checkpw(password.encode('utf-8'), hashed.encode('utf-8'))

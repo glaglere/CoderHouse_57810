@@ -1,6 +1,8 @@
 # cliente_menu.py
 
 from tabulate import tabulate
+
+from CoderHouse_57810.services import cliente_service
 from CoderHouse_57810.services.helpers import print_menu, get_option, collect_input
 
 def mostrar_menu_clientes():
@@ -24,15 +26,12 @@ def login(email, password, usuarios):
     Args:
         email (str): El correo electrónico del cliente.
         password (str): La contraseña del cliente.
-        usuarios (list): La lista de usuarios registrados.
+        cliente_service (ClienteService): El servicio de clientes.
 
     Returns:
-        Usuario: El usuario que se loguea, None si no se encuentra.
+        Cliente: El cliente que se loguea, None si no se encuentra.
     """
-    for usuario in usuarios:
-        if usuario.email == email and usuario.password == password:
-            return usuario
-    return None
+    return cliente_service.verificar_credenciales(email, password)
 
 def operaciones_clientes(sistema):
     """

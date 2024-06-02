@@ -1,4 +1,5 @@
-# persona.py
+from CoderHouse_57810.services.helpers import encriptar_password
+
 
 class Persona:
     """
@@ -21,7 +22,7 @@ class Persona:
         """
         self.nombre = nombre
         self.email = email
-        self.password = password
+        self.password = encriptar_password(password)
 
     def __str__(self):
         """

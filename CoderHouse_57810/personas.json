@@ -3,7 +3,7 @@
         "tipo": "ClientePersona",
         "nombre": "Lorenzo Lopez",
         "email": "llopez@gmail.com",
-        "password": "123",
+        "password": "$2b$12$PxTpKwHcZNV24Y/APeykK.vx9FuSQkfKLMR1gYQ652xaE.oVNh0La",
         "direccion": "Dirección 123",
         "telefono": "099.111.222",
         "dni": "123456789"
@@ -12,7 +12,7 @@
         "tipo": "ClientePersona",
         "nombre": "Ana González",
         "email": "agonzalez@gmail.com",
-        "password": "123",
+        "password": "$2b$12$BgN5qfALORpP7JD8FxoYguSJ8ufy3muCGRDXW0jM77Al3iU48oh9.",
         "direccion": "Calle Falsa 123",
         "telefono": "098.111.222",
         "dni": "234567891"
@@ -21,7 +21,7 @@
         "tipo": "ClientePersona",
         "nombre": "Carlos Pérez",
         "email": "cperez@gmail.com",
-        "password": "123",
+        "password": "$2b$12$EHBItfz.EzGeQR0GCk2x5.cTC8ZVVTaOp8bEGgmuZt4hA9rxXUasq",
         "direccion": "Av. Siempre Viva 742",
         "telefono": "097.111.222",
         "dni": "345678912"
@@ -30,7 +30,7 @@
         "tipo": "ClientePersona",
         "nombre": "Beatriz Diaz",
         "email": "bdiaz@gmail.com",
-        "password": "123",
+        "password": "$2b$12$Jd7lm2Jj.IEZwn39zl6L8O3.Fjs1/5oiwYj2MFCYZlR8K8Wj8BS4a",
         "direccion": "Calle Luna 123",
         "telefono": "096.111.222",
         "dni": "456789123"
@@ -39,7 +39,7 @@
         "tipo": "ClientePersona",
         "nombre": "Daniela Ruiz",
         "email": "druiz@gmail.com",
-        "password": "123",
+        "password": "$2b$12$aVnLkbZEXtHuBmfCL.iXKOGlIcTjutJyrg.Qu6HxMgVb4/Ba3jHWm",
         "direccion": "Calle Sol 123",
         "telefono": "095.111.222",
         "dni": "567891234"
@@ -48,7 +48,7 @@
         "tipo": "ClientePersona",
         "nombre": "Pedro Fernández",
         "email": "pfernandez@gmail.com",
-        "password": "123",
+        "password": "$2b$12$Ml6Dv/DskDKdv.pYQmwOreVwfynFhp1sklFGNj.wvzGZs1/w7E.ja",
         "direccion": "Calle Estrella 123",
         "telefono": "094.111.222",
         "dni": "678912345"
@@ -57,7 +57,7 @@
         "tipo": "ClienteCorporativo",
         "nombre": "Corp Tech",
         "email": "corptech@gmail.com",
-        "password": "123",
+        "password": "$2b$12$PxnTScXfEg40uWGwCWsCtusyvHIjq7SL6k9kMPXVzBKdsn.pZ2PQW",
         "direccion": "Av. Tecnológica 123",
         "telefono": "099.999.999",
         "cuit": "12345678901"
@@ -66,7 +66,7 @@
         "tipo": "ClienteCorporativo",
         "nombre": "Global Solutions",
         "email": "globalsolutions@gmail.com",
-        "password": "123",
+        "password": "$2b$12$JpVl4FKQQmdTExHM8TaGXO/zeP0BppBteMaa4dWRBPGQiS1WShgsi",
         "direccion": "Av. Soluciones 123",
         "telefono": "098.999.999",
         "cuit": "23456789012"
@@ -75,7 +75,7 @@
         "tipo": "ClienteCorporativo",
         "nombre": "Innovative Ideas",
         "email": "innovativeideas@gmail.com",
-        "password": "123",
+        "password": "$2b$12$QOfXqe6mReqTZQnzilu4iueCSM7pXv6C43qVzwS8Q8DBGFUiQ3zrW",
         "direccion": "Av. Innovación 123",
         "telefono": "097.999.999",
         "cuit": "34567890123"
@@ -84,7 +84,7 @@
         "tipo": "ClienteCorporativo",
         "nombre": "Tech Innovators",
         "email": "techinnovators@gmail.com",
-        "password": "123",
+        "password": "$2b$12$45KGE5fpms0ROg4.RT9owOf6H2dMDcwGRtqmAM5VOP.TfrSFEzMyi",
         "direccion": "Av. Tecnologías 123",
         "telefono": "096.999.999",
         "cuit": "45678901234"
@@ -93,7 +93,7 @@
         "tipo": "ClienteCorporativo",
         "nombre": "Future Enterprises",
         "email": "futureenterprises@gmail.com",
-        "password": "123",
+        "password": "$2b$12$.oxMko2djWoTij7q5yLQBu3/W4PLpTRwZekfxi829eRAnvSZCHMUC",
         "direccion": "Av. Futuro 123",
         "telefono": "095.999.999",
         "cuit": "56789012345"
@@ -102,21 +102,21 @@
         "tipo": "Administrador",
         "nombre": "Admin User",
         "email": "admin@example.com",
-        "password": "adminpass",
+        "password": "$2b$12$PxKcp4O9sKasXL0VW/Wgee4hz.N1rxHYHysJpZvPLT62Dr4QYaC/u",
         "codigo_funcionario": "001"
     },
     {
         "tipo": "Administrador",
         "nombre": "Super Admin",
         "email": "superadmin@example.com",
-        "password": "superadminpass",
+        "password": "$2b$12$Lzbe609tfV4/F0xwkGxQxuYN5eNKqgBwGGdVDCcEvVd/Gtlneom4y",
         "codigo_funcionario": "002"
     },
     {
         "tipo": "Administrador",
         "nombre": "Manager Admin",
         "email": "manageradmin@example.com",
-        "password": "manageradminpass",
+        "password": "$2b$12$8w.GgKq2.8lif2.0PsdPOOS66qig//Ie3kdFuAn3XhgDLhBUYp0OG",
         "codigo_funcionario": "003"
     }
 ]

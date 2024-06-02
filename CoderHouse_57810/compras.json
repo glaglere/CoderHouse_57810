@@ -4,7 +4,7 @@
             "tipo": "ClientePersona",
             "nombre": "Lorenzo Lopez",
             "email": "llopez@gmail.com",
-            "password": "123",
+            "password": "$2b$12$snvNEhsnPXdapcfJSmWzmusl9ZePT2w683PbXh4dPYIWKojiKzWL.",
             "direccion": "Dirección 123",
             "telefono": "099.111.222",
             "dni": "123456789"
@@ -39,7 +39,7 @@
             "tipo": "ClientePersona",
             "nombre": "Lorenzo Lopez",
             "email": "llopez@gmail.com",
-            "password": "123",
+            "password": "$2b$12$vaDlAvsHnq7g6zTdOjn4iuqVveyeT8ceq.cdxZYTihO8oaV7A2kgW",
             "direccion": "Dirección 123",
             "telefono": "099.111.222",
             "dni": "123456789"
@@ -74,7 +74,7 @@
             "tipo": "ClientePersona",
             "nombre": "Ana González",
             "email": "agonzalez@gmail.com",
-            "password": "123",
+            "password": "$2b$12$38OenmNPWs9fWey7Gdcp7.fskaHSYTCKSbEUalOYfzcyW8Tvnq1x6",
             "direccion": "Calle Falsa 123",
             "telefono": "098.111.222",
             "dni": "234567891"
@@ -109,7 +109,7 @@
             "tipo": "ClientePersona",
             "nombre": "Ana González",
             "email": "agonzalez@gmail.com",
-            "password": "123",
+            "password": "$2b$12$zKLdZd5y9QlY7Uxlb0cQc.LHTzsDE61.2yqaqso9xfntN.n4yHdNS",
             "direccion": "Calle Falsa 123",
             "telefono": "098.111.222",
             "dni": "234567891"
@@ -144,7 +144,7 @@
             "tipo": "ClientePersona",
             "nombre": "Carlos Pérez",
             "email": "cperez@gmail.com",
-            "password": "123",
+            "password": "$2b$12$ugIwM50AyHOFqAzhfh0yWO0TyV.z/geVqblsq50Pf2pHtU2BsD4F6",
             "direccion": "Av. Siempre Viva 742",
             "telefono": "097.111.222",
             "dni": "345678912"
@@ -179,7 +179,7 @@
             "tipo": "ClientePersona",
             "nombre": "Carlos Pérez",
             "email": "cperez@gmail.com",
-            "password": "123",
+            "password": "$2b$12$9k24F7Hc/HsNSssOx5aieuX2rvU9dg8TevEfVd7HiOFk30rG/Kc0G",
             "direccion": "Av. Siempre Viva 742",
             "telefono": "097.111.222",
             "dni": "345678912"
@@ -214,7 +214,7 @@
             "tipo": "ClientePersona",
             "nombre": "Beatriz Diaz",
             "email": "bdiaz@gmail.com",
-            "password": "123",
+            "password": "$2b$12$VHDlMXkAT4MatseX3JvXp.43ycNRSCVGVRVII6eVXPy09X3.os9bi",
             "direccion": "Calle Luna 123",
             "telefono": "096.111.222",
             "dni": "456789123"
@@ -249,7 +249,7 @@
             "tipo": "ClientePersona",
             "nombre": "Beatriz Diaz",
             "email": "bdiaz@gmail.com",
-            "password": "123",
+            "password": "$2b$12$6zqUr93pyfCbykxL6YMDdu3Iast1BGvGYtsDTYlqrluXXm.WE7KK.",
             "direccion": "Calle Luna 123",
             "telefono": "096.111.222",
             "dni": "456789123"
@@ -284,7 +284,7 @@
             "tipo": "ClientePersona",
             "nombre": "Daniela Ruiz",
             "email": "druiz@gmail.com",
-            "password": "123",
+            "password": "$2b$12$JNisO2eigRdSEOsiNwoqVej3Iu3FCIovrTkmAOyzT6XcSxN2w.EDK",
             "direccion": "Calle Sol 123",
             "telefono": "095.111.222",
             "dni": "567891234"
@@ -319,7 +319,7 @@
             "tipo": "ClientePersona",
             "nombre": "Daniela Ruiz",
             "email": "druiz@gmail.com",
-            "password": "123",
+            "password": "$2b$12$Jml3I4Gf6cBYlLQ3wN6xBOjoTfGwb7akjVJ7mijGbLDjSMdmgHJXq",
             "direccion": "Calle Sol 123",
             "telefono": "095.111.222",
             "dni": "567891234"
@@ -354,7 +354,7 @@
             "tipo": "ClientePersona",
             "nombre": "Pedro Fernández",
             "email": "pfernandez@gmail.com",
-            "password": "123",
+            "password": "$2b$12$h7ko3iI4FEG1AfjAvwsvWeUyEpCsTFzF57twU.TO0402iLOItlpWa",
             "direccion": "Calle Estrella 123",
             "telefono": "094.111.222",
             "dni": "678912345"
@@ -389,7 +389,7 @@
             "tipo": "ClientePersona",
             "nombre": "Pedro Fernández",
             "email": "pfernandez@gmail.com",
-            "password": "123",
+            "password": "$2b$12$yJYit6QbAGQnM8OCGmRUxO1RIpTFEsQkidfENjEZ9YAn3q2prWWMm",
             "direccion": "Calle Estrella 123",
             "telefono": "094.111.222",
             "dni": "678912345"
@@ -424,7 +424,7 @@
             "tipo": "ClienteCorporativo",
             "nombre": "Corp Tech",
             "email": "corptech@gmail.com",
-            "password": "123",
+            "password": "$2b$12$YJojYSu8qecWHMbzsdW4wOw1dmlxJcJ8ZNqDrC9xOMFgya6ZlYw/6",
             "direccion": "Av. Tecnológica 123",
             "telefono": "099.999.999",
             "cuit": "12345678901"
@@ -459,7 +459,7 @@
             "tipo": "ClienteCorporativo",
             "nombre": "Corp Tech",
             "email": "corptech@gmail.com",
-            "password": "123",
+            "password": "$2b$12$xaKmZEnn4NeITWrqC5E5YOZ77GMrxmV1xXI9kUWfUC34Elma.SU.a",
             "direccion": "Av. Tecnológica 123",
             "telefono": "099.999.999",
             "cuit": "12345678901"
@@ -494,7 +494,7 @@
             "tipo": "ClienteCorporativo",
             "nombre": "Global Solutions",
             "email": "globalsolutions@gmail.com",
-            "password": "123",
+            "password": "$2b$12$1ZoEKbinO6exSLRtM9Skxe4bT/rZ3OuQ4kWTw3.9UMngJCp2sjiGa",
             "direccion": "Av. Soluciones 123",
             "telefono": "098.999.999",
             "cuit": "23456789012"
@@ -529,7 +529,7 @@
             "tipo": "ClienteCorporativo",
             "nombre": "Global Solutions",
             "email": "globalsolutions@gmail.com",
-            "password": "123",
+            "password": "$2b$12$4WJuzEv.VdMcWo/bImyaq.pqVtEI6GtRaWSg.gU/BM0ykc0Ov5pgi",
             "direccion": "Av. Soluciones 123",
             "telefono": "098.999.999",
             "cuit": "23456789012"
@@ -564,7 +564,7 @@
             "tipo": "ClienteCorporativo",
             "nombre": "Innovative Ideas",
             "email": "innovativeideas@gmail.com",
-            "password": "123",
+            "password": "$2b$12$0uktjkZGM1yFdSj4XxgM7uQSH5/ZqTaEJx6pZaH1ZfKCkh0q.rlmq",
             "direccion": "Av. Innovación 123",
             "telefono": "097.999.999",
             "cuit": "34567890123"
@@ -599,7 +599,7 @@
             "tipo": "ClienteCorporativo",
             "nombre": "Innovative Ideas",
             "email": "innovativeideas@gmail.com",
-            "password": "123",
+            "password": "$2b$12$pCsdTPEs1stVzfTOLCw60OOLf0ALbZAGm4bJQtu.TV/NmE4pmkySi",
             "direccion": "Av. Innovación 123",
             "telefono": "097.999.999",
             "cuit": "34567890123"
@@ -634,7 +634,7 @@
             "tipo": "ClienteCorporativo",
             "nombre": "Tech Innovators",
             "email": "techinnovators@gmail.com",
-            "password": "123",
+            "password": "$2b$12$iqNZruoX2r02gJFVRAD7T./GWok0963nqNJlk9JCfUHubhBA7926a",
             "direccion": "Av. Tecnologías 123",
             "telefono": "096.999.999",
             "cuit": "45678901234"
@@ -669,7 +669,7 @@
             "tipo": "ClienteCorporativo",
             "nombre": "Tech Innovators",
             "email": "techinnovators@gmail.com",
-            "password": "123",
+            "password": "$2b$12$OA4uFzw./j4skvAZ.1HkPuLpSEUqcMeuORR9mMPhpMRdsWDa1/lMG",
             "direccion": "Av. Tecnologías 123",
             "telefono": "096.999.999",
             "cuit": "45678901234"
@@ -704,7 +704,7 @@
             "tipo": "ClienteCorporativo",
             "nombre": "Future Enterprises",
             "email": "futureenterprises@gmail.com",
-            "password": "123",
+            "password": "$2b$12$KrQRMY.hhgom1hc.o4jbA.gweF/qfoAzoN119ZOOdYqDqj2k8VWcO",
             "direccion": "Av. Futuro 123",
             "telefono": "095.999.999",
             "cuit": "56789012345"
@@ -739,7 +739,7 @@
             "tipo": "ClienteCorporativo",
             "nombre": "Future Enterprises",
             "email": "futureenterprises@gmail.com",
-            "password": "123",
+            "password": "$2b$12$gOJNzorxzvN7hbs.9dV7b.NcWfh/FHTPoR/XI2EFk6o2iUmasWMlK",
             "direccion": "Av. Futuro 123",
             "telefono": "095.999.999",
             "cuit": "56789012345"

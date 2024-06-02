@@ -14,9 +14,12 @@ def mostrar_menu():
 
 if __name__ == '__main__':
     # Creación del sistema
+    print("Creando el sistema...")
     sistema_principal = Sistema()
-    sistema_principal.cargar_datos()
 
+    print("Cargando datos en el sistema...")
+    sistema_principal.cargar_datos()
+    print("Se cargaron los datos...")
     # Bucle principal del programa
     try:
         while True:
