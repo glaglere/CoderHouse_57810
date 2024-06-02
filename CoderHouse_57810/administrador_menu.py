@@ -84,16 +84,11 @@ def operaciones_administradores(sistema):
             compras = sistema.obtener_historial_compras_todos()
             if compras:
                 print("Historial de Compras de Todos los Clientes:")
-                table = [
-                    [
-                        compra.cliente.nombre,
-                        compra.cliente.email,
-                        ", ".join([f"{prod['producto'].nombre} x{prod['cantidad']}" for prod in compra.productos]),
-                        sum([prod['producto'].precio * prod['cantidad'] for prod in compra.productos]),
-                        compra.fecha.strftime('%Y-%m-%d %H:%M:%S')
-                    ]
-                    for compra in compras
-                ]
+                table = []
+                for compra in compras:
+                    productos_str = ", ".join([f"{prod['producto'].nombre} x{prod['cantidad']}" for prod in compra.productos])
+                    precio_total = sum([prod['producto'].precio * prod['cantidad'] for prod in compra.productos])
+                    table.append([compra.cliente.nombre, compra.cliente.email, productos_str, precio_total, compra.fecha.strftime('%Y-%m-%d %H:%M:%S')])
                 print(tabulate(table, headers=["Cliente", "Email", "Productos", "Precio Total", "Fecha de Compra"], tablefmt="pretty"))
             else:
                 print("No hay compras registradas.")
