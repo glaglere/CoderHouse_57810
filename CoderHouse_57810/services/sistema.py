@@ -5,6 +5,7 @@ from CoderHouse_57810.models.cliente import ClientePersona, ClienteCorporativo
 from CoderHouse_57810.models.compra import Compra
 from CoderHouse_57810.models.producto import Producto
 
+
 class Sistema:
     def __init__(self):
         self.clientes_personas = []
@@ -116,26 +117,29 @@ class Sistema:
         return None
 
     def guardar_datos(self):
-        with open("personas.json", "w") as f:
-            json.dump([cliente.to_dict() for cliente in self.clientes_personas + self.clientes_corporativos], f, indent=4)
-        with open("productos.json", "w") as f:
-            json.dump([producto.to_dict() for producto in self.productos], f, indent=4)
-        with open("compras.json", "w") as f:
-            json.dump([compra.to_dict() for compra in self.compras], f, indent=4)
+        with open("personas.json", "w", encoding='utf-8') as f:
+            json.dump([cliente.to_dict() for cliente in self.clientes_personas + self.clientes_corporativos], f,
+                      indent=4, ensure_ascii=False)
+        with open("productos.json", "w", encoding='utf-8') as f:
+            json.dump([producto.to_dict() for producto in self.productos], f, indent=4, ensure_ascii=False)
+        with open("compras.json", "w", encoding='utf-8') as f:
+            json.dump([compra.to_dict() for compra in self.compras], f, indent=4, ensure_ascii=False)
 
     def cargar_datos(self):
         try:
-            with open("personas.json", "r") as f:
+            with open("personas.json", "r", encoding='utf-8') as f:
                 personas_data = json.load(f)
-                self.clientes_personas = [ClientePersona.from_dict(p) if "dni" in p else ClienteCorporativo.from_dict(p) for p in personas_data]
+                self.clientes_personas = [ClientePersona.from_dict(p) if "dni" in p else ClienteCorporativo.from_dict(p)
+                                          for p in personas_data]
                 self.carritos = {p["email"]: [] for p in personas_data}
 
-            with open("productos.json", "r") as f:
+            with open("productos.json", "r", encoding='utf-8') as f:
                 productos_data = json.load(f)
                 self.productos = [Producto.from_dict(p) for p in productos_data]
-                self.product_id_counter = max([p["id_producto"] for p in productos_data], default=0) + 1  # Update the counter
+                self.product_id_counter = max([p["id_producto"] for p in productos_data],
+                                              default=0) + 1  # Update the counter
 
-            with open("compras.json", "r") as f:
+            with open("compras.json", "r", encoding='utf-8') as f:
                 compras_data = json.load(f)
                 self.compras = [Compra.from_dict(c) for c in compras_data]
         except FileNotFoundError:

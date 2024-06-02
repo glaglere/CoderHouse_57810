@@ -6,9 +6,11 @@ def mostrar_menu_clientes():
     options = ["Loguearse", "Regresar al menú principal"]
     print_menu(options)
 
+
 def mostrar_menu_cliente_logueado():
     options = ["Agregar Producto al Carrito", "Mostrar Carrito", "Concretar Compra", "Salir"]
     print_menu(options)
+
 
 def login(email, password, usuarios):
     for usuario in usuarios:
@@ -16,13 +18,15 @@ def login(email, password, usuarios):
             return usuario
     return None
 
+
 def operaciones_clientes(sistema):
     while True:
         mostrar_menu_clientes()
         opcion = get_option(["Loguearse", "Regresar al menú principal"])
         if opcion == 1:
             credentials = collect_input(["email", "contraseña"])
-            cliente = login(credentials["email"], credentials["contraseña"], sistema.clientes_personas + sistema.clientes_corporativos)
+            cliente = login(credentials["email"], credentials["contraseña"],
+                            sistema.clientes_personas + sistema.clientes_corporativos)
             if cliente:
                 print(f"Bienvenido {cliente.nombre}")
                 operaciones_cliente_logueado(sistema, cliente)
@@ -30,6 +34,7 @@ def operaciones_clientes(sistema):
                 print("Credenciales incorrectas.")
         elif opcion == 2:
             break
+
 
 def operaciones_cliente_logueado(sistema, cliente):
     while True:
