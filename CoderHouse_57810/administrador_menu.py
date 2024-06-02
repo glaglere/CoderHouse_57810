@@ -1,5 +1,3 @@
-# administrador_menu.py
-
 from CoderHouse_57810.models.administrador import Administrador
 from CoderHouse_57810.models.cliente import ClientePersona, ClienteCorporativo
 from CoderHouse_57810.models.producto import Producto
@@ -61,8 +59,8 @@ def operaciones_administradores(sistema):
             else:
                 print("Error al agregar Administrador.")
         elif opcion == 4:
-            data = collect_input(
-                ["nombre del producto", "descripción del producto", "categoría del producto", "precio del producto"])
+            data = collect_input(["nombre del producto", "descripción del producto", "categoría del producto",
+                                  "precio del producto"])
             producto = Producto(data["nombre del producto"], data["descripción del producto"],
                                 data["categoría del producto"], float(data["precio del producto"]))
             if sistema.agregar_producto(producto):

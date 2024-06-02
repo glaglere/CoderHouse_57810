@@ -2,22 +2,41 @@
 
 from tabulate import tabulate
 
+from CoderHouse_57810.services.seguridad import Seguridad
+
+validations = {
+    "nombre": ("El nombre debe tener al menos 5 caracteres, no contener números, solo letras y "
+               "espacios en blanco, y debe comenzar con una letra.", Seguridad.validar_no_vacio),
+    "email": ("El email debe tener un formato válido.", Seguridad.validar_email),
+    "contraseña": ("La contraseña debe tener al menos 8 caracteres y contener letras y números.", Seguridad.validar_password),
+    "dirección": ("La dirección no puede estar vacía.", Seguridad.validar_no_vacio),
+    "teléfono": ("El teléfono debe contener solo números y tener al menos 7 caracteres.", Seguridad.validar_telefono),
+    "DNI": ("El DNI debe contener solo números.", Seguridad.validar_dni),
+    "CUIT": ("El CUIT no puede estar vacío.", Seguridad.validar_no_vacio),
+    "precio del producto": ("El precio del producto debe ser un número mayor a 0.", lambda x: x.isdigit() and float(x) > 0)
+}
 
 def collect_input(fields):
     """
-    Recopila la entrada del usuario para una lista de campos.
+    Recoge la entrada del usuario para una lista de campos especificados.
 
     Args:
         fields (list): Una lista de nombres de campos.
 
     Returns:
-        dict: Un diccionario con los valores ingresados por el usuario.
+        dict: Un diccionario con los datos ingresados por el usuario.
     """
     data = {}
     for field in fields:
-        data[field] = input(f"Ingrese {field}: ")
+        error_message, validation = validations[field]
+        while True:
+            value = input(f"Ingrese {field}: ")
+            if validation(value):
+                data[field] = value
+                break
+            else:
+                print(f"{error_message} Inténtelo nuevamente.")
     return data
-
 
 def print_menu(options, title="\nSeleccione una opción:"):
     """

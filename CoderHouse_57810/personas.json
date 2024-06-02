@@ -54,6 +54,42 @@
         "dni": "678912345"
     },
     {
+        "tipo": "ClientePersona",
+        "nombre": "Miguel",
+        "email": "msanchez@hotmail.com",
+        "password": "A123456789.!",
+        "direccion": "River 123",
+        "telefono": "999123123",
+        "dni": "123"
+    },
+    {
+        "tipo": "ClientePersona",
+        "nombre": "Miguel",
+        "email": "msancehz@hotmial.com",
+        "password": "A1234567",
+        "direccion": "Rivera 123",
+        "telefono": "123456546",
+        "dni": "234"
+    },
+    {
+        "tipo": "ClientePersona",
+        "nombre": "123",
+        "email": "123@hotmail.com",
+        "password": "AB1234567",
+        "direccion": "wer",
+        "telefono": "123456789",
+        "dni": "123456"
+    },
+    {
+        "tipo": "ClientePersona",
+        "nombre": "Ginette Laglere",
+        "email": "glaglere@gmail.com",
+        "password": "Comprasweb1",
+        "direccion": "Dirección 122",
+        "telefono": "099450450",
+        "dni": "31364851"
+    },
+    {
         "tipo": "ClienteCorporativo",
         "nombre": "Corp Tech",
         "email": "corptech@gmail.com",
@@ -97,6 +133,15 @@
         "direccion": "Av. Futuro 123",
         "telefono": "095.999.999",
         "cuit": "56789012345"
+    },
+    {
+        "tipo": "ClienteCorporativo",
+        "nombre": "Cliente Corporativo",
+        "email": "corporativo@gmail.com",
+        "password": "corporativoweb1",
+        "direccion": "Dirección 22334",
+        "telefono": "099222555",
+        "cuit": "789456123"
     },
     {
         "tipo": "Administrador",

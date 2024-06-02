@@ -43,7 +43,8 @@ class Seguridad:
     @staticmethod
     def validar_nombre_usuario(nombre):
         """
-        Valida que el nombre de usuario tenga al menos 3 caracteres.
+        Valida que el nombre de usuario no tenga números, contenga solo letras y espacios en blanco,
+        y comience con una letra. El nombre debe tener al menos 5 caracteres.
 
         Args:
             nombre (str): El nombre de usuario a validar.
@@ -51,7 +52,9 @@ class Seguridad:
         Returns:
             bool: True si el nombre de usuario es válido, False en caso contrario.
         """
-        return len(nombre) >= 3
+        if len(nombre) < 5:
+            return False
+        return re.match(r'^[A-Za-z][A-Za-z\s]*$', nombre) is not None
 
     @staticmethod
     def validar_dni(dni):
