@@ -1,12 +1,10 @@
 # sistema.py
-
 import json
 from tabulate import tabulate
 from CoderHouse_57810.models.administrador import Administrador
 from CoderHouse_57810.models.cliente import ClientePersona, ClienteCorporativo
 from CoderHouse_57810.models.compra import Compra
 from CoderHouse_57810.models.producto import Producto
-
 
 class Sistema:
     """
@@ -92,16 +90,14 @@ class Sistema:
         """
         print("Clientes Personas:")
         if self.clientes_personas:
-            table = [[cliente.nombre, cliente.email, cliente.direccion, cliente.telefono, cliente.dni] for cliente in
-                     self.clientes_personas]
+            table = [[cliente.nombre, cliente.email, cliente.direccion, cliente.telefono, cliente.dni] for cliente in self.clientes_personas]
             print(tabulate(table, headers=["Nombre", "Email", "Dirección", "Teléfono", "DNI"], tablefmt="pretty"))
         else:
             print("No hay clientes personas registrados.")
 
         print("\nClientes Corporativos:")
         if self.clientes_corporativos:
-            table = [[cliente.nombre, cliente.email, cliente.direccion, cliente.telefono, cliente.cuit] for cliente in
-                     self.clientes_corporativos]
+            table = [[cliente.nombre, cliente.email, cliente.direccion, cliente.telefono, cliente.cuit] for cliente in self.clientes_corporativos]
             print(tabulate(table, headers=["Nombre", "Email", "Dirección", "Teléfono", "CUIT"], tablefmt="pretty"))
         else:
             print("No hay clientes corporativos registrados.")
@@ -123,8 +119,7 @@ class Sistema:
         """
         print("Productos:")
         if self.productos:
-            table = [[producto.id_producto, producto.nombre, producto.descripcion, producto.categoria, producto.precio]
-                     for producto in self.productos]
+            table = [[producto.id_producto, producto.nombre, producto.descripcion, producto.categoria, producto.precio] for producto in self.productos]
             print(tabulate(table, headers=["ID", "Nombre", "Descripción", "Categoría", "Precio"], tablefmt="pretty"))
         else:
             print("No hay productos registrados.")
@@ -167,16 +162,17 @@ class Sistema:
         """
         self.productos = [p for p in self.productos if p.id_producto != id_producto]
 
-    def agregar_producto_al_carrito(self, email, producto):
+    def agregar_producto_al_carrito(self, email, producto, cantidad):
         """
         Agrega un producto al carrito de compras de un cliente.
 
         Args:
             email (str): El correo electrónico del cliente.
             producto (Producto): El producto a agregar.
+            cantidad (int): La cantidad del producto a agregar.
         """
         if email in self.carritos:
-            self.carritos[email].append(producto)
+            self.carritos[email].append({"producto": producto, "cantidad": cantidad})
         else:
             raise ValueError("El cliente no existe")
 
@@ -209,6 +205,7 @@ class Sistema:
             compra = Compra(cliente=self.buscar_cliente(email), productos=self.carritos[email])
             self.compras.append(compra)
             self.carritos[email] = []
+            self.mostrar_recibo(compra)
             return compra
         else:
             raise ValueError("El carrito está vacío o el cliente no existe")
@@ -254,9 +251,7 @@ class Sistema:
         Guarda los datos del sistema en archivos JSON.
         """
         with open("personas.json", "w", encoding='utf-8') as f:
-            json.dump([cliente.to_dict() for cliente in
-                       self.clientes_personas + self.clientes_corporativos + self.administradores], f, indent=4,
-                      ensure_ascii=False)
+            json.dump([cliente.to_dict() for cliente in self.clientes_personas + self.clientes_corporativos + self.administradores], f, indent=4, ensure_ascii=False)
         with open("productos.json", "w", encoding='utf-8') as f:
             json.dump([producto.to_dict() for producto in self.productos], f, indent=4, ensure_ascii=False)
         with open("compras.json", "w", encoding='utf-8') as f:
@@ -285,11 +280,31 @@ class Sistema:
             with open("productos.json", "r", encoding='utf-8') as f:
                 productos_data = json.load(f)
                 self.productos = [Producto.from_dict(p) for p in productos_data]
-                self.product_id_counter = max([p["id_producto"] for p in productos_data],
-                                              default=0) + 1  # Update the counter
+                self.product_id_counter = max([p["id_producto"] for p in productos_data], default=0) + 1  # Update the counter
 
             with open("compras.json", "r", encoding='utf-8') as f:
                 compras_data = json.load(f)
                 self.compras = [Compra.from_dict(c) for c in compras_data]
         except FileNotFoundError:
             pass  # No data to load initially
+
+    def mostrar_recibo(self, compra):
+        """
+        Muestra el recibo de compra.
+
+        Args:
+            compra (Compra): La compra realizada.
+        """
+        print(f"Felicidades por la compra, {compra.cliente.nombre}")
+        print(f"Fecha: {compra.fecha.strftime('%Y-%m-%d %H:%M:%S')}\n")
+        table = []
+        total = 0
+        for item in compra.productos:
+            producto = item["producto"]
+            cantidad = item["cantidad"]
+            subtotal = producto.precio * cantidad
+            total += subtotal
+            table.append([producto.nombre, producto.precio, cantidad, subtotal])
+        print(tabulate(table, headers=["Artículo", "Precio Unitario", "Cantidad", "Precio Total"], tablefmt="pretty"))
+        print(f"\nTotal de la compra: {total}")
+        print(f"Ticket de compra: {compra.ticket}")

@@ -1,6 +1,7 @@
+# cliente_menu.py
+
 from tabulate import tabulate
 from CoderHouse_57810.services.helpers import print_menu, get_option, collect_input
-
 
 def mostrar_menu_clientes():
     """
@@ -9,15 +10,12 @@ def mostrar_menu_clientes():
     options = ["Loguearse", "Regresar al menú principal"]
     print_menu(options)
 
-
 def mostrar_menu_cliente_logueado():
     """
     Muestra el menú de opciones para clientes logueados.
     """
-    options = ["Agregar Producto al Carrito", "Mostrar Carrito", "Concretar Compra", "Ver Historial de Compras",
-               "Salir"]
+    options = ["Agregar Producto al Carrito", "Mostrar Carrito", "Concretar Compra", "Ver Historial de Compras", "Salir"]
     print_menu(options)
-
 
 def login(email, password, usuarios):
     """
@@ -36,7 +34,6 @@ def login(email, password, usuarios):
             return usuario
     return None
 
-
 def operaciones_clientes(sistema):
     """
     Maneja las operaciones disponibles para los clientes.
@@ -49,8 +46,7 @@ def operaciones_clientes(sistema):
         opcion = get_option(["Loguearse", "Regresar al menú principal"])
         if opcion == 1:
             credentials = collect_input(["email", "contraseña"])
-            cliente = login(credentials["email"], credentials["contraseña"],
-                            sistema.clientes_personas + sistema.clientes_corporativos)
+            cliente = login(credentials["email"], credentials["contraseña"], sistema.clientes_personas + sistema.clientes_corporativos)
             if cliente:
                 print(f"Bienvenido {cliente.nombre}")
                 operaciones_cliente_logueado(sistema, cliente)
@@ -58,7 +54,6 @@ def operaciones_clientes(sistema):
                 print("Credenciales incorrectas.")
         elif opcion == 2:
             break
-
 
 def operaciones_cliente_logueado(sistema, cliente):
     """
@@ -70,8 +65,7 @@ def operaciones_cliente_logueado(sistema, cliente):
     """
     while True:
         mostrar_menu_cliente_logueado()
-        opcion = get_option(
-            ["Agregar Producto al Carrito", "Mostrar Carrito", "Concretar Compra", "Ver Historial de Compras", "Salir"])
+        opcion = get_option(["Agregar Producto al Carrito", "Mostrar Carrito", "Concretar Compra", "Ver Historial de Compras", "Salir"])
         if opcion == 1:
             if not sistema.productos:
                 print("No hay productos disponibles.")
@@ -79,12 +73,13 @@ def operaciones_cliente_logueado(sistema, cliente):
             sistema.mostrar_productos()
             try:
                 id_producto = int(input("Ingrese el ID del producto a agregar al carrito: "))
+                cantidad = int(input("Ingrese la cantidad del producto a agregar al carrito: "))
             except ValueError:
-                print("ID de producto no válido.")
+                print("ID o cantidad de producto no válidos.")
                 continue
             producto = next((p for p in sistema.productos if p.id_producto == id_producto), None)
             if producto:
-                sistema.agregar_producto_al_carrito(cliente.email, producto)
+                sistema.agregar_producto_al_carrito(cliente.email, producto, cantidad)
                 print("Producto agregado al carrito.")
             else:
                 print("Producto no encontrado.")
@@ -92,18 +87,17 @@ def operaciones_cliente_logueado(sistema, cliente):
             carrito = sistema.mostrar_carrito(cliente.email)
             if carrito:
                 print("Carrito:")
-                table = [
-                    [producto.id_producto, producto.nombre, producto.descripcion, producto.categoria, producto.precio]
-                    for producto in carrito]
-                print(
-                    tabulate(table, headers=["ID", "Nombre", "Descripción", "Categoría", "Precio"], tablefmt="pretty"))
+                table = [[item["producto"].id_producto, item["producto"].nombre, item["producto"].descripcion, item["producto"].categoria, item["producto"].precio, item["cantidad"]] for item in carrito]
+                print(tabulate(table, headers=["ID", "Nombre", "Descripción", "Categoría", "Precio", "Cantidad"], tablefmt="pretty"))
             else:
                 print("El carrito está vacío.")
         elif opcion == 3:
-            compra = sistema.concretar_compra(cliente.email)
-            if compra:
-                print("Compra concretada exitosamente.")
-                print(compra)
+            try:
+                compra = sistema.concretar_compra(cliente.email)
+                if compra:
+                    print("Compra concretada exitosamente.")
+            except ValueError as e:
+                print(e)
         elif opcion == 4:
             historial_compras = sistema.obtener_historial_compras_cliente(cliente.email)
             if historial_compras:

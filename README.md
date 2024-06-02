@@ -48,14 +48,14 @@ El sistema permite agregar, eliminar y mostrar productos.
 
 Los clientes pueden agregar productos a su carrito de compras y visualizar el contenido del mismo.
 
-- **Agregar Producto al Carrito**: Permite a un cliente agregar un producto a su carrito de compras.
+- **Agregar Producto al Carrito**: Permite a un cliente agregar un producto a su carrito de compras, especificando la cantidad.
 - **Mostrar Carrito**: Muestra la lista de productos en el carrito de compras del cliente.
 
 ### 5. Gestión de Compras
 
 Los clientes pueden concretar compras y visualizar su historial de compras.
 
-- **Concretar Compra**: Permite a un cliente concretar la compra de los productos en su carrito.
+- **Concretar Compra**: Permite a un cliente concretar la compra de los productos en su carrito. Se genera un número de ticket aleatorio y se registra la fecha de la compra.
 - **Ver Historial de Compras**: Permite a un cliente visualizar su historial de compras.
 
 ### 6. Funcionalidades Adicionales para Administradores

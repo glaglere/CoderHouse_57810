@@ -1,7 +1,9 @@
 # compra.py
+from datetime import datetime
+import random
+import string
 from CoderHouse_57810.models.cliente import ClientePersona, ClienteCorporativo
 from CoderHouse_57810.models.producto import Producto
-
 
 class Compra:
     """
@@ -10,6 +12,8 @@ class Compra:
     Atributos:
         cliente (ClientePersona o ClienteCorporativo): El cliente que realiza la compra.
         productos (list): Una lista de productos comprados.
+        fecha (datetime): La fecha en que se realizó la compra.
+        ticket (str): El número de ticket de la compra.
     """
 
     def __init__(self, cliente, productos):
@@ -18,10 +22,12 @@ class Compra:
 
         Args:
             cliente (ClientePersona o ClienteCorporativo): El cliente que realiza la compra.
-            productos (list): Una lista de productos comprados.
+            productos (list): Una lista de productos comprados (con cantidades).
         """
         self.cliente = cliente
         self.productos = productos
+        self.fecha = datetime.now()
+        self.ticket = self.generar_numero_ticket()
 
     def __str__(self):
         """
@@ -30,8 +36,8 @@ class Compra:
         Returns:
             str: Una cadena que representa la compra.
         """
-        productos_str = ', '.join([str(producto) for producto in self.productos])
-        return f'Cliente: {self.cliente.nombre}, Productos: {productos_str}'
+        productos_str = ', '.join([f"{producto['producto'].nombre} x{producto['cantidad']}" for producto in self.productos])
+        return f'Cliente: {self.cliente.nombre}, Productos: {productos_str}, Fecha: {self.fecha}, Ticket: {self.ticket}'
 
     def to_dict(self):
         """
@@ -42,7 +48,9 @@ class Compra:
         """
         return {
             "cliente": self.cliente.to_dict(),
-            "productos": [producto.to_dict() for producto in self.productos]
+            "productos": [{"producto": producto['producto'].to_dict(), "cantidad": producto['cantidad']} for producto in self.productos],
+            "fecha": self.fecha.isoformat(),
+            "ticket": self.ticket
         }
 
     @classmethod
@@ -57,5 +65,18 @@ class Compra:
             Compra: Una instancia de la clase Compra.
         """
         cliente = ClientePersona.from_dict(data["cliente"]) if data["cliente"]["tipo"] == "ClientePersona" else ClienteCorporativo.from_dict(data["cliente"])
-        productos = [Producto.from_dict(prod) for prod in data["productos"]]
-        return cls(cliente, productos)
+        productos = [{"producto": Producto.from_dict(prod["producto"]), "cantidad": prod["cantidad"]} for prod in data["productos"]]
+        compra = cls(cliente, productos)
+        compra.fecha = datetime.fromisoformat(data["fecha"])
+        compra.ticket = data["ticket"]
+        return compra
+
+    def generar_numero_ticket(self):
+        """
+        Genera un número de ticket aleatorio.
+
+        Returns:
+            str: Un número de ticket aleatorio.
+        """
+        caracteres = string.ascii_letters + string.digits
+        return ''.join(random.choice(caracteres) for _ in range(10))
