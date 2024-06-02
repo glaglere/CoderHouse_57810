@@ -18,7 +18,7 @@
                     "categoria": "Fotografía",
                     "precio": 500.0
                 },
-                "cantidad": 10
+                "cantidad": 1
             },
             {
                 "producto": {
@@ -28,10 +28,745 @@
                     "categoria": "Computadoras",
                     "precio": 350.0
                 },
+                "cantidad": 1
+            }
+        ],
+        "fecha": "2024-06-01T10:00:00",
+        "ticket": "AB12345XYZ"
+    },
+    {
+        "cliente": {
+            "tipo": "ClientePersona",
+            "nombre": "Lorenzo Lopez",
+            "email": "llopez@gmail.com",
+            "password": "123",
+            "direccion": "Dirección 123",
+            "telefono": "099.111.222",
+            "dni": "123456789"
+        },
+        "productos": [
+            {
+                "producto": {
+                    "id_producto": 1,
+                    "nombre": "Tablet",
+                    "descripcion": "Tablet 11\" con pantalla de alta resolución",
+                    "categoria": "Entretenimiento",
+                    "precio": 200.0
+                },
                 "cantidad": 2
+            },
+            {
+                "producto": {
+                    "id_producto": 5,
+                    "nombre": "Smartwatch",
+                    "descripcion": "Reloj inteligente con monitor de ritmo cardíaco",
+                    "categoria": "Gadgets",
+                    "precio": 150.0
+                },
+                "cantidad": 1
             }
         ],
         "fecha": "2024-06-02T14:55:49.398756",
-        "ticket": "lO8Id2k0SE"
+        "ticket": "CD67890MNO"
+    },
+    {
+        "cliente": {
+            "tipo": "ClientePersona",
+            "nombre": "Ana González",
+            "email": "agonzalez@gmail.com",
+            "password": "123",
+            "direccion": "Calle Falsa 123",
+            "telefono": "098.111.222",
+            "dni": "234567891"
+        },
+        "productos": [
+            {
+                "producto": {
+                    "id_producto": 2,
+                    "nombre": "Smartphone",
+                    "descripcion": "Smartphone con cámara de 48MP y 128GB de almacenamiento",
+                    "categoria": "Electrónica",
+                    "precio": 300.0
+                },
+                "cantidad": 1
+            },
+            {
+                "producto": {
+                    "id_producto": 4,
+                    "nombre": "Auriculares",
+                    "descripcion": "Auriculares inalámbricos con cancelación de ruido",
+                    "categoria": "Accesorios",
+                    "precio": 100.0
+                },
+                "cantidad": 1
+            }
+        ],
+        "fecha": "2024-06-01T11:00:00",
+        "ticket": "EF23456PQR"
+    },
+    {
+        "cliente": {
+            "tipo": "ClientePersona",
+            "nombre": "Ana González",
+            "email": "agonzalez@gmail.com",
+            "password": "123",
+            "direccion": "Calle Falsa 123",
+            "telefono": "098.111.222",
+            "dni": "234567891"
+        },
+        "productos": [
+            {
+                "producto": {
+                    "id_producto": 7,
+                    "nombre": "Impresora",
+                    "descripcion": "Impresora multifuncional con conexión Wi-Fi",
+                    "categoria": "Oficina",
+                    "precio": 120.0
+                },
+                "cantidad": 1
+            },
+            {
+                "producto": {
+                    "id_producto": 10,
+                    "nombre": "Consola de Videojuegos",
+                    "descripcion": "Consola de videojuegos de última generación",
+                    "categoria": "Entretenimiento",
+                    "precio": 400.0
+                },
+                "cantidad": 1
+            }
+        ],
+        "fecha": "2024-06-02T15:55:49.398756",
+        "ticket": "GH34567STU"
+    },
+    {
+        "cliente": {
+            "tipo": "ClientePersona",
+            "nombre": "Carlos Pérez",
+            "email": "cperez@gmail.com",
+            "password": "123",
+            "direccion": "Av. Siempre Viva 742",
+            "telefono": "097.111.222",
+            "dni": "345678912"
+        },
+        "productos": [
+            {
+                "producto": {
+                    "id_producto": 3,
+                    "nombre": "Laptop",
+                    "descripcion": "Laptop con procesador Intel i7 y 16GB de RAM",
+                    "categoria": "Computadoras",
+                    "precio": 800.0
+                },
+                "cantidad": 1
+            },
+            {
+                "producto": {
+                    "id_producto": 8,
+                    "nombre": "Teclado Mecánico",
+                    "descripcion": "Teclado mecánico retroiluminado RGB",
+                    "categoria": "Accesorios",
+                    "precio": 80.0
+                },
+                "cantidad": 1
+            }
+        ],
+        "fecha": "2024-06-01T12:00:00",
+        "ticket": "IJ45678VWX"
+    },
+    {
+        "cliente": {
+            "tipo": "ClientePersona",
+            "nombre": "Carlos Pérez",
+            "email": "cperez@gmail.com",
+            "password": "123",
+            "direccion": "Av. Siempre Viva 742",
+            "telefono": "097.111.222",
+            "dni": "345678912"
+        },
+        "productos": [
+            {
+                "producto": {
+                    "id_producto": 1,
+                    "nombre": "Tablet",
+                    "descripcion": "Tablet 11\" con pantalla de alta resolución",
+                    "categoria": "Entretenimiento",
+                    "precio": 200.0
+                },
+                "cantidad": 1
+            },
+            {
+                "producto": {
+                    "id_producto": 5,
+                    "nombre": "Smartwatch",
+                    "descripcion": "Reloj inteligente con monitor de ritmo cardíaco",
+                    "categoria": "Gadgets",
+                    "precio": 150.0
+                },
+                "cantidad": 1
+            }
+        ],
+        "fecha": "2024-06-02T16:55:49.398756",
+        "ticket": "KL56789YZA"
+    },
+    {
+        "cliente": {
+            "tipo": "ClientePersona",
+            "nombre": "Beatriz Diaz",
+            "email": "bdiaz@gmail.com",
+            "password": "123",
+            "direccion": "Calle Luna 123",
+            "telefono": "096.111.222",
+            "dni": "456789123"
+        },
+        "productos": [
+            {
+                "producto": {
+                    "id_producto": 6,
+                    "nombre": "Cámara DSLR",
+                    "descripcion": "Cámara DSLR con lente de 18-55mm",
+                    "categoria": "Fotografía",
+                    "precio": 500.0
+                },
+                "cantidad": 1
+            },
+            {
+                "producto": {
+                    "id_producto": 9,
+                    "nombre": "Monitor",
+                    "descripcion": "Monitor 27\" 4K UHD con HDR",
+                    "categoria": "Computadoras",
+                    "precio": 350.0
+                },
+                "cantidad": 1
+            }
+        ],
+        "fecha": "2024-06-01T13:00:00",
+        "ticket": "MN67890BCD"
+    },
+    {
+        "cliente": {
+            "tipo": "ClientePersona",
+            "nombre": "Beatriz Diaz",
+            "email": "bdiaz@gmail.com",
+            "password": "123",
+            "direccion": "Calle Luna 123",
+            "telefono": "096.111.222",
+            "dni": "456789123"
+        },
+        "productos": [
+            {
+                "producto": {
+                    "id_producto": 1,
+                    "nombre": "Tablet",
+                    "descripcion": "Tablet 11\" con pantalla de alta resolución",
+                    "categoria": "Entretenimiento",
+                    "precio": 200.0
+                },
+                "cantidad": 1
+            },
+            {
+                "producto": {
+                    "id_producto": 7,
+                    "nombre": "Impresora",
+                    "descripcion": "Impresora multifuncional con conexión Wi-Fi",
+                    "categoria": "Oficina",
+                    "precio": 120.0
+                },
+                "cantidad": 1
+            }
+        ],
+        "fecha": "2024-06-02T17:55:49.398756",
+        "ticket": "OP78901DEF"
+    },
+    {
+        "cliente": {
+            "tipo": "ClientePersona",
+            "nombre": "Daniela Ruiz",
+            "email": "druiz@gmail.com",
+            "password": "123",
+            "direccion": "Calle Sol 123",
+            "telefono": "095.111.222",
+            "dni": "567891234"
+        },
+        "productos": [
+            {
+                "producto": {
+                    "id_producto": 2,
+                    "nombre": "Smartphone",
+                    "descripcion": "Smartphone con cámara de 48MP y 128GB de almacenamiento",
+                    "categoria": "Electrónica",
+                    "precio": 300.0
+                },
+                "cantidad": 1
+            },
+            {
+                "producto": {
+                    "id_producto": 4,
+                    "nombre": "Auriculares",
+                    "descripcion": "Auriculares inalámbricos con cancelación de ruido",
+                    "categoria": "Accesorios",
+                    "precio": 100.0
+                },
+                "cantidad": 1
+            }
+        ],
+        "fecha": "2024-06-01T14:00:00",
+        "ticket": "QR89012FGH"
+    },
+    {
+        "cliente": {
+            "tipo": "ClientePersona",
+            "nombre": "Daniela Ruiz",
+            "email": "druiz@gmail.com",
+            "password": "123",
+            "direccion": "Calle Sol 123",
+            "telefono": "095.111.222",
+            "dni": "567891234"
+        },
+        "productos": [
+            {
+                "producto": {
+                    "id_producto": 5,
+                    "nombre": "Smartwatch",
+                    "descripcion": "Reloj inteligente con monitor de ritmo cardíaco",
+                    "categoria": "Gadgets",
+                    "precio": 150.0
+                },
+                "cantidad": 1
+            },
+            {
+                "producto": {
+                    "id_producto": 10,
+                    "nombre": "Consola de Videojuegos",
+                    "descripcion": "Consola de videojuegos de última generación",
+                    "categoria": "Entretenimiento",
+                    "precio": 400.0
+                },
+                "cantidad": 1
+            }
+        ],
+        "fecha": "2024-06-02T18:55:49.398756",
+        "ticket": "ST90123IJK"
+    },
+    {
+        "cliente": {
+            "tipo": "ClientePersona",
+            "nombre": "Pedro Fernández",
+            "email": "pfernandez@gmail.com",
+            "password": "123",
+            "direccion": "Calle Estrella 123",
+            "telefono": "094.111.222",
+            "dni": "678912345"
+        },
+        "productos": [
+            {
+                "producto": {
+                    "id_producto": 3,
+                    "nombre": "Laptop",
+                    "descripcion": "Laptop con procesador Intel i7 y 16GB de RAM",
+                    "categoria": "Computadoras",
+                    "precio": 800.0
+                },
+                "cantidad": 1
+            },
+            {
+                "producto": {
+                    "id_producto": 8,
+                    "nombre": "Teclado Mecánico",
+                    "descripcion": "Teclado mecánico retroiluminado RGB",
+                    "categoria": "Accesorios",
+                    "precio": 80.0
+                },
+                "cantidad": 1
+            }
+        ],
+        "fecha": "2024-06-01T15:00:00",
+        "ticket": "UV01234LMN"
+    },
+    {
+        "cliente": {
+            "tipo": "ClientePersona",
+            "nombre": "Pedro Fernández",
+            "email": "pfernandez@gmail.com",
+            "password": "123",
+            "direccion": "Calle Estrella 123",
+            "telefono": "094.111.222",
+            "dni": "678912345"
+        },
+        "productos": [
+            {
+                "producto": {
+                    "id_producto": 1,
+                    "nombre": "Tablet",
+                    "descripcion": "Tablet 11\" con pantalla de alta resolución",
+                    "categoria": "Entretenimiento",
+                    "precio": 200.0
+                },
+                "cantidad": 1
+            },
+            {
+                "producto": {
+                    "id_producto": 9,
+                    "nombre": "Monitor",
+                    "descripcion": "Monitor 27\" 4K UHD con HDR",
+                    "categoria": "Computadoras",
+                    "precio": 350.0
+                },
+                "cantidad": 1
+            }
+        ],
+        "fecha": "2024-06-02T19:55:49.398756",
+        "ticket": "WX34567OPQ"
+    },
+    {
+        "cliente": {
+            "tipo": "ClienteCorporativo",
+            "nombre": "Corp Tech",
+            "email": "corptech@gmail.com",
+            "password": "123",
+            "direccion": "Av. Tecnológica 123",
+            "telefono": "099.999.999",
+            "cuit": "12345678901"
+        },
+        "productos": [
+            {
+                "producto": {
+                    "id_producto": 2,
+                    "nombre": "Smartphone",
+                    "descripcion": "Smartphone con cámara de 48MP y 128GB de almacenamiento",
+                    "categoria": "Electrónica",
+                    "precio": 300.0
+                },
+                "cantidad": 5
+            },
+            {
+                "producto": {
+                    "id_producto": 4,
+                    "nombre": "Auriculares",
+                    "descripcion": "Auriculares inalámbricos con cancelación de ruido",
+                    "categoria": "Accesorios",
+                    "precio": 100.0
+                },
+                "cantidad": 10
+            }
+        ],
+        "fecha": "2024-06-01T16:00:00",
+        "ticket": "YZ67890ABC"
+    },
+    {
+        "cliente": {
+            "tipo": "ClienteCorporativo",
+            "nombre": "Corp Tech",
+            "email": "corptech@gmail.com",
+            "password": "123",
+            "direccion": "Av. Tecnológica 123",
+            "telefono": "099.999.999",
+            "cuit": "12345678901"
+        },
+        "productos": [
+            {
+                "producto": {
+                    "id_producto": 5,
+                    "nombre": "Smartwatch",
+                    "descripcion": "Reloj inteligente con monitor de ritmo cardíaco",
+                    "categoria": "Gadgets",
+                    "precio": 150.0
+                },
+                "cantidad": 8
+            },
+            {
+                "producto": {
+                    "id_producto": 10,
+                    "nombre": "Consola de Videojuegos",
+                    "descripcion": "Consola de videojuegos de última generación",
+                    "categoria": "Entretenimiento",
+                    "precio": 400.0
+                },
+                "cantidad": 3
+            }
+        ],
+        "fecha": "2024-06-02T20:55:49.398756",
+        "ticket": "ZA23456DEF"
+    },
+    {
+        "cliente": {
+            "tipo": "ClienteCorporativo",
+            "nombre": "Global Solutions",
+            "email": "globalsolutions@gmail.com",
+            "password": "123",
+            "direccion": "Av. Soluciones 123",
+            "telefono": "098.999.999",
+            "cuit": "23456789012"
+        },
+        "productos": [
+            {
+                "producto": {
+                    "id_producto": 6,
+                    "nombre": "Cámara DSLR",
+                    "descripcion": "Cámara DSLR con lente de 18-55mm",
+                    "categoria": "Fotografía",
+                    "precio": 500.0
+                },
+                "cantidad": 2
+            },
+            {
+                "producto": {
+                    "id_producto": 9,
+                    "nombre": "Monitor",
+                    "descripcion": "Monitor 27\" 4K UHD con HDR",
+                    "categoria": "Computadoras",
+                    "precio": 350.0
+                },
+                "cantidad": 4
+            }
+        ],
+        "fecha": "2024-06-01T17:00:00",
+        "ticket": "BC34567GHI"
+    },
+    {
+        "cliente": {
+            "tipo": "ClienteCorporativo",
+            "nombre": "Global Solutions",
+            "email": "globalsolutions@gmail.com",
+            "password": "123",
+            "direccion": "Av. Soluciones 123",
+            "telefono": "098.999.999",
+            "cuit": "23456789012"
+        },
+        "productos": [
+            {
+                "producto": {
+                    "id_producto": 2,
+                    "nombre": "Smartphone",
+                    "descripcion": "Smartphone con cámara de 48MP y 128GB de almacenamiento",
+                    "categoria": "Electrónica",
+                    "precio": 300.0
+                },
+                "cantidad": 10
+            },
+            {
+                "producto": {
+                    "id_producto": 4,
+                    "nombre": "Auriculares",
+                    "descripcion": "Auriculares inalámbricos con cancelación de ruido",
+                    "categoria": "Accesorios",
+                    "precio": 100.0
+                },
+                "cantidad": 20
+            }
+        ],
+        "fecha": "2024-06-02T21:55:49.398756",
+        "ticket": "DE45678JKL"
+    },
+    {
+        "cliente": {
+            "tipo": "ClienteCorporativo",
+            "nombre": "Innovative Ideas",
+            "email": "innovativeideas@gmail.com",
+            "password": "123",
+            "direccion": "Av. Innovación 123",
+            "telefono": "097.999.999",
+            "cuit": "34567890123"
+        },
+        "productos": [
+            {
+                "producto": {
+                    "id_producto": 3,
+                    "nombre": "Laptop",
+                    "descripcion": "Laptop con procesador Intel i7 y 16GB de RAM",
+                    "categoria": "Computadoras",
+                    "precio": 800.0
+                },
+                "cantidad": 5
+            },
+            {
+                "producto": {
+                    "id_producto": 7,
+                    "nombre": "Impresora",
+                    "descripcion": "Impresora multifuncional con conexión Wi-Fi",
+                    "categoria": "Oficina",
+                    "precio": 120.0
+                },
+                "cantidad": 3
+            }
+        ],
+        "fecha": "2024-06-01T18:00:00",
+        "ticket": "FG56789MNO"
+    },
+    {
+        "cliente": {
+            "tipo": "ClienteCorporativo",
+            "nombre": "Innovative Ideas",
+            "email": "innovativeideas@gmail.com",
+            "password": "123",
+            "direccion": "Av. Innovación 123",
+            "telefono": "097.999.999",
+            "cuit": "34567890123"
+        },
+        "productos": [
+            {
+                "producto": {
+                    "id_producto": 1,
+                    "nombre": "Tablet",
+                    "descripcion": "Tablet 11\" con pantalla de alta resolución",
+                    "categoria": "Entretenimiento",
+                    "precio": 200.0
+                },
+                "cantidad": 10
+            },
+            {
+                "producto": {
+                    "id_producto": 5,
+                    "nombre": "Smartwatch",
+                    "descripcion": "Reloj inteligente con monitor de ritmo cardíaco",
+                    "categoria": "Gadgets",
+                    "precio": 150.0
+                },
+                "cantidad": 6
+            }
+        ],
+        "fecha": "2024-06-02T22:55:49.398756",
+        "ticket": "HI67890PQR"
+    },
+    {
+        "cliente": {
+            "tipo": "ClienteCorporativo",
+            "nombre": "Tech Innovators",
+            "email": "techinnovators@gmail.com",
+            "password": "123",
+            "direccion": "Av. Tecnologías 123",
+            "telefono": "096.999.999",
+            "cuit": "45678901234"
+        },
+        "productos": [
+            {
+                "producto": {
+                    "id_producto": 2,
+                    "nombre": "Smartphone",
+                    "descripcion": "Smartphone con cámara de 48MP y 128GB de almacenamiento",
+                    "categoria": "Electrónica",
+                    "precio": 300.0
+                },
+                "cantidad": 4
+            },
+            {
+                "producto": {
+                    "id_producto": 8,
+                    "nombre": "Teclado Mecánico",
+                    "descripcion": "Teclado mecánico retroiluminado RGB",
+                    "categoria": "Accesorios",
+                    "precio": 80.0
+                },
+                "cantidad": 6
+            }
+        ],
+        "fecha": "2024-06-01T19:00:00",
+        "ticket": "JK78901STU"
+    },
+    {
+        "cliente": {
+            "tipo": "ClienteCorporativo",
+            "nombre": "Tech Innovators",
+            "email": "techinnovators@gmail.com",
+            "password": "123",
+            "direccion": "Av. Tecnologías 123",
+            "telefono": "096.999.999",
+            "cuit": "45678901234"
+        },
+        "productos": [
+            {
+                "producto": {
+                    "id_producto": 6,
+                    "nombre": "Cámara DSLR",
+                    "descripcion": "Cámara DSLR con lente de 18-55mm",
+                    "categoria": "Fotografía",
+                    "precio": 500.0
+                },
+                "cantidad": 2
+            },
+            {
+                "producto": {
+                    "id_producto": 9,
+                    "nombre": "Monitor",
+                    "descripcion": "Monitor 27\" 4K UHD con HDR",
+                    "categoria": "Computadoras",
+                    "precio": 350.0
+                },
+                "cantidad": 3
+            }
+        ],
+        "fecha": "2024-06-02T23:55:49.398756",
+        "ticket": "LM89012VWX"
+    },
+    {
+        "cliente": {
+            "tipo": "ClienteCorporativo",
+            "nombre": "Future Enterprises",
+            "email": "futureenterprises@gmail.com",
+            "password": "123",
+            "direccion": "Av. Futuro 123",
+            "telefono": "095.999.999",
+            "cuit": "56789012345"
+        },
+        "productos": [
+            {
+                "producto": {
+                    "id_producto": 1,
+                    "nombre": "Tablet",
+                    "descripcion": "Tablet 11\" con pantalla de alta resolución",
+                    "categoria": "Entretenimiento",
+                    "precio": 200.0
+                },
+                "cantidad": 7
+            },
+            {
+                "producto": {
+                    "id_producto": 3,
+                    "nombre": "Laptop",
+                    "descripcion": "Laptop con procesador Intel i7 y 16GB de RAM",
+                    "categoria": "Computadoras",
+                    "precio": 800.0
+                },
+                "cantidad": 2
+            }
+        ],
+        "fecha": "2024-06-01T20:00:00",
+        "ticket": "NO90123YZA"
+    },
+    {
+        "cliente": {
+            "tipo": "ClienteCorporativo",
+            "nombre": "Future Enterprises",
+            "email": "futureenterprises@gmail.com",
+            "password": "123",
+            "direccion": "Av. Futuro 123",
+            "telefono": "095.999.999",
+            "cuit": "56789012345"
+        },
+        "productos": [
+            {
+                "producto": {
+                    "id_producto": 5,
+                    "nombre": "Smartwatch",
+                    "descripcion": "Reloj inteligente con monitor de ritmo cardíaco",
+                    "categoria": "Gadgets",
+                    "precio": 150.0
+                },
+                "cantidad": 5
+            },
+            {
+                "producto": {
+                    "id_producto": 10,
+                    "nombre": "Consola de Videojuegos",
+                    "descripcion": "Consola de videojuegos de última generación",
+                    "categoria": "Entretenimiento",
+                    "precio": 400.0
+                },
+                "cantidad": 3
+            }
+        ],
+        "fecha": "2024-06-02T00:55:49.398756",
+        "ticket": "PQ01234BCD"
     }
 ]

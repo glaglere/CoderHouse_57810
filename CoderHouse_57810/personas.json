@@ -9,13 +9,94 @@
         "dni": "123456789"
     },
     {
-        "tipo": "ClienteCorporativo",
-        "nombre": "Corporate Ltda",
-        "email": "corporate@gmail.com",
+        "tipo": "ClientePersona",
+        "nombre": "Ana González",
+        "email": "agonzalez@gmail.com",
         "password": "123",
-        "direccion": "Dirección 234",
-        "telefono": "098.123.456",
-        "cuit": "123456789"
+        "direccion": "Calle Falsa 123",
+        "telefono": "098.111.222",
+        "dni": "234567891"
+    },
+    {
+        "tipo": "ClientePersona",
+        "nombre": "Carlos Pérez",
+        "email": "cperez@gmail.com",
+        "password": "123",
+        "direccion": "Av. Siempre Viva 742",
+        "telefono": "097.111.222",
+        "dni": "345678912"
+    },
+    {
+        "tipo": "ClientePersona",
+        "nombre": "Beatriz Diaz",
+        "email": "bdiaz@gmail.com",
+        "password": "123",
+        "direccion": "Calle Luna 123",
+        "telefono": "096.111.222",
+        "dni": "456789123"
+    },
+    {
+        "tipo": "ClientePersona",
+        "nombre": "Daniela Ruiz",
+        "email": "druiz@gmail.com",
+        "password": "123",
+        "direccion": "Calle Sol 123",
+        "telefono": "095.111.222",
+        "dni": "567891234"
+    },
+    {
+        "tipo": "ClientePersona",
+        "nombre": "Pedro Fernández",
+        "email": "pfernandez@gmail.com",
+        "password": "123",
+        "direccion": "Calle Estrella 123",
+        "telefono": "094.111.222",
+        "dni": "678912345"
+    },
+    {
+        "tipo": "ClienteCorporativo",
+        "nombre": "Corp Tech",
+        "email": "corptech@gmail.com",
+        "password": "123",
+        "direccion": "Av. Tecnológica 123",
+        "telefono": "099.999.999",
+        "cuit": "12345678901"
+    },
+    {
+        "tipo": "ClienteCorporativo",
+        "nombre": "Global Solutions",
+        "email": "globalsolutions@gmail.com",
+        "password": "123",
+        "direccion": "Av. Soluciones 123",
+        "telefono": "098.999.999",
+        "cuit": "23456789012"
+    },
+    {
+        "tipo": "ClienteCorporativo",
+        "nombre": "Innovative Ideas",
+        "email": "innovativeideas@gmail.com",
+        "password": "123",
+        "direccion": "Av. Innovación 123",
+        "telefono": "097.999.999",
+        "cuit": "34567890123"
+    },
+    {
+        "tipo": "ClienteCorporativo",
+        "nombre": "Tech Innovators",
+        "email": "techinnovators@gmail.com",
+        "password": "123",
+        "direccion": "Av. Tecnologías 123",
+        "telefono": "096.999.999",
+        "cuit": "45678901234"
+    },
+    {
+        "tipo": "ClienteCorporativo",
+        "nombre": "Future Enterprises",
+        "email": "futureenterprises@gmail.com",
+        "password": "123",
+        "direccion": "Av. Futuro 123",
+        "telefono": "095.999.999",
+        "cuit": "56789012345"
     },
     {
         "tipo": "Administrador",
@@ -23,5 +104,19 @@
         "email": "admin@example.com",
         "password": "adminpass",
         "codigo_funcionario": "001"
+    },
+    {
+        "tipo": "Administrador",
+        "nombre": "Super Admin",
+        "email": "superadmin@example.com",
+        "password": "superadminpass",
+        "codigo_funcionario": "002"
+    },
+    {
+        "tipo": "Administrador",
+        "nombre": "Manager Admin",
+        "email": "manageradmin@example.com",
+        "password": "manageradminpass",
+        "codigo_funcionario": "003"
     }
 ]

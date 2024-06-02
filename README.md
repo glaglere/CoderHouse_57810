@@ -65,6 +65,39 @@ Los administradores tienen la capacidad de visualizar el historial de compras de
 
 - **Ver Historial de Compras de Todos los Clientes**: Permite a un administrador visualizar el historial de compras de todos los clientes registrados en el sistema.
 
+## Datos Generados
+
+### Clientes
+
+Se han generado los siguientes clientes:
+
+#### Clientes Persona
+
+1. Lorenzo Lopez
+2. Ana González
+3. Carlos Pérez
+4. Beatriz Diaz
+5. Daniela Ruiz
+6. Pedro Fernández
+
+#### Clientes Corporativos
+
+1. Corp Tech
+2. Global Solutions
+3. Innovative Ideas
+4. Tech Innovators
+5. Future Enterprises
+
+#### Administradores
+
+1. Admin User
+2. Super Admin
+3. Manager Admin
+
+### Compras
+
+Cada cliente ha realizado 2 compras, registrando la fecha de la compra y generando un número de ticket aleatorio para cada compra.
+
 ## Estructura del Proyecto
 
 El proyecto está organizado en los siguientes módulos:
