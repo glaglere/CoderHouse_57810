@@ -1,0 +1,9 @@
+[
+    {
+        "id_producto": "Tele",
+        "nombre": "Tele",
+        "descripcion": "Televisor 40",
+        "categoria": "Entretenimiento",
+        "precio": 1000.0
+    }
+]

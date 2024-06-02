@@ -1,0 +1,18 @@
+[
+    {
+        "nombre": "lolo",
+        "email": "lolo@gmail.com",
+        "password": "123",
+        "direccion": "dire",
+        "telefono": "tel",
+        "dni": "dni"
+    },
+    {
+        "nombre": "Corp",
+        "email": "corp@gmail.com",
+        "password": "456",
+        "direccion": "direc",
+        "telefono": "telf",
+        "cuit": "777888999"
+    }
+]
