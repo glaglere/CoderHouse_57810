@@ -1,9 +1,72 @@
 [
     {
-        "id_producto": "1",
-        "nombre": "Tele",
-        "descripcion": "Televisor 40",
+        "id_producto": 1,
+        "nombre": "Tablet",
+        "descripcion": "Tablet 11\" con pantalla de alta resolución",
         "categoria": "Entretenimiento",
-        "precio": 1000.0
+        "precio": 200.0
+    },
+    {
+        "id_producto": 2,
+        "nombre": "Smartphone",
+        "descripcion": "Smartphone con cámara de 48MP y 128GB de almacenamiento",
+        "categoria": "Electrónica",
+        "precio": 300.0
+    },
+    {
+        "id_producto": 3,
+        "nombre": "Laptop",
+        "descripcion": "Laptop con procesador Intel i7 y 16GB de RAM",
+        "categoria": "Computadoras",
+        "precio": 800.0
+    },
+    {
+        "id_producto": 4,
+        "nombre": "Auriculares",
+        "descripcion": "Auriculares inalámbricos con cancelación de ruido",
+        "categoria": "Accesorios",
+        "precio": 100.0
+    },
+    {
+        "id_producto": 5,
+        "nombre": "Smartwatch",
+        "descripcion": "Reloj inteligente con monitor de ritmo cardíaco",
+        "categoria": "Gadgets",
+        "precio": 150.0
+    },
+    {
+        "id_producto": 6,
+        "nombre": "Cámara DSLR",
+        "descripcion": "Cámara DSLR con lente de 18-55mm",
+        "categoria": "Fotografía",
+        "precio": 500.0
+    },
+    {
+        "id_producto": 7,
+        "nombre": "Impresora",
+        "descripcion": "Impresora multifuncional con conexión Wi-Fi",
+        "categoria": "Oficina",
+        "precio": 120.0
+    },
+    {
+        "id_producto": 8,
+        "nombre": "Teclado Mecánico",
+        "descripcion": "Teclado mecánico retroiluminado RGB",
+        "categoria": "Accesorios",
+        "precio": 80.0
+    },
+    {
+        "id_producto": 9,
+        "nombre": "Monitor",
+        "descripcion": "Monitor 27\" 4K UHD con HDR",
+        "categoria": "Computadoras",
+        "precio": 350.0
+    },
+    {
+        "id_producto": 10,
+        "nombre": "Consola de Videojuegos",
+        "descripcion": "Consola de videojuegos de última generación",
+        "categoria": "Entretenimiento",
+        "precio": 400.0
     }
 ]

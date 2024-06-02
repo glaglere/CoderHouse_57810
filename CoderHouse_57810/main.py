@@ -1,14 +1,13 @@
 # main.py
+from CoderHouse_57810.services.helpers import print_menu, get_option
 from services.sistema import Sistema
 from cliente_menu import operaciones_clientes
 from administrador_menu import operaciones_administradores
 
 
 def mostrar_menu():
-    print("\nSeleccione una opción:")
-    print("1. Operaciones de Clientes")
-    print("2. Operaciones de Administradores")
-    print("3. Salir")
+    options = ["Operaciones de Clientes", "Operaciones de Administradores", "Salir"]
+    print_menu(options)
 
 
 if __name__ == '__main__':
@@ -20,15 +19,13 @@ if __name__ == '__main__':
     try:
         while True:
             mostrar_menu()
-            opcion = input("Ingrese su opción: ")
-            if opcion == "1":
+            opcion = get_option(["Operaciones de Clientes", "Operaciones de Administradores", "Salir"])
+            if opcion == 1:
                 operaciones_clientes(sistema_principal)
-            elif opcion == "2":
+            elif opcion == 2:
                 operaciones_administradores(sistema_principal)
-            elif opcion == "3":
+            elif opcion == 3:
                 print("Saliendo del sistema.")
                 break
-            else:
-                print("Opción no válida. Intente nuevamente.")
     finally:
         sistema_principal.guardar_datos()
