@@ -1,1 +1,35 @@
-[]
+[
+    {
+        "cliente": {
+            "nombre": "lolo",
+            "email": "lolo@gmail.com",
+            "password": "123",
+            "direccion": "dire",
+            "telefono": "tel",
+            "dni": "dni"
+        },
+        "productos": [
+            {
+                "id_producto": 1,
+                "nombre": "Tablet",
+                "descripcion": "Tablet 11\" con pantalla de alta resoluci\u00c3\u00b3n",
+                "categoria": "Entretenimiento",
+                "precio": 200.0
+            },
+            {
+                "id_producto": 2,
+                "nombre": "Smartphone",
+                "descripcion": "Smartphone con c\u00c3\u00a1mara de 48MP y 128GB de almacenamiento",
+                "categoria": "Electr\u00c3\u00b3nica",
+                "precio": 300.0
+            },
+            {
+                "id_producto": 10,
+                "nombre": "Consola de Videojuegos",
+                "descripcion": "Consola de videojuegos de \u00c3\u00baltima generaci\u00c3\u00b3n",
+                "categoria": "Entretenimiento",
+                "precio": 400.0
+            }
+        ]
+    }
+]

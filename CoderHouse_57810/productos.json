@@ -2,15 +2,15 @@
     {
         "id_producto": 1,
         "nombre": "Tablet",
-        "descripcion": "Tablet 11\" con pantalla de alta resolución",
+        "descripcion": "Tablet 11\" con pantalla de alta resoluci\u00c3\u00b3n",
         "categoria": "Entretenimiento",
         "precio": 200.0
     },
     {
         "id_producto": 2,
         "nombre": "Smartphone",
-        "descripcion": "Smartphone con cámara de 48MP y 128GB de almacenamiento",
-        "categoria": "Electrónica",
+        "descripcion": "Smartphone con c\u00c3\u00a1mara de 48MP y 128GB de almacenamiento",
+        "categoria": "Electr\u00c3\u00b3nica",
         "precio": 300.0
     },
     {
@@ -23,35 +23,35 @@
     {
         "id_producto": 4,
         "nombre": "Auriculares",
-        "descripcion": "Auriculares inalámbricos con cancelación de ruido",
+        "descripcion": "Auriculares inal\u00c3\u00a1mbricos con cancelaci\u00c3\u00b3n de ruido",
         "categoria": "Accesorios",
         "precio": 100.0
     },
     {
         "id_producto": 5,
         "nombre": "Smartwatch",
-        "descripcion": "Reloj inteligente con monitor de ritmo cardíaco",
+        "descripcion": "Reloj inteligente con monitor de ritmo card\u00c3\u00adaco",
         "categoria": "Gadgets",
         "precio": 150.0
     },
     {
         "id_producto": 6,
-        "nombre": "Cámara DSLR",
-        "descripcion": "Cámara DSLR con lente de 18-55mm",
-        "categoria": "Fotografía",
+        "nombre": "C\u00c3\u00a1mara DSLR",
+        "descripcion": "C\u00c3\u00a1mara DSLR con lente de 18-55mm",
+        "categoria": "Fotograf\u00c3\u00ada",
         "precio": 500.0
     },
     {
         "id_producto": 7,
         "nombre": "Impresora",
-        "descripcion": "Impresora multifuncional con conexión Wi-Fi",
+        "descripcion": "Impresora multifuncional con conexi\u00c3\u00b3n Wi-Fi",
         "categoria": "Oficina",
         "precio": 120.0
     },
     {
         "id_producto": 8,
-        "nombre": "Teclado Mecánico",
-        "descripcion": "Teclado mecánico retroiluminado RGB",
+        "nombre": "Teclado Mec\u00c3\u00a1nico",
+        "descripcion": "Teclado mec\u00c3\u00a1nico retroiluminado RGB",
         "categoria": "Accesorios",
         "precio": 80.0
     },
@@ -65,7 +65,7 @@
     {
         "id_producto": 10,
         "nombre": "Consola de Videojuegos",
-        "descripcion": "Consola de videojuegos de última generación",
+        "descripcion": "Consola de videojuegos de \u00c3\u00baltima generaci\u00c3\u00b3n",
         "categoria": "Entretenimiento",
         "precio": 400.0
     }
