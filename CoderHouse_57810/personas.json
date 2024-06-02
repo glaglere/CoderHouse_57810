@@ -82,21 +82,21 @@
     },
     {
         "tipo": "ClientePersona",
-        "nombre": "Ginette Laglere",
-        "email": "glaglere@gmail.com",
-        "password": "Comprasweb1",
-        "direccion": "Dirección 122",
-        "telefono": "099450450",
-        "dni": "31364851"
-    },
-    {
-        "tipo": "ClientePersona",
         "nombre": "Gonzalo Sanchez",
         "email": "gsanchez@gmail.com",
         "password": "1Contraseña",
         "direccion": "Dirección 4444",
         "telefono": "099888999",
         "dni": "7894561"
+    },
+    {
+        "tipo": "ClientePersona",
+        "nombre": "Lorenzo Dumas",
+        "email": "ldumas@gmail.com",
+        "password": "A1234567",
+        "direccion": "Dirección 1111",
+        "telefono": "099111111",
+        "dni": "7538690"
     },
     {
         "tipo": "ClienteCorporativo",
@@ -145,12 +145,12 @@
     },
     {
         "tipo": "ClienteCorporativo",
-        "nombre": "Cliente Corporativo",
-        "email": "corporativo@gmail.com",
-        "password": "corporativoweb1",
-        "direccion": "Dirección 22334",
-        "telefono": "099222555",
-        "cuit": "789456123"
+        "nombre": "Trade Corp",
+        "email": "trade.corp@gmail.com",
+        "password": "A1234567",
+        "direccion": "Dirección 2222",
+        "telefono": "099555555",
+        "cuit": "0"
     },
     {
         "tipo": "Administrador",

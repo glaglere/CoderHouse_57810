@@ -37,119 +37,168 @@ class Sistema:
         self.compras = []
         self.product_id_counter = 1  # Inicializa el contador de IDs de productos
 
-    def agregar_cliente_persona(self, cliente):
+    def email_exists(self, email):
         """
-        Agrega un cliente persona al sistema.
+        Verifies if an email already exists in the system.
 
         Args:
-            cliente (ClientePersona): El cliente persona a agregar.
+            email (str): The email to check.
 
         Returns:
-            bool: True si el cliente se agrega exitosamente, False en caso contrario.
+            bool: True if the email exists, False otherwise.
+        """
+        return any(email == c.email for c in self.clientes_personas + self.clientes_corporativos + self.administradores)
+
+    def dni_exists(self, dni):
+        """
+        Verifies if a DNI already exists in the system.
+
+        Args:
+            dni (str): The DNI to check.
+
+        Returns:
+            bool: True if the DNI exists, False otherwise.
+        """
+        return any(dni == c.dni for c in self.clientes_personas)
+
+    def agregar_cliente_persona(self, cliente):
+        """
+        Adds a ClientePersona to the system.
+
+        Args:
+            cliente (ClientePersona): The client to add.
+
+        Returns:
+            bool: True if the client was added successfully, False otherwise.
 
         Raises:
-            ValueError: Si alguna de las validaciones del cliente falla.
-            TypeError: Si el argumento cliente no es una instancia de ClientePersona.
+            ValueError: If any validation fails or if the email/DNI already exists.
+            TypeError: If the argument is not an instance of ClientePersona.
         """
         result = False
         try:
-
-            if isinstance(cliente, ClientePersona):
-                if not Seguridad.validar_no_vacio(cliente.nombre) or not Seguridad.validar_nombre_usuario(
-                        cliente.nombre):
-                    raise ValueError("El nombre del cliente persona no es válido.")
-                if not Seguridad.validar_email(cliente.email):
-                    raise ValueError("El email del cliente persona no es válido.")
-                if not Seguridad.validar_password(cliente.password):
-                    raise ValueError("La contraseña del cliente persona no es válida.")
-                if not Seguridad.validar_no_vacio(cliente.direccion):
-                    raise ValueError("La dirección del cliente persona no puede estar vacía.")
-                if not Seguridad.validar_telefono(cliente.telefono):
-                    raise ValueError("El teléfono del cliente persona no es válido.")
-                if not Seguridad.validar_dni(cliente.dni):
-                    raise ValueError("El DNI del cliente persona no es válido.")
-                self.clientes_personas.append(cliente)
-                self.carritos[cliente.email] = []
-                result = True
-            else:
+            if not isinstance(cliente, ClientePersona):
                 raise TypeError("El cliente debe ser una instancia de ClientePersona")
+
+            if self.email_exists(cliente.email):
+                raise ValueError("El email ya existe en el sistema.")
+
+            if self.dni_exists(cliente.dni):
+                raise ValueError("El DNI ya existe en el sistema.")
+
+            if not Seguridad.validar_nombre_usuario(cliente.nombre):
+                raise ValueError("El nombre del cliente persona no es válido.")
+
+            if not Seguridad.validar_email(cliente.email):
+                raise ValueError("El email del cliente persona no es válido.")
+
+            if not Seguridad.validar_password(cliente.password):
+                raise ValueError("La contraseña del cliente persona no es válida.")
+
+            if not Seguridad.validar_no_vacio(cliente.direccion):
+                raise ValueError("La dirección del cliente persona no puede estar vacía.")
+
+            if not Seguridad.validar_telefono(cliente.telefono):
+                raise ValueError("El teléfono del cliente persona no es válido.")
+
+            if not Seguridad.validar_dni(cliente.dni):
+                raise ValueError("El DNI del cliente persona no es válido.")
+
+            self.clientes_personas.append(cliente)
+            self.carritos[cliente.email] = []
+            result = True
         except (ValueError, TypeError) as e:
             print(f"Error al agregar cliente persona: {e}")
         return result
 
     def agregar_cliente_corporativo(self, cliente):
         """
-        Agrega un cliente corporativo al sistema.
+        Adds a ClienteCorporativo to the system.
 
         Args:
-            cliente (ClienteCorporativo): El cliente corporativo a agregar.
+            cliente (ClienteCorporativo): The client to add.
 
         Returns:
-            bool: True si el cliente se agrega exitosamente, False en caso contrario.
+            bool: True if the client was added successfully, False otherwise.
 
         Raises:
-            ValueError: Si alguna de las validaciones del cliente falla.
-            TypeError: Si el argumento cliente no es una instancia de ClienteCorporativo.
+            ValueError: If any validation fails or if the email already exists.
+            TypeError: If the argument is not an instance of ClienteCorporativo.
         """
-        result = False
+        result=False
         try:
-
-            if isinstance(cliente, ClienteCorporativo):
-                if (not Seguridad.validar_no_vacio(cliente.nombre) or not
-                Seguridad.validar_nombre_usuario(cliente.nombre)):
-                    raise ValueError("El nombre del cliente corporativo no es válido.")
-                if not Seguridad.validar_email(cliente.email):
-                    raise ValueError("El email del cliente corporativo no es válido.")
-                if not Seguridad.validar_password(cliente.password):
-                    raise ValueError("La contraseña del cliente corporativo no es válida.")
-                if not Seguridad.validar_no_vacio(cliente.direccion):
-                    raise ValueError("La dirección del cliente corporativo no puede estar vacía.")
-                if not Seguridad.validar_telefono(cliente.telefono):
-                    raise ValueError("El teléfono del cliente corporativo no es válido.")
-                if not Seguridad.validar_no_vacio(cliente.cuit):
-                    raise ValueError("El CUIT del cliente corporativo no puede estar vacío.")
-                self.clientes_corporativos.append(cliente)
-                self.carritos[cliente.email] = []
-                result = True
-            else:
+            if not isinstance(cliente, ClienteCorporativo):
                 raise TypeError("El cliente debe ser una instancia de ClienteCorporativo")
+
+            if self.email_exists(cliente.email):
+                raise ValueError("El email ya existe en el sistema.")
+
+            if not Seguridad.validar_nombre_usuario(cliente.nombre):
+                raise ValueError("El nombre del cliente corporativo no es válido.")
+
+            if not Seguridad.validar_email(cliente.email):
+                raise ValueError("El email del cliente corporativo no es válido.")
+
+            if not Seguridad.validar_password(cliente.password):
+                raise ValueError("La contraseña del cliente corporativo no es válida.")
+
+            if not Seguridad.validar_no_vacio(cliente.direccion):
+                raise ValueError("La dirección del cliente corporativo no puede estar vacía.")
+
+            if not Seguridad.validar_telefono(cliente.telefono):
+                raise ValueError("El teléfono del cliente corporativo no es válido.")
+
+            if not Seguridad.validar_no_vacio(cliente.cuit):
+                raise ValueError("El CUIT del cliente corporativo no puede estar vacío.")
+
+            self.clientes_corporativos.append(cliente)
+            self.carritos[cliente.email] = []
+
+            result = True
+
         except (ValueError, TypeError) as e:
             print(f"Error al agregar cliente corporativo: {e}")
         return result
 
+
     def agregar_administrador(self, nuevo_administrador):
         """
-        Agrega un administrador al sistema.
+        Adds an Administrador to the system.
 
         Args:
-            nuevo_administrador (Administrador): El administrador a agregar.
+            nuevo_administrador (Administrador): The administrator to add.
 
         Returns:
-            bool: True si el administrador se agrega exitosamente, False en caso contrario.
+            bool: True if the administrator was added successfully, False otherwise.
 
         Raises:
-            ValueError: Si alguna de las validaciones del administrador falla.
-            TypeError: Si el argumento administrador no es una instancia de Administrador.
+            ValueError: If any validation fails or if the email already exists.
+            TypeError: If the argument is not an instance of Administrador.
         """
         result = False
         try:
-
-            if isinstance(nuevo_administrador, Administrador):
-                if (not Seguridad.validar_no_vacio(nuevo_administrador.nombre) or not
-                Seguridad.validar_nombre_usuario(nuevo_administrador.nombre)):
-                    raise ValueError("El nombre del administrador no es válido.")
-                if not Seguridad.validar_email(nuevo_administrador.email):
-                    raise ValueError("El email del administrador no es válido.")
-                if not Seguridad.validar_password(nuevo_administrador.password):
-                    raise ValueError("La contraseña del administrador no es válida.")
-                if not Seguridad.validar_no_vacio(nuevo_administrador.codigo_funcionario):
-                    raise ValueError("El código de funcionario del administrador no puede estar vacío.")
-                self.administradores.append(nuevo_administrador)
-                result = True
-            else:
+            if not isinstance(nuevo_administrador, Administrador):
                 raise TypeError("El administrador debe ser una instancia de Administrador")
+
+            if self.email_exists(nuevo_administrador.email):
+                raise ValueError("El email ya existe en el sistema.")
+
+            if not Seguridad.validar_nombre_usuario(nuevo_administrador.nombre):
+                raise ValueError("El nombre del administrador no es válido.")
+
+            if not Seguridad.validar_email(nuevo_administrador.email):
+                raise ValueError("El email del administrador no es válido.")
+
+            if not Seguridad.validar_password(nuevo_administrador.password):
+                raise ValueError("La contraseña del administrador no es válida.")
+
+            if not Seguridad.validar_no_vacio(nuevo_administrador.codigo_funcionario):
+                raise ValueError("El código de funcionario del administrador no puede estar vacío.")
+
+            self.administradores.append(nuevo_administrador)
+            result=True
         except (ValueError, TypeError) as e:
-            print(f"Error al agregar administrador: {e}")
+            print(f"Error al agregar Administrador: {e}")
         return result
 
     def agregar_producto(self, producto):
@@ -193,14 +242,16 @@ class Sistema:
         """
         print("Clientes Personas:")
         if self.clientes_personas:
-            table = [[cliente.nombre, cliente.email, cliente.direccion, cliente.telefono, cliente.dni] for cliente in self.clientes_personas]
+            table = [[cliente.nombre, cliente.email, cliente.direccion, cliente.telefono, cliente.dni] for cliente in
+                     self.clientes_personas]
             print(tabulate(table, headers=["Nombre", "Email", "Dirección", "Teléfono", "DNI"], tablefmt="pretty"))
         else:
             print("No hay clientes personas registrados.")
 
         print("\nClientes Corporativos:")
         if self.clientes_corporativos:
-            table = [[cliente.nombre, cliente.email, cliente.direccion, cliente.telefono, cliente.cuit] for cliente in self.clientes_corporativos]
+            table = [[cliente.nombre, cliente.email, cliente.direccion, cliente.telefono, cliente.cuit] for cliente in
+                     self.clientes_corporativos]
             print(tabulate(table, headers=["Nombre", "Email", "Dirección", "Teléfono", "CUIT"], tablefmt="pretty"))
         else:
             print("No hay clientes corporativos registrados.")
@@ -222,7 +273,8 @@ class Sistema:
         """
         print("Productos:")
         if self.productos:
-            table = [[producto.id_producto, producto.nombre, producto.descripcion, producto.categoria, producto.precio] for producto in self.productos]
+            table = [[producto.id_producto, producto.nombre, producto.descripcion, producto.categoria, producto.precio]
+                     for producto in self.productos]
             print(tabulate(table, headers=["ID", "Nombre", "Descripción", "Categoría", "Precio"], tablefmt="pretty"))
         else:
             print("No hay productos registrados.")

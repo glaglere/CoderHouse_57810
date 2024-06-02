@@ -71,23 +71,9 @@
     },
     {
         "id_producto": 11,
-        "nombre": "45",
-        "descripcion": "12",
-        "categoria": "12",
-        "precio": 12.0
-    },
-    {
-        "id_producto": 12,
-        "nombre": "65",
-        "descripcion": "65",
-        "categoria": "65",
-        "precio": 65.0
-    },
-    {
-        "id_producto": 13,
-        "nombre": "888888888888888888888888888888888888888888",
-        "descripcion": "888888",
-        "categoria": "5",
-        "precio": 1000.0
+        "nombre": "Sistema Video Conferencia",
+        "descripcion": "Sistema de Video Conferencia inalámbrico 360",
+        "categoria": "Comunicaciones",
+        "precio": 2000.0
     }
 ]
