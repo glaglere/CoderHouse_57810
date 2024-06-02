@@ -44,17 +44,17 @@ El sistema permite agregar, eliminar y mostrar productos.
 - **Eliminar Producto**: Permite eliminar un producto existente.
 - **Mostrar Productos**: Muestra la lista de todos los productos registrados.
 
-### 4. Gestión de Carritos de Compras
+### 4. Gestión de Carrito de Compras
 
-Los clientes pueden agregar productos a su carrito de compras, quitar productos del mismo y visualizar el contenido del mismo.
+Los clientes pueden agregar y quitar productos de su carrito de compras, así como ver el contenido del mismo.
 
-- **Agregar Producto al Carrito**: Permite a un cliente agregar un producto a su carrito de compras, especificando la cantidad.
-- **Quitar Producto del Carrito**: Permite a un cliente quitar un producto de su carrito de compras.
-- **Mostrar Carrito**: Muestra la lista de productos en el carrito de compras del cliente.
+- **Agregar Producto al Carrito**: Permite a un cliente agregar productos a su carrito.
+- **Quitar Producto del Carrito**: Permite a un cliente quitar productos de su carrito.
+- **Mostrar Carrito**: Muestra el contenido del carrito de compras de un cliente.
 
 ### 5. Gestión de Compras
 
-Los clientes pueden concretar compras y visualizar su historial de compras.
+Los clientes pueden concretar compras y ver su historial de compras.
 
 - **Concretar Compra**: Permite a un cliente concretar la compra de los productos en su carrito. Se genera un número de ticket aleatorio y se registra la fecha de la compra.
 - **Ver Historial de Compras**: Permite a un cliente visualizar su historial de compras.
@@ -103,7 +103,7 @@ Cada cliente ha realizado 2 compras, registrando la fecha de la compra y generan
 El proyecto está organizado en los siguientes módulos:
 
 - **models**: Contiene las clases que representan los modelos principales del sistema (Persona, ClientePersona, ClienteCorporativo, Administrador, Producto, Compra).
-- **services**: Contiene el núcleo del sistema que maneja la lógica de negocio (Sistema) y las ayudas para la interacción con el usuario (helpers).
+- **services**: Contiene el núcleo del sistema que maneja la lógica de negocio (ClienteService, ProductoService) y las ayudas para la interacción con el usuario (helpers).
 - **administrador_menu.py**: Contiene las operaciones disponibles para los administradores.
 - **cliente_menu.py**: Contiene las operaciones disponibles para los clientes.
 - **main.py**: El punto de entrada del sistema que maneja el flujo principal del programa.

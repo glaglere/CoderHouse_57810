@@ -1,5 +1,3 @@
-# producto.py
-
 class Producto:
     """
     Clase que representa a un producto.

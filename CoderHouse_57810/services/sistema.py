@@ -1,354 +1,116 @@
-# sistema.py
-
 import json
 from tabulate import tabulate
-from datetime import datetime
-import random
-import string
-from CoderHouse_57810.models.administrador import Administrador
-from CoderHouse_57810.models.cliente import ClientePersona, ClienteCorporativo
+
 from CoderHouse_57810.models.compra import Compra
-from CoderHouse_57810.models.producto import Producto
+from CoderHouse_57810.services.cliente_service import ClienteService
+from CoderHouse_57810.services.producto_service import ProductoService
 from CoderHouse_57810.services.seguridad import Seguridad
 
 
 class Sistema:
-    """
-    Clase que representa el sistema principal de gestión.
-
-    Atributos:
-        clientes_personas (list): Lista de clientes personas.
-        clientes_corporativos (list): Lista de clientes corporativos.
-        administradores (list): Lista de administradores.
-        productos (list): Lista de productos.
-        carritos (dict): Diccionario que relaciona clientes con sus carritos de compras.
-        compras (list): Lista de compras realizadas.
-        product_id_counter (int): Contador para asignar IDs únicos a los productos.
-    """
-
     def __init__(self):
-        """
-        Inicializa una instancia de Sistema.
-        """
-        self.clientes_personas = []
-        self.clientes_corporativos = []
-        self.administradores = []
-        self.productos = []
-        self.carritos = {}
+        self.cliente_service = ClienteService()
+        self.producto_service = ProductoService()
         self.compras = []
-        self.product_id_counter = 1  # Inicializa el contador de IDs de productos
 
     def agregar_cliente_persona(self, cliente):
-        """
-        Agrega un cliente persona al sistema.
-
-        Args:
-            cliente (ClientePersona): El cliente persona a agregar.
-        """
-        if isinstance(cliente, ClientePersona):
-            if not Seguridad.validar_no_vacio(cliente.nombre) or not Seguridad.validar_nombre_usuario(cliente.nombre):
-                raise ValueError("El nombre del cliente persona no es válido.")
-            if not Seguridad.validar_email(cliente.email):
-                raise ValueError("El email del cliente persona no es válido.")
-            if not Seguridad.validar_password(cliente.password):
-                raise ValueError("La contraseña del cliente persona no es válida.")
-            if not Seguridad.validar_no_vacio(cliente.direccion):
-                raise ValueError("La dirección del cliente persona no puede estar vacía.")
-            if not Seguridad.validar_telefono(cliente.telefono):
-                raise ValueError("El teléfono del cliente persona no es válido.")
-            if not Seguridad.validar_dni(cliente.dni):
-                raise ValueError("El DNI del cliente persona no es válido.")
-            self.clientes_personas.append(cliente)
-            self.carritos[cliente.email] = []
-        else:
-            raise TypeError("El cliente debe ser una instancia de ClientePersona")
+        Seguridad.validar_cliente_persona(cliente)
+        self.cliente_service.agregar_cliente_persona(cliente)
 
     def agregar_cliente_corporativo(self, cliente):
-        """
-        Agrega un cliente corporativo al sistema.
-
-        Args:
-            cliente (ClienteCorporativo): El cliente corporativo a agregar.
-        """
-        if isinstance(cliente, ClienteCorporativo):
-            if not Seguridad.validar_no_vacio(cliente.nombre) or not Seguridad.validar_nombre_usuario(cliente.nombre):
-                raise ValueError("El nombre del cliente corporativo no es válido.")
-            if not Seguridad.validar_email(cliente.email):
-                raise ValueError("El email del cliente corporativo no es válido.")
-            if not Seguridad.validar_password(cliente.password):
-                raise ValueError("La contraseña del cliente corporativo no es válida.")
-            if not Seguridad.validar_no_vacio(cliente.direccion):
-                raise ValueError("La dirección del cliente corporativo no puede estar vacía.")
-            if not Seguridad.validar_telefono(cliente.telefono):
-                raise ValueError("El teléfono del cliente corporativo no es válido.")
-            if not Seguridad.validar_no_vacio(cliente.cuit):
-                raise ValueError("El CUIT del cliente corporativo no puede estar vacío.")
-            self.clientes_corporativos.append(cliente)
-            self.carritos[cliente.email] = []
-        else:
-            raise TypeError("El cliente debe ser una instancia de ClienteCorporativo")
+        Seguridad.validar_cliente_corporativo(cliente)
+        self.cliente_service.agregar_cliente_corporativo(cliente)
 
     def agregar_administrador(self, nuevo_administrador):
-        """
-        Agrega un administrador al sistema.
-
-        Args:
-            nuevo_administrador (Administrador): El administrador a agregar.
-        """
-        if isinstance(nuevo_administrador, Administrador):
-            if not Seguridad.validar_no_vacio(nuevo_administrador.nombre) or not Seguridad.validar_nombre_usuario(nuevo_administrador.nombre):
-                raise ValueError("El nombre del administrador no es válido.")
-            if not Seguridad.validar_email(nuevo_administrador.email):
-                raise ValueError("El email del administrador no es válido.")
-            if not Seguridad.validar_password(nuevo_administrador.password):
-                raise ValueError("La contraseña del administrador no es válida.")
-            if not Seguridad.validar_no_vacio(nuevo_administrador.codigo_funcionario):
-                raise ValueError("El código de funcionario del administrador no puede estar vacío.")
-            self.administradores.append(nuevo_administrador)
-        else:
-            raise TypeError("El administrador debe ser una instancia de Administrador")
+        Seguridad.validar_administrador(nuevo_administrador)
+        self.cliente_service.agregar_administrador(nuevo_administrador)
 
     def agregar_producto(self, producto):
-        """
-        Agrega un producto al sistema.
-
-        Args:
-            producto (Producto): El producto a agregar.
-        """
-        if isinstance(producto, Producto):
-            if not Seguridad.validar_no_vacio(producto.nombre):
-                raise ValueError("El nombre del producto no puede estar vacío.")
-            if not Seguridad.validar_no_vacio(producto.descripcion):
-                raise ValueError("La descripción del producto no puede estar vacía.")
-            if not Seguridad.validar_no_vacio(producto.categoria):
-                raise ValueError("La categoría del producto no puede estar vacía.")
-            if producto.precio <= 0:
-                raise ValueError("El precio del producto debe ser mayor a 0.")
-            producto.id_producto = self.product_id_counter  # Asigna el siguiente ID disponible
-            self.product_id_counter += 1  # Incrementa el contador de IDs
-            self.productos.append(producto)
-        else:
-            raise TypeError("El producto debe ser una instancia de Producto")
+        Seguridad.validar_producto(producto)
+        self.producto_service.agregar_producto(producto)
 
     def mostrar_clientes(self):
-        """
-        Muestra la lista de clientes del sistema.
-        """
-        print("Clientes Personas:")
-        if self.clientes_personas:
-            table = [[cliente.nombre, cliente.email, cliente.direccion, cliente.telefono, cliente.dni] for cliente in self.clientes_personas]
-            print(tabulate(table, headers=["Nombre", "Email", "Dirección", "Teléfono", "DNI"], tablefmt="pretty"))
-        else:
-            print("No hay clientes personas registrados.")
-
-        print("\nClientes Corporativos:")
-        if self.clientes_corporativos:
-            table = [[cliente.nombre, cliente.email, cliente.direccion, cliente.telefono, cliente.cuit] for cliente in self.clientes_corporativos]
-            print(tabulate(table, headers=["Nombre", "Email", "Dirección", "Teléfono", "CUIT"], tablefmt="pretty"))
-        else:
-            print("No hay clientes corporativos registrados.")
+        self.cliente_service.mostrar_clientes()
 
     def mostrar_administradores(self):
-        """
-        Muestra la lista de administradores del sistema.
-        """
-        print("Administradores:")
-        if self.administradores:
-            table = [[admin.nombre, admin.email, admin.codigo_funcionario] for admin in self.administradores]
-            print(tabulate(table, headers=["Nombre", "Email", "Código Funcionario"], tablefmt="pretty"))
-        else:
-            print("No hay administradores registrados.")
+        self.cliente_service.mostrar_administradores()
 
     def mostrar_productos(self):
-        """
-        Muestra la lista de productos del sistema.
-        """
-        print("Productos:")
-        if self.productos:
-            table = [[producto.id_producto, producto.nombre, producto.descripcion, producto.categoria, producto.precio] for producto in self.productos]
+        productos = self.producto_service.mostrar_productos()
+        if productos:
+            table = [[producto.id_producto, producto.nombre, producto.descripcion, producto.categoria, producto.precio] for producto in productos]
             print(tabulate(table, headers=["ID", "Nombre", "Descripción", "Categoría", "Precio"], tablefmt="pretty"))
         else:
             print("No hay productos registrados.")
 
     def eliminar_cliente_persona(self, email):
-        """
-        Elimina un cliente persona del sistema.
-
-        Args:
-            email (str): El correo electrónico del cliente persona a eliminar.
-        """
-        self.clientes_personas = [c for c in self.clientes_personas if c.email != email]
-        self.carritos.pop(email, None)
+        self.cliente_service.eliminar_cliente_persona(email)
 
     def eliminar_cliente_corporativo(self, email):
-        """
-        Elimina un cliente corporativo del sistema.
-
-        Args:
-            email (str): El correo electrónico del cliente corporativo a eliminar.
-        """
-        self.clientes_corporativos = [c for c in self.clientes_corporativos if c.email != email]
-        self.carritos.pop(email, None)
+        self.cliente_service.eliminar_cliente_corporativo(email)
 
     def eliminar_administrador(self, email):
-        """
-        Elimina un administrador del sistema.
-
-        Args:
-            email (str): El correo electrónico del administrador a eliminar.
-        """
-        self.administradores = [a for a in self.administradores if a.email != email]
+        self.cliente_service.eliminar_administrador(email)
 
     def eliminar_producto(self, id_producto):
-        """
-        Elimina un producto del sistema.
-
-        Args:
-            id_producto (int): El ID del producto a eliminar.
-        """
-        self.productos = [p for p in self.productos if p.id_producto != id_producto]
+        self.producto_service.eliminar_producto(id_producto)
 
     def agregar_producto_al_carrito(self, email, producto, cantidad):
-        """
-        Agrega un producto al carrito de compras de un cliente.
-
-        Args:
-            email (str): El correo electrónico del cliente.
-            producto (Producto): El producto a agregar.
-            cantidad (int): La cantidad del producto a agregar.
-        """
-        if email in self.carritos:
-            self.carritos[email].append({"producto": producto, "cantidad": cantidad})
+        cliente = self.cliente_service.buscar_cliente(email)
+        if cliente:
+            self.cliente_service.agregar_producto_al_carrito(cliente, producto, cantidad)
         else:
             raise ValueError("El cliente no existe")
 
     def quitar_producto_del_carrito(self, email, id_producto):
-        """
-        Quita un producto del carrito de compras de un cliente.
-
-        Args:
-            email (str): El correo electrónico del cliente.
-            id_producto (int): El ID del producto a quitar.
-
-        Raises:
-            ValueError: Si el cliente no existe o el producto no está en el carrito.
-        """
-        if email in self.carritos:
-            carrito = self.carritos[email]
-            for item in carrito:
-                if item["producto"].id_producto == id_producto:
-                    carrito.remove(item)
-                    return
-            raise ValueError("El producto no está en el carrito")
+        cliente = self.cliente_service.buscar_cliente(email)
+        if cliente:
+            self.cliente_service.quitar_producto_del_carrito(cliente, id_producto)
         else:
             raise ValueError("El cliente no existe")
 
     def mostrar_carrito(self, email):
-        """
-        Muestra el carrito de compras de un cliente.
-
-        Args:
-            email (str): El correo electrónico del cliente.
-
-        Returns:
-            list: La lista de productos en el carrito del cliente.
-        """
-        if email in self.carritos:
-            return self.carritos[email]
+        cliente = self.cliente_service.buscar_cliente(email)
+        if cliente:
+            carrito = self.cliente_service.mostrar_carrito(cliente)
+            return carrito
         else:
             raise ValueError("El cliente no existe")
 
     def concretar_compra(self, email):
-        """
-        Concreta una compra para un cliente.
-
-        Args:
-            email (str): El correo electrónico del cliente.
-
-        Returns:
-            Compra: La compra realizada.
-        """
-        if email in self.carritos and self.carritos[email]:
-            compra = Compra(cliente=self.buscar_cliente(email), productos=self.carritos[email])
-            self.compras.append(compra)
-            self.carritos[email] = []
-            self.mostrar_recibo(compra)
-            return compra
+        cliente = self.cliente_service.buscar_cliente(email)
+        if cliente:
+            carrito = self.cliente_service.mostrar_carrito(cliente)
+            if carrito:
+                compra = Compra(cliente=cliente, productos=carrito)
+                self.compras.append(compra)
+                self.cliente_service.vaciar_carrito(cliente)
+                self.mostrar_recibo(compra)
+                return compra
+            else:
+                raise ValueError("El carrito está vacío.")
         else:
-            raise ValueError("El carrito está vacío o el cliente no existe")
+            raise ValueError("El cliente no existe")
 
     def buscar_cliente(self, email):
-        """
-        Busca un cliente por su correo electrónico.
-
-        Args:
-            email (str): El correo electrónico del cliente.
-
-        Returns:
-            ClientePersona o ClienteCorporativo: El cliente encontrado, None si no se encuentra.
-        """
-        for cliente in self.clientes_personas + self.clientes_corporativos:
-            if cliente.email == email:
-                return cliente
-        return None
+        return self.cliente_service.buscar_cliente(email)
 
     def obtener_historial_compras_cliente(self, email):
-        """
-        Obtiene el historial de compras de un cliente.
-
-        Args:
-            email (str): El correo electrónico del cliente.
-
-        Returns:
-            list: La lista de compras del cliente.
-        """
         return [compra for compra in self.compras if compra.cliente.email == email]
 
     def obtener_historial_compras_todos(self):
-        """
-        Obtiene el historial de compras de todos los clientes.
-
-        Returns:
-            list: La lista de todas las compras realizadas.
-        """
         return self.compras
 
     def guardar_datos(self):
-        """
-        Guarda los datos del sistema en archivos JSON.
-        """
-        with open("personas.json", "w", encoding='utf-8') as f:
-            json.dump([cliente.to_dict() for cliente in self.clientes_personas + self.clientes_corporativos + self.administradores], f, indent=4, ensure_ascii=False)
-        with open("productos.json", "w", encoding='utf-8') as f:
-            json.dump([producto.to_dict() for producto in self.productos], f, indent=4, ensure_ascii=False)
+        self.cliente_service.guardar_datos()
+        self.producto_service.guardar_datos()
         with open("compras.json", "w", encoding='utf-8') as f:
             json.dump([compra.to_dict() for compra in self.compras], f, indent=4, ensure_ascii=False)
 
     def cargar_datos(self):
-        """
-        Carga los datos del sistema desde archivos JSON.
-        """
+        self.cliente_service.cargar_datos()
+        self.producto_service.cargar_datos()
         try:
-            with open("personas.json", "r", encoding='utf-8') as f:
-                personas_data = json.load(f)
-                for p in personas_data:
-                    if p["tipo"] == "ClientePersona":
-                        cliente = ClientePersona.from_dict(p)
-                        self.clientes_personas.append(cliente)
-                        self.carritos[cliente.email] = []
-                    elif p["tipo"] == "ClienteCorporativo":
-                        cliente = ClienteCorporativo.from_dict(p)
-                        self.clientes_corporativos.append(cliente)
-                        self.carritos[cliente.email] = []
-                    elif p["tipo"] == "Administrador":
-                        admin = Administrador.from_dict(p)
-                        self.administradores.append(admin)
-
-            with open("productos.json", "r", encoding='utf-8') as f:
-                productos_data = json.load(f)
-                self.productos = [Producto.from_dict(p) for p in productos_data]
-                self.product_id_counter = max([p["id_producto"] for p in productos_data], default=0) + 1  # Actualiza el contador
-
             with open("compras.json", "r", encoding='utf-8') as f:
                 compras_data = json.load(f)
                 self.compras = [Compra.from_dict(c) for c in compras_data]
@@ -356,12 +118,6 @@ class Sistema:
             pass  # No hay datos que cargar inicialmente
 
     def mostrar_recibo(self, compra):
-        """
-        Muestra el recibo de compra.
-
-        Args:
-            compra (Compra): La compra realizada.
-        """
         print(f"Felicidades por la compra, {compra.cliente.nombre}")
         print(f"Fecha: {compra.fecha.strftime('%Y-%m-%d %H:%M:%S')}\n")
         table = []
