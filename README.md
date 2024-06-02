@@ -46,9 +46,10 @@ El sistema permite agregar, eliminar y mostrar productos.
 
 ### 4. Gestión de Carritos de Compras
 
-Los clientes pueden agregar productos a su carrito de compras y visualizar el contenido del mismo.
+Los clientes pueden agregar productos a su carrito de compras, quitar productos del mismo y visualizar el contenido del mismo.
 
 - **Agregar Producto al Carrito**: Permite a un cliente agregar un producto a su carrito de compras, especificando la cantidad.
+- **Quitar Producto del Carrito**: Permite a un cliente quitar un producto de su carrito de compras.
 - **Mostrar Carrito**: Muestra la lista de productos en el carrito de compras del cliente.
 
 ### 5. Gestión de Compras

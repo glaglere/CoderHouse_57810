@@ -1,0 +1,37 @@
+[
+    {
+        "cliente": {
+            "tipo": "ClientePersona",
+            "nombre": "Lorenzo Lopez",
+            "email": "llopez@gmail.com",
+            "password": "123",
+            "direccion": "Dirección 123",
+            "telefono": "099.111.222",
+            "dni": "123456789"
+        },
+        "productos": [
+            {
+                "producto": {
+                    "id_producto": 6,
+                    "nombre": "Cámara DSLR",
+                    "descripcion": "Cámara DSLR con lente de 18-55mm",
+                    "categoria": "Fotografía",
+                    "precio": 500.0
+                },
+                "cantidad": 10
+            },
+            {
+                "producto": {
+                    "id_producto": 9,
+                    "nombre": "Monitor",
+                    "descripcion": "Monitor 27\" 4K UHD con HDR",
+                    "categoria": "Computadoras",
+                    "precio": 350.0
+                },
+                "cantidad": 2
+            }
+        ],
+        "fecha": "2024-06-02T14:55:49.398756",
+        "ticket": "lO8Id2k0SE"
+    }
+]

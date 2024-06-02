@@ -1,10 +1,14 @@
 # sistema.py
+
 import json
+
 from tabulate import tabulate
+
 from CoderHouse_57810.models.administrador import Administrador
 from CoderHouse_57810.models.cliente import ClientePersona, ClienteCorporativo
 from CoderHouse_57810.models.compra import Compra
 from CoderHouse_57810.models.producto import Producto
+
 
 class Sistema:
     """
@@ -173,6 +177,27 @@ class Sistema:
         """
         if email in self.carritos:
             self.carritos[email].append({"producto": producto, "cantidad": cantidad})
+        else:
+            raise ValueError("El cliente no existe")
+
+    def quitar_producto_del_carrito(self, email, id_producto):
+        """
+        Quita un producto del carrito de compras de un cliente.
+
+        Args:
+            email (str): El correo electrónico del cliente.
+            id_producto (int): El ID del producto a quitar.
+
+        Raises:
+            ValueError: Si el cliente no existe o el producto no está en el carrito.
+        """
+        if email in self.carritos:
+            carrito = self.carritos[email]
+            for item in carrito:
+                if item["producto"].id_producto == id_producto:
+                    carrito.remove(item)
+                    return
+            raise ValueError("El producto no está en el carrito")
         else:
             raise ValueError("El cliente no existe")
 

@@ -14,7 +14,7 @@ def mostrar_menu_cliente_logueado():
     """
     Muestra el menú de opciones para clientes logueados.
     """
-    options = ["Agregar Producto al Carrito", "Mostrar Carrito", "Concretar Compra", "Ver Historial de Compras", "Salir"]
+    options = ["Agregar Producto al Carrito", "Mostrar Carrito", "Quitar Producto del Carrito", "Concretar Compra", "Ver Historial de Compras", "Salir"]
     print_menu(options)
 
 def login(email, password, usuarios):
@@ -65,7 +65,7 @@ def operaciones_cliente_logueado(sistema, cliente):
     """
     while True:
         mostrar_menu_cliente_logueado()
-        opcion = get_option(["Agregar Producto al Carrito", "Mostrar Carrito", "Concretar Compra", "Ver Historial de Compras", "Salir"])
+        opcion = get_option(["Agregar Producto al Carrito", "Mostrar Carrito", "Quitar Producto del Carrito", "Concretar Compra", "Ver Historial de Compras", "Salir"])
         if opcion == 1:
             if not sistema.productos:
                 print("No hay productos disponibles.")
@@ -93,12 +93,19 @@ def operaciones_cliente_logueado(sistema, cliente):
                 print("El carrito está vacío.")
         elif opcion == 3:
             try:
+                id_producto = int(input("Ingrese el ID del producto a quitar del carrito: "))
+                sistema.quitar_producto_del_carrito(cliente.email, id_producto)
+                print("Producto quitado del carrito.")
+            except ValueError as e:
+                print(e)
+        elif opcion == 4:
+            try:
                 compra = sistema.concretar_compra(cliente.email)
                 if compra:
                     print("Compra concretada exitosamente.")
             except ValueError as e:
                 print(e)
-        elif opcion == 4:
+        elif opcion == 5:
             historial_compras = sistema.obtener_historial_compras_cliente(cliente.email)
             if historial_compras:
                 print("Historial de Compras:")
@@ -106,5 +113,5 @@ def operaciones_cliente_logueado(sistema, cliente):
                     print(compra)
             else:
                 print("No hay compras registradas.")
-        elif opcion == 5:
+        elif opcion == 6:
             break
