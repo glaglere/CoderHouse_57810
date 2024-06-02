@@ -5,10 +5,12 @@ def collect_input(fields):
         data[field] = input(f"Ingrese {field}: ")
     return data
 
+
 def print_menu(options, title="\nSeleccione una opción:"):
     print(title)
     for index, option in enumerate(options, start=1):
         print(f"{index}. {option}")
+
 
 def get_option(options):
     while True:

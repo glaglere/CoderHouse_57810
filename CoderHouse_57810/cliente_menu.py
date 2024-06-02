@@ -8,7 +8,8 @@ def mostrar_menu_clientes():
 
 
 def mostrar_menu_cliente_logueado():
-    options = ["Agregar Producto al Carrito", "Mostrar Carrito", "Concretar Compra", "Salir"]
+    options = ["Agregar Producto al Carrito", "Mostrar Carrito", "Concretar Compra", "Ver Historial de Compras",
+               "Salir"]
     print_menu(options)
 
 
@@ -39,7 +40,8 @@ def operaciones_clientes(sistema):
 def operaciones_cliente_logueado(sistema, cliente):
     while True:
         mostrar_menu_cliente_logueado()
-        opcion = get_option(["Agregar Producto al Carrito", "Mostrar Carrito", "Concretar Compra", "Salir"])
+        opcion = get_option(
+            ["Agregar Producto al Carrito", "Mostrar Carrito", "Concretar Compra", "Ver Historial de Compras", "Salir"])
         if opcion == 1:
             if not sistema.productos:
                 print("No hay productos disponibles.")
@@ -70,4 +72,12 @@ def operaciones_cliente_logueado(sistema, cliente):
                 print("Compra concretada exitosamente.")
                 print(compra)
         elif opcion == 4:
+            historial_compras = sistema.obtener_historial_compras_cliente(cliente.email)
+            if historial_compras:
+                print("Historial de Compras:")
+                for compra in historial_compras:
+                    print(compra)
+            else:
+                print("No hay compras registradas.")
+        elif opcion == 5:
             break

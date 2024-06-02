@@ -1,3 +1,4 @@
+# compra.py
 from CoderHouse_57810.models.cliente import ClientePersona, ClienteCorporativo
 from CoderHouse_57810.models.producto import Producto
 
@@ -19,6 +20,7 @@ class Compra:
 
     @classmethod
     def from_dict(cls, data):
-        cliente = ClientePersona.from_dict(data["cliente"]) if "dni" in data["cliente"] else ClienteCorporativo.from_dict(data["cliente"])
+        cliente = ClientePersona.from_dict(data["cliente"]) if "dni" in data[
+            "cliente"] else ClienteCorporativo.from_dict(data["cliente"])
         productos = [Producto.from_dict(prod) for prod in data["productos"]]
         return cls(cliente, productos)

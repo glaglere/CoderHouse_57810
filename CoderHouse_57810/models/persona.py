@@ -1,5 +1,3 @@
-import json
-
 class Persona:
     def __init__(self, nombre, email, password):
         self.nombre = nombre

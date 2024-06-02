@@ -1,5 +1,6 @@
 # sistema.py
 import json
+
 from CoderHouse_57810.models.administrador import Administrador
 from CoderHouse_57810.models.cliente import ClientePersona, ClienteCorporativo
 from CoderHouse_57810.models.compra import Compra
@@ -115,6 +116,12 @@ class Sistema:
             if cliente.email == email:
                 return cliente
         return None
+
+    def obtener_historial_compras_cliente(self, email):
+        return [compra for compra in self.compras if compra.cliente.email == email]
+
+    def obtener_historial_compras_todos(self):
+        return self.compras
 
     def guardar_datos(self):
         with open("personas.json", "w", encoding='utf-8') as f:

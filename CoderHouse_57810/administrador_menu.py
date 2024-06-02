@@ -9,7 +9,7 @@ def mostrar_menu_administradores():
     options = ["Agregar Cliente Persona", "Agregar Cliente Corporativo", "Agregar Administrador", "Agregar Producto",
                "Mostrar Clientes", "Mostrar Administradores", "Mostrar Productos", "Eliminar Cliente Persona",
                "Eliminar Cliente Corporativo", "Eliminar Administrador", "Eliminar Producto",
-               "Regresar al menú principal"]
+               "Ver Historial de Compras de Todos los Clientes", "Regresar al menú principal"]
     print_menu(options)
 
 
@@ -19,7 +19,8 @@ def operaciones_administradores(sistema):
         opcion = get_option(["Agregar Cliente Persona", "Agregar Cliente Corporativo", "Agregar Administrador",
                              "Agregar Producto", "Mostrar Clientes", "Mostrar Administradores", "Mostrar Productos",
                              "Eliminar Cliente Persona", "Eliminar Cliente Corporativo", "Eliminar Administrador",
-                             "Eliminar Producto", "Regresar al menú principal"])
+                             "Eliminar Producto", "Ver Historial de Compras de Todos los Clientes",
+                             "Regresar al menú principal"])
         if opcion == 1:
             data = collect_input(["nombre", "email", "contraseña", "dirección", "teléfono", "DNI"])
             cliente = ClientePersona(data["nombre"], data["email"], data["contraseña"], data["dirección"],
@@ -70,4 +71,12 @@ def operaciones_administradores(sistema):
             sistema.eliminar_producto(id_producto)
             print("Producto eliminado exitosamente.")
         elif opcion == 12:
+            compras = sistema.obtener_historial_compras_todos()
+            if compras:
+                print("Historial de Compras de Todos los Clientes:")
+                for compra in compras:
+                    print(compra)
+            else:
+                print("No hay compras registradas.")
+        elif opcion == 13:
             break
