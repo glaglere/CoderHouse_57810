@@ -52,8 +52,8 @@ def operaciones_administradores(sistema):
             else:
                 print("Error al agregar Cliente Corporativo.")
         elif opcion == 3:
-            data = collect_input(["nombre", "email", "contraseña", "código de funcionario"])
-            admin = Administrador(data["nombre"], data["email"], data["contraseña"], data["código de funcionario"])
+            data = collect_input(["nombre", "email", "contraseña", "código funcionario"])
+            admin = Administrador(data["nombre"], data["email"], data["contraseña"], data["código funcionario"])
             if sistema.agregar_administrador(admin):
                 print("Administrador agregado exitosamente.")
             else:
