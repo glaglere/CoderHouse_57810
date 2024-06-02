@@ -1,10 +1,9 @@
-
 from tabulate import tabulate
 
 from CoderHouse_57810.models.administrador import Administrador
 from CoderHouse_57810.models.cliente import ClientePersona, ClienteCorporativo
 from CoderHouse_57810.models.producto import Producto
-from CoderHouse_57810.services.helpers import print_menu, get_option, collect_input
+from CoderHouse_57810.services.helpers import print_menu, get_option, collect_input, validations
 
 
 def mostrar_menu_administradores():
@@ -61,14 +60,15 @@ def operaciones_administradores(sistema):
             else:
                 print("Error al agregar Administrador.")
         elif opcion == 4:
-            data = collect_input(["nombre del producto", "descripción del producto", "categoría del producto",
-                                  "precio del producto"])
-            producto = Producto(data["nombre del producto"], data["descripción del producto"],
-                                data["categoría del producto"], float(data["precio del producto"]))
-            if sistema.agregar_producto(producto):
-                print("Producto agregado exitosamente.")
-            else:
-                print("Error al agregar Producto.")
+            try:
+                data = collect_input(["nombre del producto", "descripción del producto", "categoría del producto",
+                                      "precio del producto"])
+                producto = Producto(data["nombre del producto"], data["descripción del producto"],
+                                    data["categoría del producto"], float(data["precio del producto"]))
+                if sistema.agregar_producto(producto):
+                    print("Producto agregado exitosamente.")
+            except ValueError as e:
+                print(f"Error al agregar Producto: {e}")
         elif opcion == 5:
             sistema.mostrar_clientes()
         elif opcion == 6:

@@ -90,6 +90,15 @@
         "dni": "31364851"
     },
     {
+        "tipo": "ClientePersona",
+        "nombre": "Gonzalo Sanchez",
+        "email": "gsanchez@gmail.com",
+        "password": "1Contraseña",
+        "direccion": "Dirección 4444",
+        "telefono": "099888999",
+        "dni": "7894561"
+    },
+    {
         "tipo": "ClienteCorporativo",
         "nombre": "Corp Tech",
         "email": "corptech@gmail.com",

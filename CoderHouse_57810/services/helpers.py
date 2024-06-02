@@ -1,24 +1,25 @@
 # helpers.py
 
 from tabulate import tabulate
-
 from CoderHouse_57810.services.seguridad import Seguridad
 
 validations = {
     "nombre": ("El nombre debe tener al menos 5 caracteres, no contener números, solo letras y "
-               "espacios en blanco, y debe comenzar con una letra.", Seguridad.validar_no_vacio),
+               "espacios en blanco, y debe comenzar con una letra.", Seguridad.validar_nombre_usuario),
     "email": ("El email debe tener un formato válido.", Seguridad.validar_email),
     "contraseña": (
-    "La contraseña debe tener al menos 8 caracteres y contener letras y números.", Seguridad.validar_password),
+        "La contraseña debe tener al menos 8 caracteres y contener letras y números.", Seguridad.validar_password),
     "dirección": ("La dirección no puede estar vacía.", Seguridad.validar_no_vacio),
     "teléfono": ("El teléfono debe contener solo números y tener al menos 7 caracteres.", Seguridad.validar_telefono),
     "DNI": ("El DNI debe contener solo números.", Seguridad.validar_dni),
     "CUIT": ("El CUIT no puede estar vacío.", Seguridad.validar_no_vacio),
+    "nombre del producto": ("El nombre del producto debe tener solo letras y espacios, y no puede estar vacío.", Seguridad.validar_no_vacio),
+    "descripción del producto": ("La descripción del producto debe tener solo letras y espacios, y no puede estar vacía.", Seguridad.validar_no_vacio),
+    "categoría del producto": ("La categoría del producto no puede estar vacía.", Seguridad.validar_no_vacio),
     "precio del producto": (
-    "El precio del producto debe ser un número mayor a 0.", lambda x: x.isdigit() and float(x) > 0),
+        "El precio del producto debe ser un número mayor a 0.", lambda x: x.replace('.', '', 1).isdigit() and float(x) > 0),
     "código funcionario": ("El código funcionario no puede estar vacío.", Seguridad.validar_no_vacio)
 }
-
 
 def collect_input(fields):
     """
@@ -42,7 +43,6 @@ def collect_input(fields):
                 print(f"{error_message} Inténtelo nuevamente.")
     return data
 
-
 def print_menu(options, title="\nSeleccione una opción:"):
     """
     Muestra un menú con opciones utilizando la biblioteca tabulate.
@@ -54,7 +54,6 @@ def print_menu(options, title="\nSeleccione una opción:"):
     print(title)
     table = [[index + 1, option] for index, option in enumerate(options)]
     print(tabulate(table, headers=["Opción", "Descripción"], tablefmt="pretty"))
-
 
 def get_option(options):
     """
