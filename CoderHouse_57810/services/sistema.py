@@ -166,20 +166,26 @@ class Sistema:
             ValueError: Si alguna de las validaciones del producto falla.
             TypeError: Si el argumento producto no es una instancia de Producto.
         """
-        if isinstance(producto, Producto):
-            if not Seguridad.validar_no_vacio(producto.nombre):
-                raise ValueError("El nombre del producto no puede estar vacío.")
-            if not Seguridad.validar_no_vacio(producto.descripcion):
-                raise ValueError("La descripción del producto no puede estar vacía.")
-            if not Seguridad.validar_no_vacio(producto.categoria):
-                raise ValueError("La categoría del producto no puede estar vacía.")
-            if producto.precio <= 0:
-                raise ValueError("El precio del producto debe ser mayor a 0.")
-            producto.id_producto = self.product_id_counter  # Asigna el siguiente ID disponible
-            self.product_id_counter += 1  # Incrementa el contador de IDs
-            self.productos.append(producto)
-        else:
-            raise TypeError("El producto debe ser una instancia de Producto")
+        result = False
+        try:
+            if isinstance(producto, Producto):
+                if not Seguridad.validar_no_vacio(producto.nombre):
+                    raise ValueError("El nombre del producto no puede estar vacío.")
+                if not Seguridad.validar_no_vacio(producto.descripcion):
+                    raise ValueError("La descripción del producto no puede estar vacía.")
+                if not Seguridad.validar_no_vacio(producto.categoria):
+                    raise ValueError("La categoría del producto no puede estar vacía.")
+                if producto.precio <= 0:
+                    raise ValueError("El precio del producto debe ser mayor a 0.")
+                producto.id_producto = self.product_id_counter  # Asigna el siguiente ID disponible
+                self.product_id_counter += 1  # Incrementa el contador de IDs
+                self.productos.append(producto)
+                result = True
+            else:
+                raise TypeError("El producto debe ser una instancia de Producto")
+        except (ValueError, TypeError) as e:
+            print(f"Error al agregar administrador: {e}")
+        return result
 
     def mostrar_clientes(self):
         """

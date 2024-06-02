@@ -13,7 +13,7 @@ validations = {
     "teléfono": ("El teléfono debe contener solo números y tener al menos 7 caracteres.", Seguridad.validar_telefono),
     "DNI": ("El DNI debe contener solo números.", Seguridad.validar_dni),
     "CUIT": ("El CUIT no puede estar vacío.", Seguridad.validar_no_vacio),
-    "nombre del producto": ("El nombre del producto debe tener solo letras y espacios, y no puede estar vacío.", Seguridad.validar_no_vacio),
+    "nombre del producto": ("El nombre del producto debe tener solo letras y espacios, y no puede estar vacío.", Seguridad.validar_nombre_usuario),
     "descripción del producto": ("La descripción del producto debe tener solo letras y espacios, y no puede estar vacía.", Seguridad.validar_no_vacio),
     "categoría del producto": ("La categoría del producto no puede estar vacía.", Seguridad.validar_no_vacio),
     "precio del producto": (

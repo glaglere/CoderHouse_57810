@@ -5,7 +5,6 @@ from CoderHouse_57810.models.cliente import ClientePersona, ClienteCorporativo
 from CoderHouse_57810.models.producto import Producto
 from CoderHouse_57810.services.helpers import print_menu, get_option, collect_input, validations
 
-
 def mostrar_menu_administradores():
     """
     Muestra el menú principal de administradores.
@@ -18,7 +17,6 @@ def mostrar_menu_administradores():
         "Regresar al menú principal"
     ]
     print_menu(options)
-
 
 def operaciones_administradores(sistema):
     """
@@ -67,6 +65,8 @@ def operaciones_administradores(sistema):
                                     data["categoría del producto"], float(data["precio del producto"]))
                 if sistema.agregar_producto(producto):
                     print("Producto agregado exitosamente.")
+                else:
+                    print("Error al agregar Producto.")
             except ValueError as e:
                 print(f"Error al agregar Producto: {e}")
         elif opcion == 5:
