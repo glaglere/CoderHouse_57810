@@ -1,4 +1,7 @@
 # helpers.py
+from tabulate import tabulate
+
+
 def collect_input(fields):
     data = {}
     for field in fields:
@@ -8,8 +11,8 @@ def collect_input(fields):
 
 def print_menu(options, title="\nSeleccione una opción:"):
     print(title)
-    for index, option in enumerate(options, start=1):
-        print(f"{index}. {option}")
+    table = [[index + 1, option] for index, option in enumerate(options)]
+    print(tabulate(table, headers=["Opción", "Descripción"], tablefmt="pretty"))
 
 
 def get_option(options):

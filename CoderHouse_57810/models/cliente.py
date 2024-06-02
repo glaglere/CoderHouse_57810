@@ -1,5 +1,5 @@
+# cliente.py
 from CoderHouse_57810.models.persona import Persona
-
 
 class Cliente(Persona):
     def __init__(self, nombre, email, password, direccion, telefono):
@@ -22,7 +22,6 @@ class Cliente(Persona):
     def from_dict(cls, data):
         return cls(data["nombre"], data["email"], data["password"], data["direccion"], data["telefono"])
 
-
 class ClientePersona(Cliente):
     def __init__(self, nombre, email, password, direccion, telefono, dni):
         super().__init__(nombre, email, password, direccion, telefono)
@@ -39,7 +38,6 @@ class ClientePersona(Cliente):
     @classmethod
     def from_dict(cls, data):
         return cls(data["nombre"], data["email"], data["password"], data["direccion"], data["telefono"], data["dni"])
-
 
 class ClienteCorporativo(Cliente):
     def __init__(self, nombre, email, password, direccion, telefono, cuit):

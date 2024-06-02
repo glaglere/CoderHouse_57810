@@ -1,18 +1,27 @@
 [
     {
-        "nombre": "lolo",
-        "email": "lolo@gmail.com",
+        "tipo": "ClientePersona",
+        "nombre": "Lorenzo Lopez",
+        "email": "llopez@gmail.com",
         "password": "123",
-        "direccion": "dire",
-        "telefono": "tel",
-        "dni": "dni"
+        "direccion": "Dirección 123",
+        "telefono": "099.111.222",
+        "dni": "123456789"
     },
     {
-        "nombre": "Corp",
-        "email": "corp@gmail.com",
-        "password": "456",
-        "direccion": "direc",
-        "telefono": "telf",
-        "cuit": "777888999"
+        "tipo": "ClienteCorporativo",
+        "nombre": "Corporate Ltda",
+        "email": "corporate@gmail.com",
+        "password": "123",
+        "direccion": "Dirección 234",
+        "telefono": "098.123.456",
+        "cuit": "123456789"
+    },
+    {
+        "tipo": "Administrador",
+        "nombre": "Admin User",
+        "email": "admin@example.com",
+        "password": "adminpass",
+        "codigo_funcionario": "001"
     }
 ]

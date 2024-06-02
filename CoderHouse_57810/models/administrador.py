@@ -1,6 +1,5 @@
 from CoderHouse_57810.models.persona import Persona
 
-
 class Administrador(Persona):
     def __init__(self, nombre, email, password, codigo_funcionario):
         super().__init__(nombre, email, password)
@@ -17,3 +16,4 @@ class Administrador(Persona):
     @classmethod
     def from_dict(cls, data):
         return cls(data["nombre"], data["email"], data["password"], data["codigo_funcionario"])
+

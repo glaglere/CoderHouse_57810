@@ -1,3 +1,4 @@
+# persona.py
 class Persona:
     def __init__(self, nombre, email, password):
         self.nombre = nombre
@@ -9,6 +10,7 @@ class Persona:
 
     def to_dict(self):
         return {
+            "tipo": self.__class__.__name__,
             "nombre": self.nombre,
             "email": self.email,
             "password": self.password

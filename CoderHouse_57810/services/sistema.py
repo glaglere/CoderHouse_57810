@@ -1,11 +1,10 @@
 # sistema.py
 import json
-
+from tabulate import tabulate
 from CoderHouse_57810.models.administrador import Administrador
 from CoderHouse_57810.models.cliente import ClientePersona, ClienteCorporativo
 from CoderHouse_57810.models.compra import Compra
 from CoderHouse_57810.models.producto import Producto
-
 
 class Sistema:
     def __init__(self):
@@ -48,31 +47,31 @@ class Sistema:
     def mostrar_clientes(self):
         print("Clientes Personas:")
         if self.clientes_personas:
-            for cliente in self.clientes_personas:
-                print(cliente)
+            table = [[cliente.nombre, cliente.email, cliente.direccion, cliente.telefono, cliente.dni] for cliente in self.clientes_personas]
+            print(tabulate(table, headers=["Nombre", "Email", "Dirección", "Teléfono", "DNI"], tablefmt="pretty"))
         else:
             print("No hay clientes personas registrados.")
 
         print("\nClientes Corporativos:")
         if self.clientes_corporativos:
-            for cliente in self.clientes_corporativos:
-                print(cliente)
+            table = [[cliente.nombre, cliente.email, cliente.direccion, cliente.telefono, cliente.cuit] for cliente in self.clientes_corporativos]
+            print(tabulate(table, headers=["Nombre", "Email", "Dirección", "Teléfono", "CUIT"], tablefmt="pretty"))
         else:
             print("No hay clientes corporativos registrados.")
 
     def mostrar_administradores(self):
         print("Administradores:")
         if self.administradores:
-            for admin in self.administradores:
-                print(admin)
+            table = [[admin.nombre, admin.email, admin.codigo_funcionario] for admin in self.administradores]
+            print(tabulate(table, headers=["Nombre", "Email", "Código Funcionario"], tablefmt="pretty"))
         else:
             print("No hay administradores registrados.")
 
     def mostrar_productos(self):
         print("Productos:")
         if self.productos:
-            for producto in self.productos:
-                print(producto)
+            table = [[producto.id_producto, producto.nombre, producto.descripcion, producto.categoria, producto.precio] for producto in self.productos]
+            print(tabulate(table, headers=["ID", "Nombre", "Descripción", "Categoría", "Precio"], tablefmt="pretty"))
         else:
             print("No hay productos registrados.")
 
@@ -125,8 +124,7 @@ class Sistema:
 
     def guardar_datos(self):
         with open("personas.json", "w", encoding='utf-8') as f:
-            json.dump([cliente.to_dict() for cliente in self.clientes_personas + self.clientes_corporativos], f,
-                      indent=4, ensure_ascii=False)
+            json.dump([cliente.to_dict() for cliente in self.clientes_personas + self.clientes_corporativos + self.administradores], f, indent=4, ensure_ascii=False)
         with open("productos.json", "w", encoding='utf-8') as f:
             json.dump([producto.to_dict() for producto in self.productos], f, indent=4, ensure_ascii=False)
         with open("compras.json", "w", encoding='utf-8') as f:
@@ -136,15 +134,23 @@ class Sistema:
         try:
             with open("personas.json", "r", encoding='utf-8') as f:
                 personas_data = json.load(f)
-                self.clientes_personas = [ClientePersona.from_dict(p) if "dni" in p else ClienteCorporativo.from_dict(p)
-                                          for p in personas_data]
-                self.carritos = {p["email"]: [] for p in personas_data}
+                for p in personas_data:
+                    if p["tipo"] == "ClientePersona":
+                        cliente = ClientePersona.from_dict(p)
+                        self.clientes_personas.append(cliente)
+                        self.carritos[cliente.email] = []
+                    elif p["tipo"] == "ClienteCorporativo":
+                        cliente = ClienteCorporativo.from_dict(p)
+                        self.clientes_corporativos.append(cliente)
+                        self.carritos[cliente.email] = []
+                    elif p["tipo"] == "Administrador":
+                        admin = Administrador.from_dict(p)
+                        self.administradores.append(admin)
 
             with open("productos.json", "r", encoding='utf-8') as f:
                 productos_data = json.load(f)
                 self.productos = [Producto.from_dict(p) for p in productos_data]
-                self.product_id_counter = max([p["id_producto"] for p in productos_data],
-                                              default=0) + 1  # Update the counter
+                self.product_id_counter = max([p["id_producto"] for p in productos_data], default=0) + 1  # Update the counter
 
             with open("compras.json", "r", encoding='utf-8') as f:
                 compras_data = json.load(f)
