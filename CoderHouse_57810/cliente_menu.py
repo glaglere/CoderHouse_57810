@@ -12,12 +12,18 @@ def mostrar_menu_clientes():
     options = ["Loguearse", "Regresar al menú principal"]
     print_menu(options)
 
+
 def mostrar_menu_cliente_logueado():
     """
     Muestra el menú de opciones para clientes logueados.
     """
-    options = ["Agregar Producto al Carrito", "Mostrar Carrito", "Quitar Producto del Carrito", "Concretar Compra", "Ver Historial de Compras", "Salir"]
+    options = [
+        "Agregar Producto al Carrito", "Mostrar Carrito", "Quitar Producto del Carrito",
+        "Concretar Compra", "Ver Historial de Compras", "Listar Todos los Productos",
+        "Listar Productos por Categoría", "Salir"
+    ]
     print_menu(options)
+
 
 def login(email, password, usuarios):
     """
@@ -35,6 +41,7 @@ def login(email, password, usuarios):
         if usuario.email == email and usuario.password == password:
             return usuario
     return None
+
 
 def operaciones_clientes(sistema):
     """
@@ -57,6 +64,7 @@ def operaciones_clientes(sistema):
         elif opcion == 2:
             break
 
+
 def operaciones_cliente_logueado(sistema, cliente):
     """
     Maneja las operaciones disponibles para un cliente logueado.
@@ -67,7 +75,11 @@ def operaciones_cliente_logueado(sistema, cliente):
     """
     while True:
         mostrar_menu_cliente_logueado()
-        opcion = get_option(["Agregar Producto al Carrito", "Mostrar Carrito", "Quitar Producto del Carrito", "Concretar Compra", "Ver Historial de Compras", "Salir"])
+        opcion = get_option([
+            "Agregar Producto al Carrito", "Mostrar Carrito", "Quitar Producto del Carrito",
+            "Concretar Compra", "Ver Historial de Compras", "Listar Todos los Productos",
+            "Listar Productos por Categoría", "Salir"
+        ])
         if opcion == 1:
             if not sistema.productos:
                 print("No hay productos disponibles.")
@@ -89,7 +101,8 @@ def operaciones_cliente_logueado(sistema, cliente):
             carrito = sistema.mostrar_carrito(cliente.email)
             if carrito:
                 print("Carrito:")
-                table = [[item["producto"].id_producto, item["producto"].nombre, item["producto"].descripcion, item["producto"].categoria, item["producto"].precio, item["cantidad"]] for item in carrito]
+                table = [[item["producto"].id_producto, item["producto"].nombre, item["producto"].descripcion,
+                          item["producto"].categoria, item["producto"].precio, item["cantidad"]] for item in carrito]
                 print(tabulate(table, headers=["ID", "Nombre", "Descripción", "Categoría", "Precio", "Cantidad"], tablefmt="pretty"))
             else:
                 print("El carrito está vacío.")
@@ -116,4 +129,22 @@ def operaciones_cliente_logueado(sistema, cliente):
             else:
                 print("No hay compras registradas.")
         elif opcion == 6:
+            sistema.mostrar_productos()
+        elif opcion == 7:
+            categorias = sistema.obtener_categorias_productos()
+            if not categorias:
+                print("No hay categorías disponibles.")
+                continue
+            print("Categorías:")
+            table = [[index + 1, categoria] for index, categoria in enumerate(categorias)]
+            print(tabulate(table, headers=["Opción", "Categoría"], tablefmt="pretty"))
+            try:
+                opcion_categoria = int(input("Seleccione una categoría: ")) - 1
+                if 0 <= opcion_categoria < len(categorias):
+                    sistema.mostrar_productos_por_categoria(categorias[opcion_categoria])
+                else:
+                    print("Opción no válida.")
+            except ValueError:
+                print("Entrada no válida.")
+        elif opcion == 8:
             break

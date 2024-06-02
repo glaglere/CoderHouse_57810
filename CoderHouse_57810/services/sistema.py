@@ -37,6 +37,34 @@ class Sistema:
         self.compras = []
         self.product_id_counter = 1  # Inicializa el contador de IDs de productos
 
+    def obtener_categorias_productos(self):
+        """
+        Obtiene una lista de categorías de productos disponibles.
+
+        Returns:
+            list: Lista de categorías de productos.
+        """
+        categorias = set(producto.categoria for producto in self.productos)
+        return list(categorias)
+
+    def mostrar_productos_por_categoria(self, categoria):
+        """
+        Muestra los productos de una categoría específica.
+
+        Args:
+            categoria (str): La categoría de los productos a mostrar.
+        """
+        productos_filtrados = [producto for producto in self.productos if producto.categoria == categoria]
+        if productos_filtrados:
+            print(f"Productos en la categoría '{categoria}':")
+            table = [[producto.id_producto, producto.nombre, producto.descripcion, producto.categoria, producto.precio]
+                     for producto in productos_filtrados]
+            print(tabulate(table, headers=["ID", "Nombre", "Descripción", "Categoría", "Precio"], tablefmt="pretty"))
+        else:
+            print(f"No hay productos disponibles en la categoría '{categoria}'.")
+
+
+
     def email_exists(self, email):
         """
         Verifies if an email already exists in the system.
