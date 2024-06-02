@@ -6,9 +6,11 @@ from services.sistema import Sistema
 
 
 def mostrar_menu():
+    """
+    Muestra el menú principal del sistema.
+    """
     options = ["Operaciones de Clientes", "Operaciones de Administradores", "Salir"]
     print_menu(options)
-
 
 if __name__ == '__main__':
     # Creación del sistema

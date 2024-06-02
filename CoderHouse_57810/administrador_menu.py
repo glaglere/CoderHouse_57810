@@ -1,4 +1,6 @@
 # administrador_menu.py
+from tabulate import tabulate
+
 from CoderHouse_57810.models.administrador import Administrador
 from CoderHouse_57810.models.cliente import ClientePersona, ClienteCorporativo
 from CoderHouse_57810.models.producto import Producto
@@ -6,6 +8,9 @@ from CoderHouse_57810.services.helpers import print_menu, get_option, collect_in
 
 
 def mostrar_menu_administradores():
+    """
+    Muestra el menú principal de administradores.
+    """
     options = ["Agregar Cliente Persona", "Agregar Cliente Corporativo", "Agregar Administrador", "Agregar Producto",
                "Mostrar Clientes", "Mostrar Administradores", "Mostrar Productos", "Eliminar Cliente Persona",
                "Eliminar Cliente Corporativo", "Eliminar Administrador", "Eliminar Producto",
@@ -14,6 +19,12 @@ def mostrar_menu_administradores():
 
 
 def operaciones_administradores(sistema):
+    """
+    Maneja las operaciones disponibles para los administradores.
+
+    Args:
+        sistema (Sistema): La instancia del sistema.
+    """
     while True:
         mostrar_menu_administradores()
         opcion = get_option(["Agregar Cliente Persona", "Agregar Cliente Corporativo", "Agregar Administrador",
@@ -74,8 +85,10 @@ def operaciones_administradores(sistema):
             compras = sistema.obtener_historial_compras_todos()
             if compras:
                 print("Historial de Compras de Todos los Clientes:")
-                for compra in compras:
-                    print(compra)
+                table = [
+                    [compra.cliente.nombre, compra.cliente.email, ", ".join([prod.nombre for prod in compra.productos])]
+                    for compra in compras]
+                print(tabulate(table, headers=["Cliente", "Email", "Productos"], tablefmt="pretty"))
             else:
                 print("No hay compras registradas.")
         elif opcion == 13:

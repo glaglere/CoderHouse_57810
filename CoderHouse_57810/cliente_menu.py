@@ -1,31 +1,56 @@
-# cliente_menu.py
-
 from tabulate import tabulate
-
 from CoderHouse_57810.services.helpers import print_menu, get_option, collect_input
 
 
 def mostrar_menu_clientes():
+    """
+    Muestra el menú principal de clientes.
+    """
     options = ["Loguearse", "Regresar al menú principal"]
     print_menu(options)
 
+
 def mostrar_menu_cliente_logueado():
-    options = ["Agregar Producto al Carrito", "Mostrar Carrito", "Concretar Compra", "Ver Historial de Compras", "Salir"]
+    """
+    Muestra el menú de opciones para clientes logueados.
+    """
+    options = ["Agregar Producto al Carrito", "Mostrar Carrito", "Concretar Compra", "Ver Historial de Compras",
+               "Salir"]
     print_menu(options)
 
+
 def login(email, password, usuarios):
+    """
+    Realiza el login de un cliente.
+
+    Args:
+        email (str): El correo electrónico del cliente.
+        password (str): La contraseña del cliente.
+        usuarios (list): La lista de usuarios registrados.
+
+    Returns:
+        Usuario: El usuario que se loguea, None si no se encuentra.
+    """
     for usuario in usuarios:
         if usuario.email == email and usuario.password == password:
             return usuario
     return None
 
+
 def operaciones_clientes(sistema):
+    """
+    Maneja las operaciones disponibles para los clientes.
+
+    Args:
+        sistema (Sistema): La instancia del sistema.
+    """
     while True:
         mostrar_menu_clientes()
         opcion = get_option(["Loguearse", "Regresar al menú principal"])
         if opcion == 1:
             credentials = collect_input(["email", "contraseña"])
-            cliente = login(credentials["email"], credentials["contraseña"], sistema.clientes_personas + sistema.clientes_corporativos)
+            cliente = login(credentials["email"], credentials["contraseña"],
+                            sistema.clientes_personas + sistema.clientes_corporativos)
             if cliente:
                 print(f"Bienvenido {cliente.nombre}")
                 operaciones_cliente_logueado(sistema, cliente)
@@ -34,10 +59,19 @@ def operaciones_clientes(sistema):
         elif opcion == 2:
             break
 
+
 def operaciones_cliente_logueado(sistema, cliente):
+    """
+    Maneja las operaciones disponibles para un cliente logueado.
+
+    Args:
+        sistema (Sistema): La instancia del sistema.
+        cliente (ClientePersona o ClienteCorporativo): El cliente logueado.
+    """
     while True:
         mostrar_menu_cliente_logueado()
-        opcion = get_option(["Agregar Producto al Carrito", "Mostrar Carrito", "Concretar Compra", "Ver Historial de Compras", "Salir"])
+        opcion = get_option(
+            ["Agregar Producto al Carrito", "Mostrar Carrito", "Concretar Compra", "Ver Historial de Compras", "Salir"])
         if opcion == 1:
             if not sistema.productos:
                 print("No hay productos disponibles.")
@@ -58,8 +92,11 @@ def operaciones_cliente_logueado(sistema, cliente):
             carrito = sistema.mostrar_carrito(cliente.email)
             if carrito:
                 print("Carrito:")
-                table = [[producto.id_producto, producto.nombre, producto.descripcion, producto.categoria, producto.precio] for producto in carrito]
-                print(tabulate(table, headers=["ID", "Nombre", "Descripción", "Categoría", "Precio"], tablefmt="pretty"))
+                table = [
+                    [producto.id_producto, producto.nombre, producto.descripcion, producto.categoria, producto.precio]
+                    for producto in carrito]
+                print(
+                    tabulate(table, headers=["ID", "Nombre", "Descripción", "Categoría", "Precio"], tablefmt="pretty"))
             else:
                 print("El carrito está vacío.")
         elif opcion == 3:
