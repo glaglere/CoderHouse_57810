@@ -1,8 +1,8 @@
 # main.py
 from CoderHouse_57810.services.helpers import print_menu, get_option
-from administrador_menu import operaciones_administradores
-from cliente_menu import operaciones_clientes
-from services.sistema import Sistema
+from CoderHouse_57810.administrador_menu import operaciones_administradores
+from CoderHouse_57810.cliente_menu import operaciones_clientes
+from CoderHouse_57810.services.sistema import Sistema
 
 
 def mostrar_menu():
@@ -12,7 +12,8 @@ def mostrar_menu():
     options = ["Operaciones de Clientes", "Operaciones de Administradores", "Salir"]
     print_menu(options)
 
-if __name__ == '__main__':
+
+def main():
     # Creación del sistema
     sistema_principal = Sistema()
     sistema_principal.cargar_datos()
@@ -34,3 +35,7 @@ if __name__ == '__main__':
                 print(f"Se produjo un error: {e}")
     finally:
         sistema_principal.guardar_datos()
+
+
+if __name__ == '__main__':
+    main()

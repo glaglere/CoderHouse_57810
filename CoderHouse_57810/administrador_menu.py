@@ -1,8 +1,10 @@
+
+from tabulate import tabulate
+
 from CoderHouse_57810.models.administrador import Administrador
 from CoderHouse_57810.models.cliente import ClientePersona, ClienteCorporativo
 from CoderHouse_57810.models.producto import Producto
 from CoderHouse_57810.services.helpers import print_menu, get_option, collect_input
-from tabulate import tabulate
 
 
 def mostrar_menu_administradores():
