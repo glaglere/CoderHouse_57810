@@ -1,13 +1,15 @@
 # sistema.py
 
 import json
-
 from tabulate import tabulate
-
+from datetime import datetime
+import random
+import string
 from CoderHouse_57810.models.administrador import Administrador
 from CoderHouse_57810.models.cliente import ClientePersona, ClienteCorporativo
 from CoderHouse_57810.models.compra import Compra
 from CoderHouse_57810.models.producto import Producto
+from CoderHouse_57810.services.seguridad import Seguridad
 
 
 class Sistema:
@@ -34,7 +36,7 @@ class Sistema:
         self.productos = []
         self.carritos = {}
         self.compras = []
-        self.product_id_counter = 1  # Initialize product ID counter
+        self.product_id_counter = 1  # Inicializa el contador de IDs de productos
 
     def agregar_cliente_persona(self, cliente):
         """
@@ -44,6 +46,18 @@ class Sistema:
             cliente (ClientePersona): El cliente persona a agregar.
         """
         if isinstance(cliente, ClientePersona):
+            if not Seguridad.validar_no_vacio(cliente.nombre) or not Seguridad.validar_nombre_usuario(cliente.nombre):
+                raise ValueError("El nombre del cliente persona no es válido.")
+            if not Seguridad.validar_email(cliente.email):
+                raise ValueError("El email del cliente persona no es válido.")
+            if not Seguridad.validar_password(cliente.password):
+                raise ValueError("La contraseña del cliente persona no es válida.")
+            if not Seguridad.validar_no_vacio(cliente.direccion):
+                raise ValueError("La dirección del cliente persona no puede estar vacía.")
+            if not Seguridad.validar_telefono(cliente.telefono):
+                raise ValueError("El teléfono del cliente persona no es válido.")
+            if not Seguridad.validar_dni(cliente.dni):
+                raise ValueError("El DNI del cliente persona no es válido.")
             self.clientes_personas.append(cliente)
             self.carritos[cliente.email] = []
         else:
@@ -57,6 +71,18 @@ class Sistema:
             cliente (ClienteCorporativo): El cliente corporativo a agregar.
         """
         if isinstance(cliente, ClienteCorporativo):
+            if not Seguridad.validar_no_vacio(cliente.nombre) or not Seguridad.validar_nombre_usuario(cliente.nombre):
+                raise ValueError("El nombre del cliente corporativo no es válido.")
+            if not Seguridad.validar_email(cliente.email):
+                raise ValueError("El email del cliente corporativo no es válido.")
+            if not Seguridad.validar_password(cliente.password):
+                raise ValueError("La contraseña del cliente corporativo no es válida.")
+            if not Seguridad.validar_no_vacio(cliente.direccion):
+                raise ValueError("La dirección del cliente corporativo no puede estar vacía.")
+            if not Seguridad.validar_telefono(cliente.telefono):
+                raise ValueError("El teléfono del cliente corporativo no es válido.")
+            if not Seguridad.validar_no_vacio(cliente.cuit):
+                raise ValueError("El CUIT del cliente corporativo no puede estar vacío.")
             self.clientes_corporativos.append(cliente)
             self.carritos[cliente.email] = []
         else:
@@ -70,6 +96,14 @@ class Sistema:
             nuevo_administrador (Administrador): El administrador a agregar.
         """
         if isinstance(nuevo_administrador, Administrador):
+            if not Seguridad.validar_no_vacio(nuevo_administrador.nombre) or not Seguridad.validar_nombre_usuario(nuevo_administrador.nombre):
+                raise ValueError("El nombre del administrador no es válido.")
+            if not Seguridad.validar_email(nuevo_administrador.email):
+                raise ValueError("El email del administrador no es válido.")
+            if not Seguridad.validar_password(nuevo_administrador.password):
+                raise ValueError("La contraseña del administrador no es válida.")
+            if not Seguridad.validar_no_vacio(nuevo_administrador.codigo_funcionario):
+                raise ValueError("El código de funcionario del administrador no puede estar vacío.")
             self.administradores.append(nuevo_administrador)
         else:
             raise TypeError("El administrador debe ser una instancia de Administrador")
@@ -82,8 +116,16 @@ class Sistema:
             producto (Producto): El producto a agregar.
         """
         if isinstance(producto, Producto):
-            producto.id_producto = self.product_id_counter  # Assign the next available ID
-            self.product_id_counter += 1  # Increment the ID counter
+            if not Seguridad.validar_no_vacio(producto.nombre):
+                raise ValueError("El nombre del producto no puede estar vacío.")
+            if not Seguridad.validar_no_vacio(producto.descripcion):
+                raise ValueError("La descripción del producto no puede estar vacía.")
+            if not Seguridad.validar_no_vacio(producto.categoria):
+                raise ValueError("La categoría del producto no puede estar vacía.")
+            if producto.precio <= 0:
+                raise ValueError("El precio del producto debe ser mayor a 0.")
+            producto.id_producto = self.product_id_counter  # Asigna el siguiente ID disponible
+            self.product_id_counter += 1  # Incrementa el contador de IDs
             self.productos.append(producto)
         else:
             raise TypeError("El producto debe ser una instancia de Producto")
@@ -305,13 +347,13 @@ class Sistema:
             with open("productos.json", "r", encoding='utf-8') as f:
                 productos_data = json.load(f)
                 self.productos = [Producto.from_dict(p) for p in productos_data]
-                self.product_id_counter = max([p["id_producto"] for p in productos_data], default=0) + 1  # Update the counter
+                self.product_id_counter = max([p["id_producto"] for p in productos_data], default=0) + 1  # Actualiza el contador
 
             with open("compras.json", "r", encoding='utf-8') as f:
                 compras_data = json.load(f)
                 self.compras = [Compra.from_dict(c) for c in compras_data]
         except FileNotFoundError:
-            pass  # No data to load initially
+            pass  # No hay datos que cargar inicialmente
 
     def mostrar_recibo(self, compra):
         """
