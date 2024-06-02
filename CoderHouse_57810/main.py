@@ -1,122 +1,7 @@
-class Persona:
-    def __init__(self, nombre, email, password):
-        self.nombre = nombre
-        self.email = email
-        self.password = password
-
-    def __str__(self):
-        return f'{self.nombre}, Email: {self.email}'
-
-
-class Cliente(Persona):
-    def __init__(self, nombre, email, password, direccion, telefono):
-        super().__init__(nombre, email, password)
-        self.direccion = direccion
-        self.telefono = telefono
-
-    def __str__(self):
-        return f'{super().__str__()}, Dirección: {self.direccion}, Teléfono: {self.telefono}'
-
-
-class ClientePersona(Cliente):
-    def __init__(self, nombre, email, password, direccion, telefono, dni):
-        super().__init__(nombre, email, password, direccion, telefono)
-        self.dni = dni
-
-    def __str__(self):
-        return f'{super().__str__()}, DNI: {self.dni}'
-
-
-class ClienteCorporativo(Cliente):
-    def __init__(self, nombre, email, password, direccion, telefono, cuit):
-        super().__init__(nombre, email, password, direccion, telefono)
-        self.cuit = cuit
-
-    def __str__(self):
-        return f'{super().__str__()}, CUIT: {self.cuit}'
-
-
-class Administrador(Persona):
-    def __init__(self, nombre, email, password, codigo_funcionario):
-        super().__init__(nombre, email, password)
-        self.codigo_funcionario = codigo_funcionario
-
-    def __str__(self):
-        return f'{super().__str__()}, Funcionario n°: {self.codigo_funcionario}'
-
-
-class Producto:
-    def __init__(self, id_producto, nombre, descripcion, categoria, precio):
-        self.id_producto = id_producto
-        self.nombre = nombre
-        self.descripcion = descripcion
-        self.categoria = categoria
-        self.precio = precio
-
-    def __str__(self):
-        return f'ID: {self.id_producto}, Nombre: {self.nombre}, Descripción: {self.descripcion}, Categoría: {self.categoria}, Precio: {self.precio}'
-
-
-class Sistema:
-    def __init__(self):
-        self.clientes_personas = []
-        self.clientes_corporativos = []
-        self.administradores = []
-        self.productos = []
-
-    def agregar_cliente_persona(self, cliente):
-        if isinstance(cliente, ClientePersona):
-            self.clientes_personas.append(cliente)
-        else:
-            raise TypeError("El cliente debe ser una instancia de ClientePersona")
-
-    def agregar_cliente_corporativo(self, cliente):
-        if isinstance(cliente, ClienteCorporativo):
-            self.clientes_corporativos.append(cliente)
-        else:
-            raise TypeError("El cliente debe ser una instancia de ClienteCorporativo")
-
-    def agregar_administrador(self, administrador):
-        if isinstance(administrador, Administrador):
-            self.administradores.append(administrador)
-        else:
-            raise TypeError("El administrador debe ser una instancia de Administrador")
-
-    def agregar_producto(self, producto):
-        if isinstance(producto, Producto):
-            self.productos.append(producto)
-        else:
-            raise TypeError("El producto debe ser una instancia de Producto")
-
-    def mostrar_clientes(self):
-        print("Clientes Personas:")
-        for cliente in self.clientes_personas:
-            print(cliente)
-        print("\nClientes Corporativos:")
-        for cliente in self.clientes_corporativos:
-            print(cliente)
-
-    def mostrar_administradores(self):
-        print("Administradores:")
-        for admin in self.administradores:
-            print(admin)
-
-    def mostrar_productos(self):
-        print("Productos:")
-        for producto in self.productos:
-            print(producto)
-
-    def eliminar_cliente_persona(self, email):
-        self.clientes_personas = [c for c in self.clientes_personas if c.email != email]
-
-    def eliminar_cliente_corporativo(self, email):
-        self.clientes_corporativos = [c for c in self.clientes_corporativos if c.email != email]
-
-    def eliminar_administrador(self, email):
-        self.administradores = [a for a in self.administradores if a.email != email]
-
-    def eliminar_producto(self, id_producto):
-        self.productos = [p for p in self.productos if p.id_producto != id_producto]
+from services.sistema import Sistema
+from models.cliente import ClientePersona, ClienteCorporativo
+from models.administrador import Administrador
+from models.producto import Producto
 
 
 def mostrar_menu():
@@ -243,7 +128,6 @@ def operaciones_administradores(sistema):
 
 
 if __name__ == '__main__':
-
     # Creación del sistema
     sistema_principal = Sistema()
 
