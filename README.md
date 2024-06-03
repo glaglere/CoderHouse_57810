@@ -44,20 +44,22 @@ El sistema permite agregar, eliminar y mostrar productos.
 - **Eliminar Producto**: Permite eliminar un producto existente.
 - **Mostrar Productos**: Muestra la lista de todos los productos registrados.
 
-### 4. Gestión de Carritos de Compras
+### 4. Gestión de Carrito y Compras
 
-Los clientes pueden agregar productos a su carrito de compras, quitar productos del mismo y visualizar el contenido del mismo.
+Los clientes pueden gestionar su carrito de compras y concretar compras.
 
-- **Agregar Producto al Carrito**: Permite a un cliente agregar un producto a su carrito de compras, especificando la cantidad.
-- **Quitar Producto del Carrito**: Permite a un cliente quitar un producto de su carrito de compras.
-- **Mostrar Carrito**: Muestra la lista de productos en el carrito de compras del cliente.
-
-### 5. Gestión de Compras
-
-Los clientes pueden concretar compras y visualizar su historial de compras.
-
-- **Concretar Compra**: Permite a un cliente concretar la compra de los productos en su carrito. Se genera un número de ticket aleatorio y se registra la fecha de la compra.
+- **Agregar Producto al Carrito**: Permite a un cliente agregar productos a su carrito.
+- **Mostrar Carrito**: Permite a un cliente ver los productos en su carrito.
+- **Quitar Producto del Carrito**: Permite a un cliente quitar productos de su carrito.
+- **Concretar Compra**: Permite a un cliente concretar la compra de los productos en su carrito.
 - **Ver Historial de Compras**: Permite a un cliente visualizar su historial de compras.
+
+### 5. Listado de Productos
+
+Los clientes pueden listar productos disponibles en el sistema.
+
+- **Listar Todos los Productos**: Muestra la lista de todos los productos disponibles en el sistema.
+- **Listar Productos por Categoría**: Permite a un cliente listar productos según una categoría específica.
 
 ### 6. Funcionalidades Adicionales para Administradores
 
@@ -114,3 +116,7 @@ Para ejecutar el sistema, se debe ejecutar el archivo `main.py`. Esto mostrará 
 
 ```bash
 python main.py
+```
+
+## Bibliotecas de Terceros Utilizadas
+- **tabulate**: Se utiliza para imprimir tablas de manera legible en la terminal. Esta biblioteca facilita la visualización de datos tabulares, lo que mejora la experiencia del usuario al interactuar con el sistema.
