@@ -75,5 +75,12 @@
         "descripcion": "Sistema de Video Conferencia inalámbrico 360",
         "categoria": "Comunicaciones",
         "precio": 2000.0
+    },
+    {
+        "id_producto": 13,
+        "nombre": "Cargador Universal",
+        "descripcion": "cargador universal multiple",
+        "categoria": "Accesorios",
+        "precio": 100.0
     }
 ]

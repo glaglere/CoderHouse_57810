@@ -55,33 +55,6 @@
     },
     {
         "tipo": "ClientePersona",
-        "nombre": "Miguel",
-        "email": "msanchez@hotmail.com",
-        "password": "A123456789.!",
-        "direccion": "River 123",
-        "telefono": "999123123",
-        "dni": "123"
-    },
-    {
-        "tipo": "ClientePersona",
-        "nombre": "Miguel",
-        "email": "msancehz@hotmial.com",
-        "password": "A1234567",
-        "direccion": "Rivera 123",
-        "telefono": "123456546",
-        "dni": "234"
-    },
-    {
-        "tipo": "ClientePersona",
-        "nombre": "123",
-        "email": "123@hotmail.com",
-        "password": "AB1234567",
-        "direccion": "wer",
-        "telefono": "123456789",
-        "dni": "123456"
-    },
-    {
-        "tipo": "ClientePersona",
         "nombre": "Gonzalo Sanchez",
         "email": "gsanchez@gmail.com",
         "password": "1Contraseña",
@@ -97,6 +70,168 @@
         "direccion": "Dirección 1111",
         "telefono": "099111111",
         "dni": "7538690"
+    },
+    {
+        "tipo": "ClientePersona",
+        "nombre": "Ginette Laglere",
+        "email": "glaglere@gmail.com",
+        "password": "Password.1",
+        "direccion": "Dirección 1234",
+        "telefono": "099450450",
+        "dni": "125"
+    },
+    {
+        "tipo": "ClientePersona",
+        "nombre": "Laura Perez",
+        "email": "lperez@hotmail.com",
+        "password": "Contraseña2024",
+        "direccion": "Dirección 123456",
+        "telefono": "59822082815",
+        "dni": "215511000015"
+    },
+    {
+        "tipo": "ClientePersona",
+        "nombre": "Pablo Rostand",
+        "email": "prostand@hotmail.com",
+        "password": "Contraseña123",
+        "direccion": "j",
+        "telefono": "099789666",
+        "dni": "5"
+    },
+    {
+        "tipo": "ClientePersona",
+        "nombre": "Gladys",
+        "email": "gdiaz@gmail.com",
+        "password": "palabra1",
+        "direccion": "Dirección 2222",
+        "telefono": "293474729",
+        "dni": "0293481023948"
+    },
+    {
+        "tipo": "ClientePersona",
+        "nombre": "Pedrito Lopez",
+        "email": "plopez@yahoo.com",
+        "password": "Contraseña123",
+        "direccion": "Dirección 229900",
+        "telefono": "098788536",
+        "dni": "7856644"
+    },
+    {
+        "tipo": "ClientePersona",
+        "nombre": "Leonardo Gomez",
+        "email": "gomez@yahoo.com",
+        "password": "Contraseña123",
+        "direccion": "Dirección 0000",
+        "telefono": "159236987",
+        "dni": "698753254"
+    },
+    {
+        "tipo": "ClientePersona",
+        "nombre": "Lorenzo",
+        "email": "lolo@mail.com",
+        "password": "Contraseña123",
+        "direccion": "Dirección 7788",
+        "telefono": "099888777",
+        "dni": "4568973"
+    },
+    {
+        "tipo": "ClientePersona",
+        "nombre": "Piero Puzzetti",
+        "email": "piero@gmail.com",
+        "password": "Contraseña5667",
+        "direccion": "Dirección 98098098",
+        "telefono": "6354132131",
+        "dni": "31364851"
+    },
+    {
+        "tipo": "ClientePersona",
+        "nombre": "Lucia Iguria",
+        "email": "liguria@gmail.com",
+        "password": "Contraseña1234",
+        "direccion": "Dirección 2222",
+        "telefono": "099999999",
+        "dni": "555888999"
+    },
+    {
+        "tipo": "ClientePersona",
+        "nombre": "Gonzalo Lorenzo Finisterre",
+        "email": "golfin@gmail.com",
+        "password": "contraseña 1111",
+        "direccion": "Dirección 1111",
+        "telefono": "099888999",
+        "dni": "456852698"
+    },
+    {
+        "tipo": "ClientePersona",
+        "nombre": "Ginette Laglere",
+        "email": "glaglerex@fibertel.com.ar",
+        "password": "$2b$12$r1yCg303LbPonTKSz2400O73ZIkUsPzdGxzNg4qC8j7Bk1x2AeCPu",
+        "direccion": "Dirección 1234",
+        "telefono": "099444555",
+        "dni": "658931000"
+    },
+    {
+        "tipo": "ClientePersona",
+        "nombre": "Gonzalo Polticor",
+        "email": "polti@mail.com",
+        "password": "Contraseña123",
+        "direccion": "dirección 1223",
+        "telefono": "45898985",
+        "dni": "0000000"
+    },
+    {
+        "tipo": "ClientePersona",
+        "nombre": "Prueba Lopez",
+        "email": "pruebita@mail.com",
+        "password": "$2b$12$wI4vmx6/4Xty9pPnRvt.IeBwyggU5PUhXUjA33JUMUmD3XaSojxvC",
+        "direccion": "Dirección 12334",
+        "telefono": "64165465465",
+        "dni": "8884443333"
+    },
+    {
+        "tipo": "ClientePersona",
+        "nombre": "Gonzalo Polticor",
+        "email": "gonza@mail.com",
+        "password": "contraseña123",
+        "direccion": "Dirección 1234",
+        "telefono": "099888888",
+        "dni": "555555555"
+    },
+    {
+        "tipo": "ClientePersona",
+        "nombre": "Gonzalo Lopez",
+        "email": "gonzal@mail.com",
+        "password": "alsdkfjasldfjk2341234",
+        "direccion": "4234234",
+        "telefono": "543413546354",
+        "dni": "85268974312"
+    },
+    {
+        "tipo": "ClientePersona",
+        "nombre": "Pitufo Lombardo",
+        "email": "pitufo@mail.com",
+        "password": "$2b$12$IJYsGj9De6gC8RpVlou1WuRPv3Ys8QEfFXLZB.rSQwVrQXcFx1r.C",
+        "direccion": "Dirección 1234",
+        "telefono": "7777777",
+        "dni": "888555222333"
+    },
+    {
+        "tipo": "ClientePersona",
+        "nombre": "Nombre Apellido",
+        "email": "rostand@mail.com",
+        "password": "$2b$12$3Vm3Y.mpX9fmcM9Unbab0ucRainQq6ZyadI5Pm70YeYICCS26PmZO",
+        "direccion": "Dirección 1234",
+        "telefono": "7775553",
+        "dni": "650465406666"
+    },
+    {
+        "tipo": "ClientePersona",
+        "nombre": "Cliente Nuevo",
+        "email": "mail@mail.com",
+        "password": "$2b$12$62AFrDJY53R6mJp.Bbp8zuNShcAgU.rmarU4j2su4kHRGkydP5o1.",
+        "direccion": "Direccion 1234",
+        "telefono": "7777771",
+        "dni": "159263478"
     },
     {
         "tipo": "ClienteCorporativo",
@@ -153,6 +288,51 @@
         "cuit": "0"
     },
     {
+        "tipo": "ClienteCorporativo",
+        "nombre": "Empresa SRL",
+        "email": "empresa@empresa.com",
+        "password": "empresa456",
+        "direccion": "direccion",
+        "telefono": "8888888",
+        "cuit": "5"
+    },
+    {
+        "tipo": "ClienteCorporativo",
+        "nombre": "Altius Corporation",
+        "email": "altiuscorp@mail.com",
+        "password": "Contraseña123",
+        "direccion": "Dirección 333333",
+        "telefono": "6354365434",
+        "cuit": "664643213413"
+    },
+    {
+        "tipo": "ClienteCorporativo",
+        "nombre": "Pipeta Ltda",
+        "email": "pipeta@mail.com",
+        "password": "$2b$12$6DPqWxwX9rBmlMWG9q4Xq.k/caHnWUGmuV2J5NP4ae5hZGNc./Nc6",
+        "direccion": "Dirección 293478",
+        "telefono": "463541300",
+        "cuit": "65046540"
+    },
+    {
+        "tipo": "ClienteCorporativo",
+        "nombre": "Pipetaso SA",
+        "email": "pipetaso@mail.com",
+        "password": "Pipetaso123",
+        "direccion": "Dirección askdlfjasljdf",
+        "telefono": "65465406465",
+        "cuit": "650465406666"
+    },
+    {
+        "tipo": "ClienteCorporativo",
+        "nombre": "Corporativo Nuevo",
+        "email": "corp@mail.com",
+        "password": "$2b$12$uwZzj0lZEX/0mfJB6kJtK.NuZD5V1Kv.1gDkiICeaDxLHr6ovCh06",
+        "direccion": "Dirección ",
+        "telefono": "7777777",
+        "cuit": "65046540666666"
+    },
+    {
         "tipo": "Administrador",
         "nombre": "Admin User",
         "email": "admin@example.com",
@@ -172,5 +352,26 @@
         "email": "manageradmin@example.com",
         "password": "manageradminpass",
         "codigo_funcionario": "003"
+    },
+    {
+        "tipo": "Administrador",
+        "nombre": "Administrator Pro",
+        "email": "admin@admin.com",
+        "password": "pass.pass.1",
+        "codigo_funcionario": "789"
+    },
+    {
+        "tipo": "Administrador",
+        "nombre": "Administrador Nuevo",
+        "email": "admnistrador@mail.com",
+        "password": "$2b$12$yU1jD.G2vPe7/q./DEmCXeIv7vAcxJd3iX5jT48XQ21GQvq7g.udu",
+        "codigo_funcionario": "0"
+    },
+    {
+        "tipo": "Administrador",
+        "nombre": "Nuevo Admin",
+        "email": "nuevo@admin.com",
+        "password": "$2b$12$pp2jLvbmN36gcEOUBjzkRu7IuNkvIof0I/.xBsfNnkq/9/4LxSNgS",
+        "codigo_funcionario": "0000"
     }
 ]
