@@ -273,24 +273,33 @@ def mostrar_productos(sistema):
 
 def eliminar_cliente_persona(sistema):
     email = input("Ingrese el email del cliente persona a eliminar: ")
-    if sistema.eliminar_cliente_persona(email):
-        print("Cliente Persona eliminado exitosamente.")
+    if any(cliente.email == email for cliente in sistema.clientes_personas):
+        if sistema.eliminar_cliente_persona(email):
+            print("Cliente Persona eliminado exitosamente.")
+        else:
+            print("Error al eliminar Cliente Persona.")
     else:
-        print("Error al eliminar Cliente Persona.")
+        print("El cliente persona no existe.")
 
 def eliminar_cliente_corporativo(sistema):
     email = input("Ingrese el email del cliente corporativo a eliminar: ")
-    if sistema.eliminar_cliente_corporativo(email):
-        print("Cliente Corporativo eliminado exitosamente.")
+    if any(cliente.email == email for cliente in sistema.clientes_corporativos):
+        if sistema.eliminar_cliente_corporativo(email):
+            print("Cliente Corporativo eliminado exitosamente.")
+        else:
+            print("Error al eliminar Cliente Corporativo.")
     else:
-        print("Error al eliminar Cliente Corporativo.")
+        print("El cliente corporativo no existe.")
 
 def eliminar_administrador(sistema):
     email = input("Ingrese el email del administrador a eliminar: ")
-    if sistema.eliminar_administrador(email):
-        print("Administrador eliminado exitosamente.")
+    if any(admin.email == email for admin in sistema.administradores):
+        if sistema.eliminar_administrador(email):
+            print("Administrador eliminado exitosamente.")
+        else:
+            print("Error al eliminar Administrador.")
     else:
-        print("Error al eliminar Administrador.")
+        print("El administrador no existe.")
 
 def eliminar_producto(sistema):
     if not sistema.productos:

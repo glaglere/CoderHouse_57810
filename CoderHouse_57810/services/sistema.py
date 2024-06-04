@@ -310,15 +310,6 @@ class Sistema:
             print("No hay productos registrados.")
 
     def eliminar_cliente_persona(self, email):
-        """
-        Elimina un cliente persona del sistema.
-
-        Args:
-            email (str): El correo electrónico del cliente persona a eliminar.
-
-        Returns:
-            bool: True si el cliente se elimina exitosamente, False en caso contrario.
-        """
         result = False
         try:
             self.clientes_personas = [c for c in self.clientes_personas if c.email != email]
@@ -329,15 +320,6 @@ class Sistema:
         return result
 
     def eliminar_cliente_corporativo(self, email):
-        """
-        Elimina un cliente corporativo del sistema.
-
-        Args:
-            email (str): El correo electrónico del cliente corporativo a eliminar.
-
-        Returns:
-            bool: True si el cliente se elimina exitosamente, False en caso contrario.
-        """
         result = False
         try:
             self.clientes_corporativos = [c for c in self.clientes_corporativos if c.email != email]
@@ -348,15 +330,6 @@ class Sistema:
         return result
 
     def eliminar_administrador(self, email):
-        """
-        Elimina un administrador del sistema.
-
-        Args:
-            email (str): El correo electrónico del administrador a eliminar.
-
-        Returns:
-            bool: True si el administrador se elimina exitosamente, False en caso contrario.
-        """
         result = False
         try:
             self.administradores = [a for a in self.administradores if a.email != email]

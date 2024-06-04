@@ -91,15 +91,6 @@
     },
     {
         "tipo": "ClientePersona",
-        "nombre": "Pablo Rostand",
-        "email": "prostand@hotmail.com",
-        "password": "Contraseña123",
-        "direccion": "j",
-        "telefono": "099789666",
-        "dni": "5"
-    },
-    {
-        "tipo": "ClientePersona",
         "nombre": "Gladys",
         "email": "gdiaz@gmail.com",
         "password": "palabra1",
@@ -217,15 +208,6 @@
     },
     {
         "tipo": "ClientePersona",
-        "nombre": "Nombre Apellido",
-        "email": "rostand@mail.com",
-        "password": "$2b$12$3Vm3Y.mpX9fmcM9Unbab0ucRainQq6ZyadI5Pm70YeYICCS26PmZO",
-        "direccion": "Dirección 1234",
-        "telefono": "7775553",
-        "dni": "650465406666"
-    },
-    {
-        "tipo": "ClientePersona",
         "nombre": "Cliente Nuevo",
         "email": "mail@mail.com",
         "password": "$2b$12$62AFrDJY53R6mJp.Bbp8zuNShcAgU.rmarU4j2su4kHRGkydP5o1.",
@@ -307,15 +289,6 @@
     },
     {
         "tipo": "ClienteCorporativo",
-        "nombre": "Empresa SRL",
-        "email": "empresa@empresa.com",
-        "password": "empresa456",
-        "direccion": "direccion",
-        "telefono": "8888888",
-        "cuit": "5"
-    },
-    {
-        "tipo": "ClienteCorporativo",
         "nombre": "Altius Corporation",
         "email": "altiuscorp@mail.com",
         "password": "Contraseña123",
@@ -351,15 +324,6 @@
         "cuit": "65046540666666"
     },
     {
-        "tipo": "ClienteCorporativo",
-        "nombre": "Cliente Corporativo",
-        "email": "probando@prueba.com",
-        "password": "Contraseña3333",
-        "direccion": "dir",
-        "telefono": "999999999",
-        "cuit": "5"
-    },
-    {
         "tipo": "Administrador",
         "nombre": "Admin User",
         "email": "admin@example.com",
@@ -386,13 +350,6 @@
         "email": "admin@admin.com",
         "password": "pass.pass.1",
         "codigo_funcionario": "789"
-    },
-    {
-        "tipo": "Administrador",
-        "nombre": "Administrador Nuevo",
-        "email": "admnistrador@mail.com",
-        "password": "$2b$12$yU1jD.G2vPe7/q./DEmCXeIv7vAcxJd3iX5jT48XQ21GQvq7g.udu",
-        "codigo_funcionario": "0"
     },
     {
         "tipo": "Administrador",
