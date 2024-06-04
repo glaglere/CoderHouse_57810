@@ -24,7 +24,7 @@ class Producto:
             id_producto (int, opcional): El ID del producto. Por defecto es None.
         """
         self.id_producto = id_producto
-        self.nombre = nombre
+        self.nombre = nombre.lower()  #Convertir el nombre a minúsculas
         self.descripcion = descripcion
         self.categoria = categoria
         self.precio = precio

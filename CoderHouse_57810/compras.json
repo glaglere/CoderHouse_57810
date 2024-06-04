@@ -13,7 +13,7 @@
             {
                 "producto": {
                     "id_producto": 6,
-                    "nombre": "Cámara DSLR",
+                    "nombre": "cámara dslr",
                     "descripcion": "Cámara DSLR con lente de 18-55mm",
                     "categoria": "Fotografía",
                     "precio": 500.0
@@ -23,7 +23,7 @@
             {
                 "producto": {
                     "id_producto": 9,
-                    "nombre": "Monitor",
+                    "nombre": "monitor",
                     "descripcion": "Monitor 27\" 4K UHD con HDR",
                     "categoria": "Computadoras",
                     "precio": 350.0
@@ -48,7 +48,7 @@
             {
                 "producto": {
                     "id_producto": 1,
-                    "nombre": "Tablet",
+                    "nombre": "tablet",
                     "descripcion": "Tablet 11\" con pantalla de alta resolución",
                     "categoria": "Entretenimiento",
                     "precio": 200.0
@@ -58,7 +58,7 @@
             {
                 "producto": {
                     "id_producto": 5,
-                    "nombre": "Smartwatch",
+                    "nombre": "smartwatch",
                     "descripcion": "Reloj inteligente con monitor de ritmo cardíaco",
                     "categoria": "Gadgets",
                     "precio": 150.0
@@ -83,7 +83,7 @@
             {
                 "producto": {
                     "id_producto": 2,
-                    "nombre": "Smartphone",
+                    "nombre": "smartphone",
                     "descripcion": "Smartphone con cámara de 48MP y 128GB de almacenamiento",
                     "categoria": "Electrónica",
                     "precio": 300.0
@@ -93,7 +93,7 @@
             {
                 "producto": {
                     "id_producto": 4,
-                    "nombre": "Auriculares",
+                    "nombre": "auriculares",
                     "descripcion": "Auriculares inalámbricos con cancelación de ruido",
                     "categoria": "Accesorios",
                     "precio": 100.0
@@ -118,7 +118,7 @@
             {
                 "producto": {
                     "id_producto": 7,
-                    "nombre": "Impresora",
+                    "nombre": "impresora",
                     "descripcion": "Impresora multifuncional con conexión Wi-Fi",
                     "categoria": "Oficina",
                     "precio": 120.0
@@ -128,7 +128,7 @@
             {
                 "producto": {
                     "id_producto": 10,
-                    "nombre": "Consola de Videojuegos",
+                    "nombre": "consola de videojuegos",
                     "descripcion": "Consola de videojuegos de última generación",
                     "categoria": "Entretenimiento",
                     "precio": 400.0
@@ -153,7 +153,7 @@
             {
                 "producto": {
                     "id_producto": 3,
-                    "nombre": "Laptop",
+                    "nombre": "laptop",
                     "descripcion": "Laptop con procesador Intel i7 y 16GB de RAM",
                     "categoria": "Computadoras",
                     "precio": 800.0
@@ -163,7 +163,7 @@
             {
                 "producto": {
                     "id_producto": 8,
-                    "nombre": "Teclado Mecánico",
+                    "nombre": "teclado mecánico",
                     "descripcion": "Teclado mecánico retroiluminado RGB",
                     "categoria": "Accesorios",
                     "precio": 80.0
@@ -188,7 +188,7 @@
             {
                 "producto": {
                     "id_producto": 1,
-                    "nombre": "Tablet",
+                    "nombre": "tablet",
                     "descripcion": "Tablet 11\" con pantalla de alta resolución",
                     "categoria": "Entretenimiento",
                     "precio": 200.0
@@ -198,7 +198,7 @@
             {
                 "producto": {
                     "id_producto": 5,
-                    "nombre": "Smartwatch",
+                    "nombre": "smartwatch",
                     "descripcion": "Reloj inteligente con monitor de ritmo cardíaco",
                     "categoria": "Gadgets",
                     "precio": 150.0
@@ -223,7 +223,7 @@
             {
                 "producto": {
                     "id_producto": 6,
-                    "nombre": "Cámara DSLR",
+                    "nombre": "cámara dslr",
                     "descripcion": "Cámara DSLR con lente de 18-55mm",
                     "categoria": "Fotografía",
                     "precio": 500.0
@@ -233,7 +233,7 @@
             {
                 "producto": {
                     "id_producto": 9,
-                    "nombre": "Monitor",
+                    "nombre": "monitor",
                     "descripcion": "Monitor 27\" 4K UHD con HDR",
                     "categoria": "Computadoras",
                     "precio": 350.0
@@ -258,7 +258,7 @@
             {
                 "producto": {
                     "id_producto": 1,
-                    "nombre": "Tablet",
+                    "nombre": "tablet",
                     "descripcion": "Tablet 11\" con pantalla de alta resolución",
                     "categoria": "Entretenimiento",
                     "precio": 200.0
@@ -268,7 +268,7 @@
             {
                 "producto": {
                     "id_producto": 7,
-                    "nombre": "Impresora",
+                    "nombre": "impresora",
                     "descripcion": "Impresora multifuncional con conexión Wi-Fi",
                     "categoria": "Oficina",
                     "precio": 120.0
@@ -293,7 +293,7 @@
             {
                 "producto": {
                     "id_producto": 2,
-                    "nombre": "Smartphone",
+                    "nombre": "smartphone",
                     "descripcion": "Smartphone con cámara de 48MP y 128GB de almacenamiento",
                     "categoria": "Electrónica",
                     "precio": 300.0
@@ -303,7 +303,7 @@
             {
                 "producto": {
                     "id_producto": 4,
-                    "nombre": "Auriculares",
+                    "nombre": "auriculares",
                     "descripcion": "Auriculares inalámbricos con cancelación de ruido",
                     "categoria": "Accesorios",
                     "precio": 100.0
@@ -328,7 +328,7 @@
             {
                 "producto": {
                     "id_producto": 5,
-                    "nombre": "Smartwatch",
+                    "nombre": "smartwatch",
                     "descripcion": "Reloj inteligente con monitor de ritmo cardíaco",
                     "categoria": "Gadgets",
                     "precio": 150.0
@@ -338,7 +338,7 @@
             {
                 "producto": {
                     "id_producto": 10,
-                    "nombre": "Consola de Videojuegos",
+                    "nombre": "consola de videojuegos",
                     "descripcion": "Consola de videojuegos de última generación",
                     "categoria": "Entretenimiento",
                     "precio": 400.0
@@ -363,7 +363,7 @@
             {
                 "producto": {
                     "id_producto": 3,
-                    "nombre": "Laptop",
+                    "nombre": "laptop",
                     "descripcion": "Laptop con procesador Intel i7 y 16GB de RAM",
                     "categoria": "Computadoras",
                     "precio": 800.0
@@ -373,7 +373,7 @@
             {
                 "producto": {
                     "id_producto": 8,
-                    "nombre": "Teclado Mecánico",
+                    "nombre": "teclado mecánico",
                     "descripcion": "Teclado mecánico retroiluminado RGB",
                     "categoria": "Accesorios",
                     "precio": 80.0
@@ -398,7 +398,7 @@
             {
                 "producto": {
                     "id_producto": 1,
-                    "nombre": "Tablet",
+                    "nombre": "tablet",
                     "descripcion": "Tablet 11\" con pantalla de alta resolución",
                     "categoria": "Entretenimiento",
                     "precio": 200.0
@@ -408,7 +408,7 @@
             {
                 "producto": {
                     "id_producto": 9,
-                    "nombre": "Monitor",
+                    "nombre": "monitor",
                     "descripcion": "Monitor 27\" 4K UHD con HDR",
                     "categoria": "Computadoras",
                     "precio": 350.0
@@ -433,7 +433,7 @@
             {
                 "producto": {
                     "id_producto": 2,
-                    "nombre": "Smartphone",
+                    "nombre": "smartphone",
                     "descripcion": "Smartphone con cámara de 48MP y 128GB de almacenamiento",
                     "categoria": "Electrónica",
                     "precio": 300.0
@@ -443,7 +443,7 @@
             {
                 "producto": {
                     "id_producto": 4,
-                    "nombre": "Auriculares",
+                    "nombre": "auriculares",
                     "descripcion": "Auriculares inalámbricos con cancelación de ruido",
                     "categoria": "Accesorios",
                     "precio": 100.0
@@ -468,7 +468,7 @@
             {
                 "producto": {
                     "id_producto": 5,
-                    "nombre": "Smartwatch",
+                    "nombre": "smartwatch",
                     "descripcion": "Reloj inteligente con monitor de ritmo cardíaco",
                     "categoria": "Gadgets",
                     "precio": 150.0
@@ -478,7 +478,7 @@
             {
                 "producto": {
                     "id_producto": 10,
-                    "nombre": "Consola de Videojuegos",
+                    "nombre": "consola de videojuegos",
                     "descripcion": "Consola de videojuegos de última generación",
                     "categoria": "Entretenimiento",
                     "precio": 400.0
@@ -503,7 +503,7 @@
             {
                 "producto": {
                     "id_producto": 6,
-                    "nombre": "Cámara DSLR",
+                    "nombre": "cámara dslr",
                     "descripcion": "Cámara DSLR con lente de 18-55mm",
                     "categoria": "Fotografía",
                     "precio": 500.0
@@ -513,7 +513,7 @@
             {
                 "producto": {
                     "id_producto": 9,
-                    "nombre": "Monitor",
+                    "nombre": "monitor",
                     "descripcion": "Monitor 27\" 4K UHD con HDR",
                     "categoria": "Computadoras",
                     "precio": 350.0
@@ -538,7 +538,7 @@
             {
                 "producto": {
                     "id_producto": 2,
-                    "nombre": "Smartphone",
+                    "nombre": "smartphone",
                     "descripcion": "Smartphone con cámara de 48MP y 128GB de almacenamiento",
                     "categoria": "Electrónica",
                     "precio": 300.0
@@ -548,7 +548,7 @@
             {
                 "producto": {
                     "id_producto": 4,
-                    "nombre": "Auriculares",
+                    "nombre": "auriculares",
                     "descripcion": "Auriculares inalámbricos con cancelación de ruido",
                     "categoria": "Accesorios",
                     "precio": 100.0
@@ -573,7 +573,7 @@
             {
                 "producto": {
                     "id_producto": 3,
-                    "nombre": "Laptop",
+                    "nombre": "laptop",
                     "descripcion": "Laptop con procesador Intel i7 y 16GB de RAM",
                     "categoria": "Computadoras",
                     "precio": 800.0
@@ -583,7 +583,7 @@
             {
                 "producto": {
                     "id_producto": 7,
-                    "nombre": "Impresora",
+                    "nombre": "impresora",
                     "descripcion": "Impresora multifuncional con conexión Wi-Fi",
                     "categoria": "Oficina",
                     "precio": 120.0
@@ -608,7 +608,7 @@
             {
                 "producto": {
                     "id_producto": 1,
-                    "nombre": "Tablet",
+                    "nombre": "tablet",
                     "descripcion": "Tablet 11\" con pantalla de alta resolución",
                     "categoria": "Entretenimiento",
                     "precio": 200.0
@@ -618,7 +618,7 @@
             {
                 "producto": {
                     "id_producto": 5,
-                    "nombre": "Smartwatch",
+                    "nombre": "smartwatch",
                     "descripcion": "Reloj inteligente con monitor de ritmo cardíaco",
                     "categoria": "Gadgets",
                     "precio": 150.0
@@ -643,7 +643,7 @@
             {
                 "producto": {
                     "id_producto": 2,
-                    "nombre": "Smartphone",
+                    "nombre": "smartphone",
                     "descripcion": "Smartphone con cámara de 48MP y 128GB de almacenamiento",
                     "categoria": "Electrónica",
                     "precio": 300.0
@@ -653,7 +653,7 @@
             {
                 "producto": {
                     "id_producto": 8,
-                    "nombre": "Teclado Mecánico",
+                    "nombre": "teclado mecánico",
                     "descripcion": "Teclado mecánico retroiluminado RGB",
                     "categoria": "Accesorios",
                     "precio": 80.0
@@ -678,7 +678,7 @@
             {
                 "producto": {
                     "id_producto": 6,
-                    "nombre": "Cámara DSLR",
+                    "nombre": "cámara dslr",
                     "descripcion": "Cámara DSLR con lente de 18-55mm",
                     "categoria": "Fotografía",
                     "precio": 500.0
@@ -688,7 +688,7 @@
             {
                 "producto": {
                     "id_producto": 9,
-                    "nombre": "Monitor",
+                    "nombre": "monitor",
                     "descripcion": "Monitor 27\" 4K UHD con HDR",
                     "categoria": "Computadoras",
                     "precio": 350.0
@@ -713,7 +713,7 @@
             {
                 "producto": {
                     "id_producto": 1,
-                    "nombre": "Tablet",
+                    "nombre": "tablet",
                     "descripcion": "Tablet 11\" con pantalla de alta resolución",
                     "categoria": "Entretenimiento",
                     "precio": 200.0
@@ -723,7 +723,7 @@
             {
                 "producto": {
                     "id_producto": 3,
-                    "nombre": "Laptop",
+                    "nombre": "laptop",
                     "descripcion": "Laptop con procesador Intel i7 y 16GB de RAM",
                     "categoria": "Computadoras",
                     "precio": 800.0
@@ -748,7 +748,7 @@
             {
                 "producto": {
                     "id_producto": 5,
-                    "nombre": "Smartwatch",
+                    "nombre": "smartwatch",
                     "descripcion": "Reloj inteligente con monitor de ritmo cardíaco",
                     "categoria": "Gadgets",
                     "precio": 150.0
@@ -758,7 +758,7 @@
             {
                 "producto": {
                     "id_producto": 10,
-                    "nombre": "Consola de Videojuegos",
+                    "nombre": "consola de videojuegos",
                     "descripcion": "Consola de videojuegos de última generación",
                     "categoria": "Entretenimiento",
                     "precio": 400.0
@@ -783,7 +783,7 @@
             {
                 "producto": {
                     "id_producto": 9,
-                    "nombre": "Monitor",
+                    "nombre": "monitor",
                     "descripcion": "Monitor 27\" 4K UHD con HDR",
                     "categoria": "Computadoras",
                     "precio": 350.0
@@ -793,7 +793,7 @@
             {
                 "producto": {
                     "id_producto": 13,
-                    "nombre": "Dock in",
+                    "nombre": "dock in",
                     "descripcion": "Dock in genérico para notebook 14",
                     "categoria": "Accesorios",
                     "precio": 500.0
@@ -803,7 +803,7 @@
             {
                 "producto": {
                     "id_producto": 1,
-                    "nombre": "Tablet",
+                    "nombre": "tablet",
                     "descripcion": "Tablet 11\" con pantalla de alta resolución",
                     "categoria": "Entretenimiento",
                     "precio": 200.0
@@ -813,7 +813,7 @@
             {
                 "producto": {
                     "id_producto": 4,
-                    "nombre": "Auriculares",
+                    "nombre": "auriculares",
                     "descripcion": "Auriculares inalámbricos con cancelación de ruido",
                     "categoria": "Accesorios",
                     "precio": 100.0
@@ -838,7 +838,7 @@
             {
                 "producto": {
                     "id_producto": 1,
-                    "nombre": "Tablet",
+                    "nombre": "tablet",
                     "descripcion": "Tablet 11\" con pantalla de alta resolución",
                     "categoria": "Entretenimiento",
                     "precio": 200.0
@@ -848,7 +848,7 @@
             {
                 "producto": {
                     "id_producto": 10,
-                    "nombre": "Consola de Videojuegos",
+                    "nombre": "consola de videojuegos",
                     "descripcion": "Consola de videojuegos de última generación",
                     "categoria": "Entretenimiento",
                     "precio": 400.0
@@ -858,7 +858,7 @@
             {
                 "producto": {
                     "id_producto": 12,
-                    "nombre": "Tablet",
+                    "nombre": "tablet",
                     "descripcion": "Tablet 11\" con pantalla de alta resolución",
                     "categoria": "Entretenimiento",
                     "precio": 200.0
@@ -883,7 +883,7 @@
             {
                 "producto": {
                     "id_producto": 1,
-                    "nombre": "Tablet",
+                    "nombre": "tablet",
                     "descripcion": "Tablet 11\" con pantalla de alta resolución",
                     "categoria": "Entretenimiento",
                     "precio": 200.0
@@ -893,7 +893,7 @@
             {
                 "producto": {
                     "id_producto": 7,
-                    "nombre": "Impresora",
+                    "nombre": "impresora",
                     "descripcion": "Impresora multifuncional con conexión Wi-Fi",
                     "categoria": "Oficina",
                     "precio": 120.0
@@ -918,7 +918,7 @@
             {
                 "producto": {
                     "id_producto": 1,
-                    "nombre": "Tablet",
+                    "nombre": "tablet",
                     "descripcion": "Tablet 11\" con pantalla de alta resolución",
                     "categoria": "Entretenimiento",
                     "precio": 200.0
@@ -928,7 +928,7 @@
             {
                 "producto": {
                     "id_producto": 11,
-                    "nombre": "Sistema Video Conferencia",
+                    "nombre": "sistema video conferencia",
                     "descripcion": "Sistema de Video Conferencia inalámbrico 360",
                     "categoria": "Comunicaciones",
                     "precio": 2000.0
@@ -953,7 +953,7 @@
             {
                 "producto": {
                     "id_producto": 1,
-                    "nombre": "Tablet",
+                    "nombre": "tablet",
                     "descripcion": "Tablet 11\" con pantalla de alta resolución",
                     "categoria": "Entretenimiento",
                     "precio": 200.0
@@ -963,7 +963,7 @@
             {
                 "producto": {
                     "id_producto": 3,
-                    "nombre": "Laptop",
+                    "nombre": "laptop",
                     "descripcion": "Laptop con procesador Intel i7 y 16GB de RAM",
                     "categoria": "Computadoras",
                     "precio": 800.0
@@ -973,7 +973,7 @@
             {
                 "producto": {
                     "id_producto": 8,
-                    "nombre": "Teclado Mecánico",
+                    "nombre": "teclado mecánico",
                     "descripcion": "Teclado mecánico retroiluminado RGB",
                     "categoria": "Accesorios",
                     "precio": 80.0
@@ -998,7 +998,7 @@
             {
                 "producto": {
                     "id_producto": 1,
-                    "nombre": "Tablet",
+                    "nombre": "tablet",
                     "descripcion": "Tablet 11\" con pantalla de alta resolución",
                     "categoria": "Entretenimiento",
                     "precio": 200.0
@@ -1008,7 +1008,7 @@
             {
                 "producto": {
                     "id_producto": 3,
-                    "nombre": "Laptop",
+                    "nombre": "laptop",
                     "descripcion": "Laptop con procesador Intel i7 y 16GB de RAM",
                     "categoria": "Computadoras",
                     "precio": 800.0
@@ -1018,7 +1018,7 @@
             {
                 "producto": {
                     "id_producto": 4,
-                    "nombre": "Auriculares",
+                    "nombre": "auriculares",
                     "descripcion": "Auriculares inalámbricos con cancelación de ruido",
                     "categoria": "Accesorios",
                     "precio": 100.0
@@ -1043,7 +1043,7 @@
             {
                 "producto": {
                     "id_producto": 1,
-                    "nombre": "Tablet",
+                    "nombre": "tablet",
                     "descripcion": "Tablet 11\" con pantalla de alta resolución",
                     "categoria": "Entretenimiento",
                     "precio": 200.0
@@ -1053,7 +1053,7 @@
             {
                 "producto": {
                     "id_producto": 4,
-                    "nombre": "Auriculares",
+                    "nombre": "auriculares",
                     "descripcion": "Auriculares inalámbricos con cancelación de ruido",
                     "categoria": "Accesorios",
                     "precio": 100.0
@@ -1063,7 +1063,7 @@
             {
                 "producto": {
                     "id_producto": 3,
-                    "nombre": "Laptop",
+                    "nombre": "laptop",
                     "descripcion": "Laptop con procesador Intel i7 y 16GB de RAM",
                     "categoria": "Computadoras",
                     "precio": 800.0
@@ -1073,5 +1073,40 @@
         ],
         "fecha": "2024-06-04T09:26:55.491272",
         "ticket": "aSKSsLZ2pO"
+    },
+    {
+        "cliente": {
+            "tipo": "ClientePersona",
+            "nombre": "Pochito Lopez",
+            "email": "pochito@mail.com",
+            "password": "contraseña123",
+            "direccion": "dir",
+            "telefono": "999999999",
+            "dni": "555555"
+        },
+        "productos": [
+            {
+                "producto": {
+                    "id_producto": 1,
+                    "nombre": "tablet",
+                    "descripcion": "Tablet 11\" con pantalla de alta resolución",
+                    "categoria": "Entretenimiento",
+                    "precio": 200.0
+                },
+                "cantidad": 1
+            },
+            {
+                "producto": {
+                    "id_producto": 4,
+                    "nombre": "auriculares",
+                    "descripcion": "Auriculares inalámbricos con cancelación de ruido",
+                    "categoria": "Accesorios",
+                    "precio": 100.0
+                },
+                "cantidad": 2
+            }
+        ],
+        "fecha": "2024-06-04T09:37:35.787156",
+        "ticket": "YLI9NZwuUF"
     }
 ]

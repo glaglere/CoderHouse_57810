@@ -246,6 +246,8 @@ class Sistema:
         result = False
         try:
             if isinstance(producto, Producto):
+                if any(p.nombre == producto.nombre for p in self.productos):
+                    raise ValueError("El producto ya existe en el sistema.")
                 if not Seguridad.validar_no_vacio(producto.nombre):
                     raise ValueError("El nombre del producto no puede estar vacío.")
                 if not Seguridad.validar_no_vacio(producto.descripcion):

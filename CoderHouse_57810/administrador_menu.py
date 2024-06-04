@@ -179,7 +179,7 @@ def obtener_direccion():
 
 def obtener_nombre_producto(sistema):
     while True:
-        nombre_producto = input("Ingrese el nombre del producto: ")
+        nombre_producto = input("Ingrese el nombre del producto: ").lower()  # Convertir a minúsculas
         if validar_nombre_producto(nombre_producto, sistema):
             return nombre_producto
 
