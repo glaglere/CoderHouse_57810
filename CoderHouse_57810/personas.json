@@ -225,15 +225,6 @@
         "dni": "4446663"
     },
     {
-        "tipo": "ClientePersona",
-        "nombre": "Pochito Lopez",
-        "email": "pochito@mail.com",
-        "password": "contraseña123",
-        "direccion": "dir",
-        "telefono": "999999999",
-        "dni": "555555"
-    },
-    {
         "tipo": "ClienteCorporativo",
         "nombre": "Corp Tech",
         "email": "corptech@gmail.com",
@@ -277,15 +268,6 @@
         "direccion": "Av. Futuro 123",
         "telefono": "095.999.999",
         "cuit": "56789012345"
-    },
-    {
-        "tipo": "ClienteCorporativo",
-        "nombre": "Trade Corp",
-        "email": "trade.corp@gmail.com",
-        "password": "A1234567",
-        "direccion": "Dirección 2222",
-        "telefono": "099555555",
-        "cuit": "0"
     },
     {
         "tipo": "ClienteCorporativo",
@@ -350,12 +332,5 @@
         "email": "admin@admin.com",
         "password": "pass.pass.1",
         "codigo_funcionario": "789"
-    },
-    {
-        "tipo": "Administrador",
-        "nombre": "Nuevo Admin",
-        "email": "nuevo@admin.com",
-        "password": "$2b$12$pp2jLvbmN36gcEOUBjzkRu7IuNkvIof0I/.xBsfNnkq/9/4LxSNgS",
-        "codigo_funcionario": "0000"
     }
 ]

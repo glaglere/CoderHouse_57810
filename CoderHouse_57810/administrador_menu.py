@@ -309,13 +309,15 @@ def eliminar_producto(sistema):
     sistema.mostrar_productos()
     try:
         id_producto = int(input("Ingrese el ID del producto a eliminar: "))
-        if sistema.eliminar_producto(id_producto):
-            print("Producto eliminado exitosamente.")
+        if any(producto.id_producto == id_producto for producto in sistema.productos):
+            if sistema.eliminar_producto(id_producto):
+                print("Producto eliminado exitosamente.")
+            else:
+                print("Error al eliminar Producto.")
         else:
-            print("Error al eliminar Producto. Asegúrese de que el ID es correcto.")
+            print("Producto no encontrado.")
     except ValueError:
         print("ID de producto no válido.")
-
 def ver_historial_compras_todos(sistema):
     compras = sistema.obtener_historial_compras_todos()
     if compras:

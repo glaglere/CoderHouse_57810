@@ -348,13 +348,15 @@ class Sistema:
         Returns:
             bool: True si el producto se elimina exitosamente, False en caso contrario.
         """
-        result = False
         try:
-            self.productos = [p for p in self.productos if p.id_producto != id_producto]
-            result = True
+            producto_a_eliminar = next((p for p in self.productos if p.id_producto == id_producto), None)
+            if producto_a_eliminar:
+                self.productos.remove(producto_a_eliminar)
+                return True
+            return False
         except Exception as e:
             print(f"Error al eliminar producto: {e}")
-        return result
+            return False
 
     def agregar_producto_al_carrito(self, email, producto, cantidad):
         """
