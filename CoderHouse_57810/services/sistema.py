@@ -81,6 +81,18 @@ class Sistema:
         """
         return any(dni == c.dni for c in self.clientes_personas)
 
+    def cuit_exists(self, cuit):
+        """
+        Verifica si un CUIT ya existe en el sistema.
+
+        Args:
+            cuit (str): El CUIT a verificar.
+
+        Returns:
+            bool: True si el CUIT existe, False en caso contrario.
+        """
+        return any(cuit == c.cuit for c in self.clientes_corporativos)
+
     def agregar_cliente_persona(self, cliente):
         """
         Agrega un ClientePersona al sistema.
@@ -152,6 +164,9 @@ class Sistema:
 
             if self.email_exists(cliente.email):
                 raise ValueError("El email ya existe en el sistema.")
+
+            if self.cuit_exists(cliente.cuit):
+                raise ValueError("El CUIT ya existe en el sistema.")
 
             if not Seguridad.validar_nombre_usuario(cliente.nombre):
                 raise ValueError("El nombre del cliente corporativo no es válido.")

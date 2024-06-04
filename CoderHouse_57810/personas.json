@@ -234,6 +234,15 @@
         "dni": "31364853"
     },
     {
+        "tipo": "ClientePersona",
+        "nombre": "Lionel Messi",
+        "email": "lmessi@mail.com",
+        "password": "$2b$12$8ZkJczQbIM2D/1.y3TqjzuOy6.ZxqVb.cVHaYZT98/50xlGwZNLPW",
+        "direccion": "Dirección 1111",
+        "telefono": "023456789",
+        "dni": "31364854"
+    },
+    {
         "tipo": "ClienteCorporativo",
         "nombre": "Corp Tech",
         "email": "corptech@gmail.com",
@@ -331,6 +340,15 @@
         "direccion": "Dirección 222",
         "telefono": "099888999",
         "cuit": "5678901234522"
+    },
+    {
+        "tipo": "ClienteCorporativo",
+        "nombre": "Menecucho SA",
+        "email": "menecucho@mail.com",
+        "password": "$2b$12$6cyCz.UZM85R/6WtRRuFJ.bonu9wSHdWLMK1uro1/RSO7Ij.ana0y",
+        "direccion": "Dirección 1111",
+        "telefono": "000555999",
+        "cuit": "58920876"
     },
     {
         "tipo": "Administrador",

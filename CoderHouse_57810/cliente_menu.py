@@ -1,6 +1,7 @@
 from tabulate import tabulate
 from CoderHouse_57810.services.helpers import print_menu, get_option, collect_input
 from CoderHouse_57810.models.cliente import ClientePersona, ClienteCorporativo
+from CoderHouse_57810.services.seguridad import Seguridad
 
 MENU_OPTIONS_CLIENTE = ["Registrar Cliente", "Loguearse", "Regresar al menú principal"]
 MENU_OPTIONS_CLIENTE_LOGUEADO = [
@@ -8,6 +9,7 @@ MENU_OPTIONS_CLIENTE_LOGUEADO = [
     "Concretar Compra", "Ver Historial de Compras", "Listar Todos los Productos",
     "Listar Productos por Categoría", "Salir"
 ]
+
 
 def validar_email_unico(email, sistema):
     """
@@ -25,6 +27,41 @@ def validar_email_unico(email, sistema):
             return False
     return True
 
+
+def validar_dni_unico(dni, sistema):
+    """
+    Verifica si un DNI es único en el sistema.
+
+    Args:
+        dni (str): El DNI a validar.
+        sistema (Sistema): La instancia del sistema.
+
+    Returns:
+        bool: True si el DNI es único, False en caso contrario.
+    """
+    for cliente in sistema.clientes_personas:
+        if cliente.dni == dni:
+            return False
+    return True
+
+
+def validar_cuit_unico(cuit, sistema):
+    """
+    Verifica si un CUIT es único en el sistema.
+
+    Args:
+        cuit (str): El CUIT a validar.
+        sistema (Sistema): La instancia del sistema.
+
+    Returns:
+        bool: True si el CUIT es único, False en caso contrario.
+    """
+    for cliente in sistema.clientes_corporativos:
+        if cliente.cuit == cuit:
+            return False
+    return True
+
+
 def registrar_cliente(sistema):
     """
     Permite a un nuevo cliente registrarse en el sistema.
@@ -34,14 +71,24 @@ def registrar_cliente(sistema):
     """
     while True:
         email = input("Ingrese el email: ")
-        if validar_email_unico(email, sistema):
-            break
-        print("El email ya existe. Por favor ingrese un email diferente.")
+        if not Seguridad.validar_email(email):
+            print("El email no tiene un formato válido. Intente nuevamente.")
+            continue
+        if not validar_email_unico(email, sistema):
+            print("El email ya existe. Por favor ingrese un email diferente.")
+            continue
+        break
 
     tipo_cliente = input("Ingrese el tipo de cliente (1 para Persona, 2 para Corporativo): ")
 
     if tipo_cliente == '1':
         data = collect_input(["nombre", "contraseña", "dirección", "teléfono", "DNI"])
+
+        if not Seguridad.validar_no_vacio(data["DNI"]) or not Seguridad.validar_dni(
+                data["DNI"]) or not validar_dni_unico(data["DNI"], sistema):
+            print("El DNI no es válido o ya existe en el sistema. Intente nuevamente.")
+            return
+
         cliente = ClientePersona(data["nombre"], email, data["contraseña"], data["dirección"], data["teléfono"],
                                  data["DNI"])
         if sistema.agregar_cliente_persona(cliente):
@@ -50,6 +97,11 @@ def registrar_cliente(sistema):
             print("Error al registrar Cliente Persona.")
     elif tipo_cliente == '2':
         data = collect_input(["nombre", "contraseña", "dirección", "teléfono", "CUIT"])
+
+        if not Seguridad.validar_no_vacio(data["CUIT"]) or not validar_cuit_unico(data["CUIT"], sistema):
+            print("El CUIT no es válido o ya existe en el sistema. Intente nuevamente.")
+            return
+
         cliente = ClienteCorporativo(data["nombre"], email, data["contraseña"], data["dirección"], data["teléfono"],
                                      data["CUIT"])
         if sistema.agregar_cliente_corporativo(cliente):
@@ -59,17 +111,20 @@ def registrar_cliente(sistema):
     else:
         print("Tipo de cliente no válido. Intente nuevamente.")
 
+
 def mostrar_menu_clientes():
     """
     Muestra el menú principal de clientes.
     """
     print_menu(MENU_OPTIONS_CLIENTE)
 
+
 def mostrar_menu_cliente_logueado():
     """
     Muestra el menú de opciones para clientes logueados.
     """
     print_menu(MENU_OPTIONS_CLIENTE_LOGUEADO)
+
 
 def login(email, password, usuarios):
     """
@@ -87,6 +142,7 @@ def login(email, password, usuarios):
         if usuario.email == email and usuario.password == password:
             return usuario
     return None
+
 
 def operaciones_clientes(sistema):
     """
@@ -111,6 +167,7 @@ def operaciones_clientes(sistema):
                 print("Credenciales incorrectas.")
         elif opcion == 3:
             break
+
 
 def agregar_producto_al_carrito(sistema, cliente):
     """
@@ -143,6 +200,7 @@ def agregar_producto_al_carrito(sistema, cliente):
         if continuar.lower() != 's':
             break
 
+
 def mostrar_carrito(sistema, cliente):
     """
     Muestra el contenido del carrito del cliente.
@@ -161,6 +219,7 @@ def mostrar_carrito(sistema, cliente):
     else:
         print("El carrito está vacío.")
 
+
 def quitar_producto_del_carrito(sistema, cliente):
     """
     Permite al cliente quitar un producto del carrito.
@@ -177,6 +236,7 @@ def quitar_producto_del_carrito(sistema, cliente):
     except ValueError as e:
         print(e)
 
+
 def concretar_compra(sistema, cliente):
     """
     Permite al cliente concretar la compra de los productos en el carrito.
@@ -191,6 +251,7 @@ def concretar_compra(sistema, cliente):
             print("Compra concretada exitosamente.")
     except ValueError as e:
         print(e)
+
 
 def ver_historial_de_compras(sistema, cliente):
     """
@@ -212,6 +273,7 @@ def ver_historial_de_compras(sistema, cliente):
     else:
         print("No hay compras registradas.")
 
+
 def listar_todos_los_productos(sistema):
     """
     Lista todos los productos disponibles en el sistema.
@@ -220,6 +282,7 @@ def listar_todos_los_productos(sistema):
         sistema (Sistema): La instancia del sistema.
     """
     sistema.mostrar_productos()
+
 
 def listar_productos_por_categoria(sistema):
     """
@@ -243,6 +306,7 @@ def listar_productos_por_categoria(sistema):
             print("Opción no válida.")
     except ValueError:
         print("Entrada no válida.")
+
 
 def operaciones_cliente_logueado(sistema, cliente):
     """
