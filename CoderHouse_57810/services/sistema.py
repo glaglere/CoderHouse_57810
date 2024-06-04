@@ -1,20 +1,14 @@
-# sistema.py
-
 import json
-
 from tabulate import tabulate
-
 from CoderHouse_57810.models.administrador import Administrador
 from CoderHouse_57810.models.cliente import ClientePersona, ClienteCorporativo
 from CoderHouse_57810.models.compra import Compra
 from CoderHouse_57810.models.producto import Producto
 from CoderHouse_57810.services.seguridad import Seguridad
 
-
 class Sistema:
     """
     Clase que representa el sistema principal de gestión.
-
     Atributos:
         clientes_personas (list): Lista de clientes personas.
         clientes_corporativos (list): Lista de clientes corporativos.
@@ -63,45 +57,43 @@ class Sistema:
         else:
             print(f"No hay productos disponibles en la categoría '{categoria}'.")
 
-
-
     def email_exists(self, email):
         """
-        Verifies if an email already exists in the system.
+        Verifica si un email ya existe en el sistema.
 
         Args:
-            email (str): The email to check.
+            email (str): El email a verificar.
 
         Returns:
-            bool: True if the email exists, False otherwise.
+            bool: True si el email existe, False en caso contrario.
         """
         return any(email == c.email for c in self.clientes_personas + self.clientes_corporativos + self.administradores)
 
     def dni_exists(self, dni):
         """
-        Verifies if a DNI already exists in the system.
+        Verifica si un DNI ya existe en el sistema.
 
         Args:
-            dni (str): The DNI to check.
+            dni (str): El DNI a verificar.
 
         Returns:
-            bool: True if the DNI exists, False otherwise.
+            bool: True si el DNI existe, False en caso contrario.
         """
         return any(dni == c.dni for c in self.clientes_personas)
 
     def agregar_cliente_persona(self, cliente):
         """
-        Adds a ClientePersona to the system.
+        Agrega un ClientePersona al sistema.
 
         Args:
-            cliente (ClientePersona): The client to add.
+            cliente (ClientePersona): El cliente a agregar.
 
         Returns:
-            bool: True if the client was added successfully, False otherwise.
+            bool: True si el cliente se agrega exitosamente, False en caso contrario.
 
         Raises:
-            ValueError: If any validation fails or if the email/DNI already exists.
-            TypeError: If the argument is not an instance of ClientePersona.
+            ValueError: Si alguna de las validaciones falla o si el email/DNI ya existe.
+            TypeError: Si el argumento no es una instancia de ClientePersona.
         """
         result = False
         try:
@@ -141,19 +133,19 @@ class Sistema:
 
     def agregar_cliente_corporativo(self, cliente):
         """
-        Adds a ClienteCorporativo to the system.
+        Agrega un ClienteCorporativo al sistema.
 
         Args:
-            cliente (ClienteCorporativo): The client to add.
+            cliente (ClienteCorporativo): El cliente a agregar.
 
         Returns:
-            bool: True if the client was added successfully, False otherwise.
+            bool: True si el cliente se agrega exitosamente, False en caso contrario.
 
         Raises:
-            ValueError: If any validation fails or if the email already exists.
-            TypeError: If the argument is not an instance of ClienteCorporativo.
+            ValueError: Si alguna de las validaciones falla o si el email ya existe.
+            TypeError: Si el argumento no es una instancia de ClienteCorporativo.
         """
-        result=False
+        result = False
         try:
             if not isinstance(cliente, ClienteCorporativo):
                 raise TypeError("El cliente debe ser una instancia de ClienteCorporativo")
@@ -183,25 +175,23 @@ class Sistema:
             self.carritos[cliente.email] = []
 
             result = True
-
         except (ValueError, TypeError) as e:
             print(f"Error al agregar cliente corporativo: {e}")
         return result
 
-
     def agregar_administrador(self, nuevo_administrador):
         """
-        Adds an Administrador to the system.
+        Agrega un Administrador al sistema.
 
         Args:
-            nuevo_administrador (Administrador): The administrator to add.
+            nuevo_administrador (Administrador): El administrador a agregar.
 
         Returns:
-            bool: True if the administrator was added successfully, False otherwise.
+            bool: True si el administrador se agrega exitosamente, False en caso contrario.
 
         Raises:
-            ValueError: If any validation fails or if the email already exists.
-            TypeError: If the argument is not an instance of Administrador.
+            ValueError: Si alguna de las validaciones falla o si el email ya existe.
+            TypeError: Si el argumento no es una instancia de Administrador.
         """
         result = False
         try:
@@ -224,7 +214,7 @@ class Sistema:
                 raise ValueError("El código de funcionario del administrador no puede estar vacío.")
 
             self.administradores.append(nuevo_administrador)
-            result=True
+            result = True
         except (ValueError, TypeError) as e:
             print(f"Error al agregar Administrador: {e}")
         return result
@@ -263,7 +253,7 @@ class Sistema:
             else:
                 raise TypeError("El producto debe ser una instancia de Producto")
         except (ValueError, TypeError) as e:
-            print(f"Error al agregar administrador: {e}")
+            print(f"Error al agregar producto: {e}")
         return result
 
     def mostrar_clientes(self):
@@ -310,6 +300,15 @@ class Sistema:
             print("No hay productos registrados.")
 
     def eliminar_cliente_persona(self, email):
+        """
+        Elimina un ClientePersona del sistema.
+
+        Args:
+            email (str): El email del cliente a eliminar.
+
+        Returns:
+            bool: True si el cliente se elimina exitosamente, False en caso contrario.
+        """
         result = False
         try:
             self.clientes_personas = [c for c in self.clientes_personas if c.email != email]
@@ -320,6 +319,15 @@ class Sistema:
         return result
 
     def eliminar_cliente_corporativo(self, email):
+        """
+        Elimina un ClienteCorporativo del sistema.
+
+        Args:
+            email (str): El email del cliente a eliminar.
+
+        Returns:
+            bool: True si el cliente se elimina exitosamente, False en caso contrario.
+        """
         result = False
         try:
             self.clientes_corporativos = [c for c in self.clientes_corporativos if c.email != email]
@@ -330,6 +338,15 @@ class Sistema:
         return result
 
     def eliminar_administrador(self, email):
+        """
+        Elimina un Administrador del sistema.
+
+        Args:
+            email (str): El email del administrador a eliminar.
+
+        Returns:
+            bool: True si el administrador se elimina exitosamente, False en caso contrario.
+        """
         result = False
         try:
             self.administradores = [a for a in self.administradores if a.email != email]
@@ -348,15 +365,15 @@ class Sistema:
         Returns:
             bool: True si el producto se elimina exitosamente, False en caso contrario.
         """
+        result = False
         try:
             producto_a_eliminar = next((p for p in self.productos if p.id_producto == id_producto), None)
             if producto_a_eliminar:
                 self.productos.remove(producto_a_eliminar)
-                return True
-            return False
+                result = True
         except Exception as e:
             print(f"Error al eliminar producto: {e}")
-            return False
+        return result
 
     def agregar_producto_al_carrito(self, email, producto, cantidad):
         """
@@ -452,8 +469,6 @@ class Sistema:
         except (ValueError, TypeError) as e:
             print(f"Error al concretar compra: {e}")
             return None
-
-    # Las demás funciones del Sistema permanecen sin cambios...
 
     def buscar_cliente(self, email):
         """

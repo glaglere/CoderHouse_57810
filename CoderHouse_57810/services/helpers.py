@@ -1,5 +1,3 @@
-# helpers.py
-
 from tabulate import tabulate
 from CoderHouse_57810.services.seguridad import Seguridad
 
@@ -25,7 +23,6 @@ validations = {
     "código funcionario": ("El código funcionario no puede estar vacío.", Seguridad.validar_no_vacio)
 }
 
-
 def collect_input(fields):
     """
     Recoge la entrada del usuario para una lista de campos especificados.
@@ -48,7 +45,6 @@ def collect_input(fields):
                 print(f"{error_message} Inténtelo nuevamente.")
     return data
 
-
 def print_menu(options, title="\nSeleccione una opción:"):
     """
     Muestra un menú con opciones utilizando la biblioteca tabulate.
@@ -60,7 +56,6 @@ def print_menu(options, title="\nSeleccione una opción:"):
     print(title)
     table = [[index + 1, option] for index, option in enumerate(options)]
     print(tabulate(table, headers=["Opción", "Descripción"], tablefmt="pretty"))
-
 
 def get_option(options):
     """

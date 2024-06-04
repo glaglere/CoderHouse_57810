@@ -1,11 +1,8 @@
-# compra.py
 from datetime import datetime
 import random
 import string
-
 from CoderHouse_57810.models.cliente import ClientePersona, ClienteCorporativo
 from CoderHouse_57810.models.producto import Producto
-
 
 class Compra:
     """

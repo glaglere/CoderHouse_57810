@@ -1,7 +1,4 @@
-# cliente_menu.py
-
 from tabulate import tabulate
-
 from CoderHouse_57810.services.helpers import print_menu, get_option, collect_input
 from CoderHouse_57810.models.cliente import ClientePersona, ClienteCorporativo
 

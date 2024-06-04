@@ -1,5 +1,3 @@
-# seguridad.py
-
 import re
 
 class Seguridad:

@@ -1,7 +1,4 @@
-# cliente.py
-
 from CoderHouse_57810.models.persona import Persona
-
 
 class Cliente(Persona):
     """
@@ -63,7 +60,6 @@ class Cliente(Persona):
         """
         return cls(data["nombre"], data["email"], data["password"], data["direccion"], data["telefono"])
 
-
 class ClientePersona(Cliente):
     """
     Clase que representa a un cliente persona, hereda de Cliente.
@@ -119,7 +115,6 @@ class ClientePersona(Cliente):
             ClientePersona: Una instancia de la clase ClientePersona.
         """
         return cls(data["nombre"], data["email"], data["password"], data["direccion"], data["telefono"], data["dni"])
-
 
 class ClienteCorporativo(Cliente):
     """

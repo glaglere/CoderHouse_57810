@@ -1,6 +1,5 @@
 from CoderHouse_57810.models.persona import Persona
 
-
 class Administrador(Persona):
     """
     Clase que representa a un administrador, hereda de Persona.

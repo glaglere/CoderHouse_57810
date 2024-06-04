@@ -71,9 +71,9 @@
     },
     {
         "id_producto": 11,
-        "nombre": "sistema video conferencia",
-        "descripcion": "Sistema de Video Conferencia inalámbrico 360",
-        "categoria": "Comunicaciones",
-        "precio": 2000.0
+        "nombre": "nombre",
+        "descripcion": "descripción",
+        "categoria": "categoría",
+        "precio": 200.0
     }
 ]

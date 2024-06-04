@@ -208,21 +208,30 @@
     },
     {
         "tipo": "ClientePersona",
-        "nombre": "Cliente Nuevo",
-        "email": "mail@mail.com",
-        "password": "$2b$12$62AFrDJY53R6mJp.Bbp8zuNShcAgU.rmarU4j2su4kHRGkydP5o1.",
-        "direccion": "Direccion 1234",
-        "telefono": "7777771",
-        "dni": "159263478"
-    },
-    {
-        "tipo": "ClientePersona",
         "nombre": "Pitufo Lopez",
         "email": "pitufo@inbox.com",
         "password": "contraseña123",
         "direccion": "dirección 1111",
         "telefono": "099888444",
         "dni": "4446663"
+    },
+    {
+        "tipo": "ClientePersona",
+        "nombre": "Ginette Laglere",
+        "email": "glaglere@inbox.com",
+        "password": "$2b$12$aPo3K7ML11uB.X9y./sZDO3hUJi4HH5IgN0V.qcQOY.w8TOTHlF8y",
+        "direccion": "Dirección 1111",
+        "telefono": "099450450",
+        "dni": "31364852"
+    },
+    {
+        "tipo": "ClientePersona",
+        "nombre": "Nombre Persona",
+        "email": "persona@mail.com",
+        "password": "$2b$12$mrvXLC2VtIK1LioymlB8P.TqjlIWkj7v2Wn3wAfypY2.TDH0wmzHW",
+        "direccion": "Dirección 1111",
+        "telefono": "099444444",
+        "dni": "31364853"
     },
     {
         "tipo": "ClienteCorporativo",
@@ -306,6 +315,24 @@
         "cuit": "65046540666666"
     },
     {
+        "tipo": "ClienteCorporativo",
+        "nombre": "Corpofix SA",
+        "email": "corpofix@inbox.com",
+        "password": "$2b$12$O1Hn2uyYNRnf94AolgUd1e6/BjYeZYBex0mQehoUrPSh1nZyKgDYa",
+        "direccion": "Dirección 1234",
+        "telefono": "099444555",
+        "cuit": "5555"
+    },
+    {
+        "tipo": "ClienteCorporativo",
+        "nombre": "Surco SA",
+        "email": "surco@surco.com",
+        "password": "$2b$12$hzNjM/8Me5KZINQlRo.29O4H4pYHaxyRkTK/fDWGqFG1CU2yHyqGC",
+        "direccion": "Dirección 222",
+        "telefono": "099888999",
+        "cuit": "5678901234522"
+    },
+    {
         "tipo": "Administrador",
         "nombre": "Admin User",
         "email": "admin@example.com",
@@ -332,5 +359,19 @@
         "email": "admin@admin.com",
         "password": "pass.pass.1",
         "codigo_funcionario": "789"
+    },
+    {
+        "tipo": "Administrador",
+        "nombre": "Administro Ing",
+        "email": "administro@mail.com",
+        "password": "$2b$12$j9khB830XjeyA25Vv1K3aO9v.EMsHwDC/Xn7ciR/PQFJVhkEwhosa",
+        "codigo_funcionario": "000"
+    },
+    {
+        "tipo": "Administrador",
+        "nombre": "Administra",
+        "email": "administra@mail.com",
+        "password": "$2b$12$ggpBlJn14STSi6g3UUCineC1UY6f8NYKjpP7YBh87hfxpDHSD9IFi",
+        "codigo_funcionario": "00"
     }
 ]

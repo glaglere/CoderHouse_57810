@@ -1,5 +1,3 @@
-# persona.py
-
 class Persona:
     """
     Clase base que representa a una persona con atributos básicos.
