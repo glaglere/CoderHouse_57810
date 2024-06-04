@@ -407,35 +407,29 @@ class Sistema:
             print(f"Error al agregar producto al carrito: {e}")
         return result
 
-    def quitar_producto_del_carrito(self, email, id_producto):
+    def quitar_producto_del_carrito(self, email_cliente, id_producto, cantidad):
         """
-        Quita un producto del carrito de compras de un cliente.
+        Quita una cantidad específica de un producto del carrito de un cliente.
 
         Args:
-            email (str): El correo electrónico del cliente.
+            email_cliente (str): El email del cliente.
             id_producto (int): El ID del producto a quitar.
-
-        Returns:
-            bool: True si el producto se quita exitosamente del carrito, False en caso contrario.
+            cantidad (int): La cantidad a quitar del producto.
 
         Raises:
-            ValueError: Si el cliente no existe o el producto no está en el carrito.
+            ValueError: Si el producto no se encuentra en el carrito o si la cantidad a quitar es mayor que la cantidad en el carrito.
         """
-        result = False
-        try:
-            if email in self.carritos:
-                carrito = self.carritos[email]
-                for item in carrito:
-                    if item["producto"].id_producto == id_producto:
-                        carrito.remove(item)
-                        result = True
-                        return result
-                raise ValueError("El producto no está en el carrito")
-            else:
-                raise ValueError("El cliente no existe")
-        except (ValueError, TypeError) as e:
-            print(f"Error al quitar producto del carrito: {e}")
-        return result
+        carrito = self.carritos.get(email_cliente, [])
+        for item in carrito:
+            if item["producto"].id_producto == id_producto:
+                if item["cantidad"] < cantidad:
+                    raise ValueError("Cantidad a quitar es mayor que la cantidad en el carrito.")
+                item["cantidad"] -= cantidad
+                if item["cantidad"] == 0:
+                    carrito.remove(item)
+                self.carritos[email_cliente] = carrito
+                return
+        raise ValueError("Producto no encontrado en el carrito.")
 
     def mostrar_carrito(self, email):
         """

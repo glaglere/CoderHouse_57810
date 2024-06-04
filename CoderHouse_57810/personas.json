@@ -234,6 +234,24 @@
         "dni": "159263478"
     },
     {
+        "tipo": "ClientePersona",
+        "nombre": "Pitufo Lopez",
+        "email": "pitufo@inbox.com",
+        "password": "contraseña123",
+        "direccion": "dirección 1111",
+        "telefono": "099888444",
+        "dni": "4446663"
+    },
+    {
+        "tipo": "ClientePersona",
+        "nombre": "Pochito Lopez",
+        "email": "pochito@mail.com",
+        "password": "contraseña123",
+        "direccion": "dir",
+        "telefono": "999999999",
+        "dni": "555555"
+    },
+    {
         "tipo": "ClienteCorporativo",
         "nombre": "Corp Tech",
         "email": "corptech@gmail.com",
@@ -331,6 +349,15 @@
         "direccion": "Dirección ",
         "telefono": "7777777",
         "cuit": "65046540666666"
+    },
+    {
+        "tipo": "ClienteCorporativo",
+        "nombre": "Cliente Corporativo",
+        "email": "probando@prueba.com",
+        "password": "Contraseña3333",
+        "direccion": "dir",
+        "telefono": "999999999",
+        "cuit": "5"
     },
     {
         "tipo": "Administrador",

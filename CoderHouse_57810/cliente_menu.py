@@ -174,7 +174,8 @@ def quitar_producto_del_carrito(sistema, cliente):
     """
     try:
         id_producto = int(input("Ingrese el ID del producto a quitar del carrito: "))
-        sistema.quitar_producto_del_carrito(cliente.email, id_producto)
+        cantidad = int(input("Ingrese la cantidad a quitar del producto: "))
+        sistema.quitar_producto_del_carrito(cliente.email, id_producto, cantidad)
         print("Producto quitado del carrito.")
     except ValueError as e:
         print(e)
@@ -209,8 +210,8 @@ def ver_historial_de_compras(sistema, cliente):
         for compra in historial_compras:
             productos_str = ", ".join([f"{prod['producto'].nombre} x{prod['cantidad']}" for prod in compra.productos])
             precio_total = sum([prod['producto'].precio * prod['cantidad'] for prod in compra.productos])
-            table.append([compra.fecha.strftime('%Y-%m-%d %H:%M:%S'), productos_str, precio_total])
-        print(tabulate(table, headers=["Fecha de Compra", "Productos", "Precio Total"], tablefmt="pretty"))
+            table.append([compra.ticket, compra.fecha.strftime('%Y-%m-%d %H:%M:%S'), productos_str, precio_total])
+        print(tabulate(table, headers=["Ticket", "Fecha de Compra", "Productos", "Precio Total"], tablefmt="pretty"))
     else:
         print("No hay compras registradas.")
 
