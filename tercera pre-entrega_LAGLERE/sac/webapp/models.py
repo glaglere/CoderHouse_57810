@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Persona(models.Model):
     nombre = models.CharField(max_length=100, default='Nombre')
     apellido = models.CharField(max_length=100, default='Apellido')
@@ -12,6 +13,7 @@ class Persona(models.Model):
     def __str__(self):
         return f"{self.nombre} {self.apellido}"
 
+
 class Cliente(Persona):
     email = models.EmailField()
     direccion = models.CharField(max_length=255, default='Direccion')
@@ -19,6 +21,7 @@ class Cliente(Persona):
 
     def __str__(self):
         return self.nombre
+
 
 class Empleado(Persona):
     puesto = models.CharField(max_length=100, default='Puesto')
@@ -28,6 +31,7 @@ class Empleado(Persona):
     def __str__(self):
         return f"{self.nombre} {self.apellido} - {self.puesto}"
 
+
 class Producto(models.Model):
     nombre = models.CharField(max_length=100)
     descripcion = models.TextField()
@@ -36,6 +40,7 @@ class Producto(models.Model):
 
     def __str__(self):
         return self.nombre
+
 
 class Compra(models.Model):
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)

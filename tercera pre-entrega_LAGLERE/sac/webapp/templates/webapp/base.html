@@ -16,15 +16,52 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
+                    <!-- Inicio -->
                     <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/productos/">Productos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/clientes/">Clientes</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/empleados/">Empleados</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/compras/">Compras</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/agregar_producto/">Agregar Producto</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/agregar_cliente/">Agregar Cliente</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/agregar_empleado/">Agregar Empleado</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/agregar_compra/">Agregar Compra</a></li>
+
+                    <!-- Compras -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="comprasDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Compras
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="comprasDropdown">
+                            <a class="dropdown-item" href="/compras/">Lista de Compras</a>
+                            <a class="dropdown-item" href="/agregar_compra/">Agregar Compra</a>
+                        </div>
+                    </li>
+
+                    <!-- Clientes -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="clientesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Clientes
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="clientesDropdown">
+                            <a class="dropdown-item" href="/clientes/">Lista de Clientes</a>
+                            <a class="dropdown-item" href="/agregar_cliente/">Agregar Cliente</a>
+                        </div>
+                    </li>
+
+                    <!-- Productos -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="productosDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Productos
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="productosDropdown">
+                            <a class="dropdown-item" href="/productos/">Lista de Productos</a>
+                            <a class="dropdown-item" href="/agregar_producto/">Agregar Producto</a>
+                        </div>
+                    </li>
+
+                    <!-- Empleados -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="empleadosDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Empleados
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="empleadosDropdown">
+                            <a class="dropdown-item" href="/empleados/">Lista de Empleados</a>
+                            <a class="dropdown-item" href="/agregar_empleado/">Agregar Empleado</a>
+                        </div>
+                    </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0" method="get" action="{% url 'buscar' %}">
                     <input class="form-control mr-sm-2" type="search" name="query" placeholder="Buscar...">
