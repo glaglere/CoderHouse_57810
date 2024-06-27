@@ -6,46 +6,53 @@
 
 {% block content %}
 <div class="container">
-    <h1>Resultados de Búsqueda para "{{ query }}"</h1>
+    <div class="card">
+        <div class="card-header">
+            Resultados de Búsqueda para "{{ query }}"
+        </div>
+        <div class="card-body">
+            {% if productos %}
+            <h2>Productos</h2>
+            <ul class="list-group">
+                {% for producto in productos %}
+                <li class="list-group-item">{{ producto.nombre }} - {{ producto.descripcion }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
 
-    {% if productos %}
-    <h2>Productos</h2>
-    <ul class="list-group">
-        {% for producto in productos %}
-        <li class="list-group-item">{{ producto.nombre }} - {{ producto.descripcion }}</li>
-        {% endfor %}
-    </ul>
-    {% endif %}
+            {% if clientes %}
+            <h2>Clientes</h2>
+            <ul class="list-group">
+                {% for cliente in clientes %}
+                <li class="list-group-item">{{ cliente.nombre }} {{ cliente.apellido }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
 
-    {% if clientes %}
-    <h2>Clientes</h2>
-    <ul class="list-group">
-        {% for cliente in clientes %}
-        <li class="list-group-item">{{ cliente.nombre }} {{ cliente.apellido }}</li>
-        {% endfor %}
-    </ul>
-    {% endif %}
+            {% if empleados %}
+            <h2>Empleados</h2>
+            <ul class="list-group">
+                {% for empleado in empleados %}
+                <li class="list-group-item">{{ empleado.nombre }} {{ empleado.apellido }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
 
-    {% if empleados %}
-    <h2>Empleados</h2>
-    <ul class="list-group">
-        {% for empleado in empleados %}
-        <li class="list-group-item">{{ empleado.nombre }} {{ empleado.apellido }}</li>
-        {% endfor %}
-    </ul>
-    {% endif %}
+            {% if compras %}
+            <h2>Compras</h2>
+            <ul class="list-group">
+                {% for compra in compras %}
+                <li class="list-group-item">{{ compra.cliente.nombre }} compró {{ compra.cantidad }} de {{
+                    compra.producto.nombre }}
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
 
-    {% if compras %}
-    <h2>Compras</h2>
-    <ul class="list-group">
-        {% for compra in compras %}
-        <li class="list-group-item">{{ compra.cliente.nombre }} compró {{ compra.cantidad }} de {{ compra.producto.nombre }}</li>
-        {% endfor %}
-    </ul>
-    {% endif %}
-
-    {% if not productos and not clientes and not empleados and not compras %}
-    <p>No se encontraron resultados para "{{ query }}".</p>
-    {% endif %}
+            {% if not productos and not clientes and not empleados and not compras %}
+            <p>No se encontraron resultados para "{{ query }}".</p>
+            {% endif %}
+        </div>
+    </div>
 </div>
 {% endblock %}

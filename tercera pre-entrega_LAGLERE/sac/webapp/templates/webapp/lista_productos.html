@@ -6,11 +6,17 @@
 
 {% block content %}
 <div class="container">
-    <h1>Productos Disponibles</h1>
-    <ul class="list-group">
-        {% for producto in productos %}
-        <li class="list-group-item">{{ producto.nombre }} - {{ producto.precio }}</li>
-        {% endfor %}
-    </ul>
+    <div class="card">
+        <div class="card-header">
+            Productos Disponibles
+        </div>
+        <div class="card-body">
+            <ul class="list-group">
+                {% for producto in productos %}
+                <li class="list-group-item">{{ producto.nombre }} - {{ producto.precio }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 </div>
 {% endblock %}

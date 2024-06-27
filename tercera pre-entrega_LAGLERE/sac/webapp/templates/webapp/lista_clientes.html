@@ -6,11 +6,17 @@
 
 {% block content %}
 <div class="container">
-    <h1>Clientes</h1>
-    <ul class="list-group">
-        {% for cliente in clientes %}
-        <li class="list-group-item">{{ cliente.nombre }} {{ cliente.apellido }}</li>
-        {% endfor %}
-    </ul>
+    <div class="card">
+        <div class="card-header">
+            Clientes
+        </div>
+        <div class="card-body">
+            <ul class="list-group">
+                {% for cliente in clientes %}
+                <li class="list-group-item">{{ cliente.nombre }} {{ cliente.apellido }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 </div>
 {% endblock %}
