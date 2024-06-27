@@ -9,6 +9,18 @@ def lista_productos(request):
     productos = Producto.objects.all()
     return render(request, 'webapp/lista_productos.html', {'productos': productos})
 
+def lista_clientes(request):
+    clientes = Cliente.objects.all()
+    return render(request, 'webapp/lista_clientes.html', {'clientes': clientes})
+
+def lista_empleados(request):
+    empleados = Empleado.objects.all()
+    return render(request, 'webapp/lista_empleados.html', {'empleados': empleados})
+
+def lista_compras(request):
+    compras = Compra.objects.all()
+    return render(request, 'webapp/lista_compras.html', {'compras': compras})
+
 def inicio(request):
     return render(request, 'webapp/inicio.html')
 

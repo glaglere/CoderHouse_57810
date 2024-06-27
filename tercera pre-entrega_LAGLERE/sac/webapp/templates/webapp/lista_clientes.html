@@ -1,0 +1,14 @@
+<!-- templates/webapp/lista_clientes.html -->
+
+{% extends 'webapp/base.html' %}
+
+{% block title %}Lista de Clientes{% endblock %}
+
+{% block content %}
+<h1>Clientes</h1>
+<ul>
+    {% for cliente in clientes %}
+    <li>{{ cliente.nombre }} {{ cliente.apellido }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

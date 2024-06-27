@@ -1,0 +1,14 @@
+<!-- templates/webapp/lista_compras.html -->
+
+{% extends 'webapp/base.html' %}
+
+{% block title %}Lista de Compras{% endblock %}
+
+{% block content %}
+<h1>Compras</h1>
+<ul>
+    {% for compra in compras %}
+    <li>{{ compra.cliente.nombre }} compró {{ compra.cantidad }} de {{ compra.producto.nombre }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
