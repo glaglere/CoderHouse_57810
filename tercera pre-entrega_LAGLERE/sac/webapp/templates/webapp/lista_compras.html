@@ -5,10 +5,12 @@
 {% block title %}Lista de Compras{% endblock %}
 
 {% block content %}
-<h1>Compras</h1>
-<ul>
-    {% for compra in compras %}
-    <li>{{ compra.cliente.nombre }} compró {{ compra.cantidad }} de {{ compra.producto.nombre }}</li>
-    {% endfor %}
-</ul>
+<div class="container">
+    <h1>Compras</h1>
+    <ul class="list-group">
+        {% for compra in compras %}
+        <li class="list-group-item">{{ compra.cliente.nombre }} compró {{ compra.cantidad }} de {{ compra.producto.nombre }}</li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}

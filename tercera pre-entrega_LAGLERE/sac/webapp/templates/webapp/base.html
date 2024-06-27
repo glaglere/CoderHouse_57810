@@ -4,33 +4,44 @@
 <html>
 <head>
     <title>{% block title %}Mi Sitio Web{% endblock %}</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1>Mi Sitio Web</h1>
-        <nav>
-            <ul>
-                <li><a href="/">Inicio</a></li>
-                <li><a href="/productos/">Productos</a></li>
-                <li><a href="/clientes/">Clientes</a></li>
-                <li><a href="/empleados/">Empleados</a></li>
-                <li><a href="/compras/">Compras</a></li>
-                <li><a href="/agregar_producto/">Agregar Producto</a></li>
-                <li><a href="/agregar_cliente/">Agregar Cliente</a></li>
-                <li><a href="/agregar_empleado/">Agregar Empleado</a></li>
-                <li><a href="/agregar_compra/">Agregar Compra</a></li>
-            </ul>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/">Mi Sitio Web</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/productos/">Productos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/clientes/">Clientes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/empleados/">Empleados</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/compras/">Compras</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/agregar_producto/">Agregar Producto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/agregar_cliente/">Agregar Cliente</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/agregar_empleado/">Agregar Empleado</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/agregar_compra/">Agregar Compra</a></li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0" method="get" action="{% url 'buscar' %}">
+                    <input class="form-control mr-sm-2" type="search" name="query" placeholder="Buscar...">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                </form>
+            </div>
         </nav>
-        <form method="get" action="{% url 'buscar' %}">
-            <input type="text" name="query" placeholder="Buscar...">
-            <button type="submit">Buscar</button>
-        </form>
     </header>
-    <main>
+    <main class="container mt-4">
         {% block content %}{% endblock %}
     </main>
-    <footer>
+    <footer class="text-center mt-4">
         <p>Derechos Reservados &copy; 2024</p>
     </footer>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

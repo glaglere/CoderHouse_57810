@@ -5,10 +5,12 @@
 {% block title %}Lista de Empleados{% endblock %}
 
 {% block content %}
-<h1>Empleados</h1>
-<ul>
-    {% for empleado in empleados %}
-    <li>{{ empleado.nombre }} {{ empleado.apellido }}</li>
-    {% endfor %}
-</ul>
+<div class="container">
+    <h1>Empleados</h1>
+    <ul class="list-group">
+        {% for empleado in empleados %}
+        <li class="list-group-item">{{ empleado.nombre }} {{ empleado.apellido }}</li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}

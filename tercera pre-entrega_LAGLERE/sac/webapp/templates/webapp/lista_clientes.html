@@ -5,10 +5,12 @@
 {% block title %}Lista de Clientes{% endblock %}
 
 {% block content %}
-<h1>Clientes</h1>
-<ul>
-    {% for cliente in clientes %}
-    <li>{{ cliente.nombre }} {{ cliente.apellido }}</li>
-    {% endfor %}
-</ul>
+<div class="container">
+    <h1>Clientes</h1>
+    <ul class="list-group">
+        {% for cliente in clientes %}
+        <li class="list-group-item">{{ cliente.nombre }} {{ cliente.apellido }}</li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}

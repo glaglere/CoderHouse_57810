@@ -5,10 +5,12 @@
 {% block title %}Lista de Productos{% endblock %}
 
 {% block content %}
-<h1>Productos Disponibles</h1>
-<ul>
-    {% for producto in productos %}
-    <li>{{ producto.nombre }} - {{ producto.precio }}</li>
-    {% endfor %}
-</ul>
+<div class="container">
+    <h1>Productos Disponibles</h1>
+    <ul class="list-group">
+        {% for producto in productos %}
+        <li class="list-group-item">{{ producto.nombre }} - {{ producto.precio }}</li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}
