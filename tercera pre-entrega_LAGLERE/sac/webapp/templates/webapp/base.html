@@ -1,0 +1,25 @@
+<!-- templates/webapp/base.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Mi Sitio Web{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1>Mi Sitio Web</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/productos/">Productos</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>Derechos Reservados &copy; 2024</p>
+    </footer>
+</body>
+</html>

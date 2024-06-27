@@ -1,6 +1,9 @@
-from django.http import HttpResponse
 from django.shortcuts import render
+from .models import Producto
 
-# Create your views here.
-def bienvenido(request):
-    return HttpResponse('Hola mundo desde Django')
+def lista_productos(request):
+    productos = Producto.objects.all()
+    return render(request, 'webapp/lista_productos.html', {'productos': productos})
+
+def inicio(request):
+    return render(request, 'webapp/inicio.html')

@@ -1,0 +1,14 @@
+<!-- templates/webapp/lista_productos.html -->
+
+{% extends 'webapp/base.html' %}
+
+{% block title %}Lista de Productos{% endblock %}
+
+{% block content %}
+<h1>Productos Disponibles</h1>
+<ul>
+    {% for producto in productos %}
+    <li>{{ producto.nombre }} - {{ producto.precio }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
