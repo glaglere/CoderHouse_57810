@@ -1,8 +1,9 @@
 # webapp/views.py
 
 from django.shortcuts import render, redirect
-from .forms import ProductoForm, ClienteForm, EmpleadoForm, CompraForm
-from .models import Producto
+from .forms import ProductoForm, ClienteForm, EmpleadoForm, CompraForm, BuscarForm
+from .models import Producto, Cliente, Empleado, Compra
+from django.db.models import Q
 
 def lista_productos(request):
     productos = Producto.objects.all()
@@ -50,3 +51,18 @@ def agregar_compra(request):
     else:
         form = CompraForm()
     return render(request, 'webapp/agregar_compra.html', {'form': form})
+
+def buscar(request):
+    query = request.GET.get('query')
+    productos = Producto.objects.filter(nombre__iexact=query)
+    clientes = Cliente.objects.filter(nombre__iexact=query)
+    empleados = Empleado.objects.filter(nombre__iexact=query)
+    compras = Compra.objects.filter(Q(cliente__nombre__iexact=query) | Q(producto__nombre__iexact=query))
+    context = {
+        'productos': productos,
+        'clientes': clientes,
+        'empleados': empleados,
+        'compras': compras,
+        'query': query
+    }
+    return render(request, 'webapp/resultados_busqueda.html', context)

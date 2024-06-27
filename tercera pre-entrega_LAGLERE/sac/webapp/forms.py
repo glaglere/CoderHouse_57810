@@ -22,3 +22,6 @@ class CompraForm(forms.ModelForm):
     class Meta:
         model = Compra
         fields = ['cliente', 'producto', 'fecha', 'cantidad']
+
+class BuscarForm(forms.Form):
+    query = forms.CharField(label='Buscar', max_length=100)
