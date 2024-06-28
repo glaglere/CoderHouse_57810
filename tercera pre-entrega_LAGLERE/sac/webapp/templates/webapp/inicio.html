@@ -7,52 +7,61 @@
 
 {% block content %}
 <div class="container">
-    <div class="jumbotron mt-4 p-5 bg-light rounded-3" style="background-image: url('{% static 'images/background.jpg' %}'); background-size: cover; color: white; text-shadow: 2px 2px 4px #000;">
-        <h1 class="display-4">Bienvenido a la Página de Inicio</h1>
-        <p class="lead">Esta es la página de inicio de tu aplicación Django. Aquí puedes encontrar información relevante y enlaces a diferentes secciones de la aplicación.</p>
-        <hr class="my-4" style="border-top: 1px solid white;">
-        <p>Utiliza el menú de navegación para explorar las diferentes funcionalidades de la aplicación.</p>
-        <a class="btn btn-primary btn-lg" href="#" role="button">Aprender más</a>
+    <div class="jumbotron mt-4 p-5 bg-light rounded-3"
+         style="background-image: url('{% static 'images/background.jpg' %}'); background-size: cover; position: relative; color: white;">
+        <div style="background-color: rgba(0, 0, 0, 0.5); padding: 20px; border-radius: 10px;">
+            <h1 class="display-4" style="text-shadow: 2px 2px 4px #000;">Bienvenido a la Página de Inicio</h1>
+            <p class="lead" style="text-shadow: 2px 2px 4px #000;">Esta es la página de inicio de tu aplicación Django.
+                Aquí puedes encontrar información relevante y enlaces a diferentes secciones de la aplicación.</p>
+            <hr class="my-4" style="border-top: 1px solid white;">
+            <p style="text-shadow: 2px 2px 4px #000;">Utiliza el menú de navegación para explorar las diferentes
+                funcionalidades de la aplicación.</p>
+            <a class="btn btn-primary btn-lg" href="#" role="button">Aprender más</a>
+        </div>
     </div>
 
     <div class="row">
         <div class="col-md-3">
             <div class="card mb-4 shadow-sm">
-                <img src="{% static 'images/compras.png' %}" class="card-img-top img-fluid" alt="Compras" style="height: 200px; object-fit: cover;">
+                <img alt="Compras" class="card-img-top img-fluid" src="{% static 'images/compras.png' %}"
+                     style="height: 200px; object-fit: cover;">
                 <div class="card-body">
                     <h5 class="card-title">Sección de Compras</h5>
                     <p class="card-text">Gestiona tus compras de manera eficiente.</p>
-                    <a href="/compras/" class="btn btn-primary">Ver Compras</a>
+                    <a class="btn btn-primary" href="/compras/">Ver Compras</a>
                 </div>
             </div>
         </div>
         <div class="col-md-3">
             <div class="card mb-4 shadow-sm">
-                <img src="{% static 'images/clientes.png' %}" class="card-img-top img-fluid" alt="Clientes" style="height: 200px; object-fit: cover;">
+                <img alt="Clientes" class="card-img-top img-fluid" src="{% static 'images/clientes.png' %}"
+                     style="height: 200px; object-fit: cover;">
                 <div class="card-body">
                     <h5 class="card-title">Sección de Clientes</h5>
                     <p class="card-text">Gestiona la información de tus clientes.</p>
-                    <a href="/clientes/" class="btn btn-primary">Ver Clientes</a>
+                    <a class="btn btn-primary" href="/clientes/">Ver Clientes</a>
                 </div>
             </div>
         </div>
         <div class="col-md-3">
             <div class="card mb-4 shadow-sm">
-                <img src="{% static 'images/productos.png' %}" class="card-img-top img-fluid" alt="Productos" style="height: 200px; object-fit: cover;">
+                <img alt="Productos" class="card-img-top img-fluid" src="{% static 'images/productos.png' %}"
+                     style="height: 200px; object-fit: cover;">
                 <div class="card-body">
                     <h5 class="card-title">Sección de Productos</h5>
                     <p class="card-text">Gestiona tus productos de manera efectiva.</p>
-                    <a href="/productos/" class="btn btn-primary">Ver Productos</a>
+                    <a class="btn btn-primary" href="/productos/">Ver Productos</a>
                 </div>
             </div>
         </div>
         <div class="col-md-3">
             <div class="card mb-4 shadow-sm">
-                <img src="{% static 'images/funcionarios.png' %}" class="card-img-top img-fluid" alt="Funcionarios" style="height: 200px; object-fit: cover;">
+                <img alt="Funcionarios" class="card-img-top img-fluid" src="{% static 'images/funcionarios.png' %}"
+                     style="height: 200px; object-fit: cover;">
                 <div class="card-body">
-                    <h5 class="card-title">Sección de Funcionarios</h5>
-                    <p class="card-text">Gestiona la información de tus funcionarios.</p>
-                    <a href="/funcionarios/" class="btn btn-primary">Ver Funcionarios</a>
+                    <h5 class="card-title">Sección Empleados</h5>
+                    <p class="card-text">Gestiona la información de tus empleados.</p>
+                    <a class="btn btn-primary" href="/empleados/">Ver Empleados</a>
                 </div>
             </div>
         </div>
