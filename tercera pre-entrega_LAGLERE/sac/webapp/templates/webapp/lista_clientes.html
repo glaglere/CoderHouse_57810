@@ -11,11 +11,32 @@
             Clientes
         </div>
         <div class="card-body">
-            <ul class="list-group">
-                {% for cliente in clientes %}
-                <li class="list-group-item">{{ cliente.nombre }} {{ cliente.apellido }}</li>
-                {% endfor %}
-            </ul>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Edad</th>
+                        <th scope="col">Ciudad</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Dirección</th>
+                        <th scope="col">Teléfono</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for cliente in clientes %}
+                    <tr>
+                        <td>{{ cliente.nombre }}</td>
+                        <td>{{ cliente.apellido }}</td>
+                        <td>{{ cliente.edad }}</td>
+                        <td>{{ cliente.ciudad }}</td>
+                        <td>{{ cliente.email }}</td>
+                        <td>{{ cliente.direccion }}</td>
+                        <td>{{ cliente.telefono }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
