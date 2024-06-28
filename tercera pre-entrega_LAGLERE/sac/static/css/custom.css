@@ -1,0 +1,56 @@
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --accent-color: #e74c3c;
+    --background-color: #ecf0f1;
+    --text-color: #2c3e50;
+    --header-footer-color: #34495e;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.navbar, footer {
+    background-color: var(--header-footer-color);
+    color: var(--background-color);
+}
+
+.nav-link, .navbar-brand, footer p {
+    color: var(--background-color);
+}
+
+.jumbotron {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+}
+
+.card-body {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+.card-title {
+    color: var(--text-color);
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--text-color);
+    border-color: var(--text-color);
+    color: var(--background-color);
+}
+
+hr {
+    border-top: 1px solid var(--background-color);
+}
