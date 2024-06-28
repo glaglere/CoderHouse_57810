@@ -1,8 +1,12 @@
 # webapp/forms.py
 
 from django import forms
-from .models import Producto, Cliente, Empleado, Compra
 
+from .models import Cliente, Empleado, Compra
+from .models import Producto
+
+
+# webapp/forms.py
 
 class ProductoForm(forms.ModelForm):
     class Meta:
@@ -19,7 +23,8 @@ class ClienteForm(forms.ModelForm):
 class EmpleadoForm(forms.ModelForm):
     class Meta:
         model = Empleado
-        fields = ['nombre', 'apellido', 'edad', 'ciudad', 'puesto', 'salario', 'fecha_contratacion']
+        fields = ['numero_funcionario', 'nombre', 'apellido', 'edad', 'ciudad', 'puesto', 'salario',
+                  'fecha_contratacion']
 
 
 class CompraForm(forms.ModelForm):

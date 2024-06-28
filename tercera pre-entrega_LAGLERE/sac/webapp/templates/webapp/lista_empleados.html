@@ -14,6 +14,7 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
+                        <th scope="col">Número Funcionario</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Apellido</th>
                         <th scope="col">Edad</th>
@@ -26,6 +27,7 @@
                 <tbody>
                     {% for empleado in empleados %}
                     <tr>
+                        <td>{{ empleado.numero_funcionario }}</td>
                         <td>{{ empleado.nombre }}</td>
                         <td>{{ empleado.apellido }}</td>
                         <td>{{ empleado.edad }}</td>

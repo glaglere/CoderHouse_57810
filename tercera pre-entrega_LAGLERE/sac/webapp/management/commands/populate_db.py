@@ -3,7 +3,6 @@ from faker import Faker
 from webapp.models import Cliente, Producto, Empleado, Compra
 import random
 
-
 class Command(BaseCommand):
     help = 'Populates the database with dummy data'
 
@@ -16,9 +15,9 @@ class Command(BaseCommand):
             cliente = Cliente.objects.create(
                 nombre=fake.first_name(),
                 apellido=fake.last_name(),
-                edad=fake.random_int(min=18, max=90),
-                ciudad=fake.city(),  # Correct method to generate city names
-                email=fake.email(),
+                edad=fake.random_int(min=1, max=120),
+                ciudad=fake.city(),
+                email=fake.unique.email(),
                 direccion=fake.address(),
                 telefono=fake.phone_number()
             )
@@ -28,24 +27,27 @@ class Command(BaseCommand):
         productos = []
         for _ in range(50):
             producto = Producto.objects.create(
-                nombre=fake.unique.catch_phrase(),  # Realistic product names
-                descripcion=fake.text(max_nb_chars=200),  # Meaningful product descriptions
+                nombre=fake.unique.catch_phrase(),
+                descripcion=fake.text(max_nb_chars=200),
                 precio=fake.random_number(digits=5, fix_len=True),
                 stock=fake.random_int(min=1, max=100)
             )
             productos.append(producto)
 
         # Create Empleados
+        empleados = []
         for _ in range(50):
-            Empleado.objects.create(
+            empleado = Empleado.objects.create(
                 nombre=fake.first_name(),
                 apellido=fake.last_name(),
-                edad=fake.random_int(min=18, max=65),
-                ciudad=fake.city(),  # Ensure the correct city name generation
+                edad=fake.random_int(min=1, max=120),
+                ciudad=fake.city(),
+                numero_funcionario=fake.unique.bothify(text='??######'),
                 puesto=fake.job(),
                 salario=fake.random_number(digits=5, fix_len=True),
                 fecha_contratacion=fake.date_this_decade()
             )
+            empleados.append(empleado)
 
         # Create Compras
         for _ in range(50):
