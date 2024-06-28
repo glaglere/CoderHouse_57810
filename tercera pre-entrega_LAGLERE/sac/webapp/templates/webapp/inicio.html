@@ -1,18 +1,62 @@
 <!-- templates/webapp/inicio.html -->
 
 {% extends 'webapp/base.html' %}
+{% load static %}
 
 {% block title %}Página de Inicio{% endblock %}
 
 {% block content %}
 <div class="container">
-    <div class="card">
-        <div class="card-header">
-            Bienvenido a la Página de Inicio
+    <div class="jumbotron mt-4">
+        <h1 class="display-4">Bienvenido a la Página de Inicio</h1>
+        <p class="lead">Esta es la página de inicio de tu aplicación Django. Aquí puedes encontrar información relevante y enlaces a diferentes secciones de la aplicación.</p>
+        <hr class="my-4">
+        <p>Utiliza el menú de navegación para explorar las diferentes funcionalidades de la aplicación.</p>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Aprender más</a>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card mb-4 shadow-sm">
+                <img src="{% static 'images/compras.png' %}" class="card-img-top img-fluid" alt="Compras" style="height: 200px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title">Sección de Compras</h5>
+                    <p class="card-text">Gestiona tus compras de manera eficiente.</p>
+                    <a href="/compras/" class="btn btn-primary">Ver Compras</a>
+                </div>
+            </div>
         </div>
-        <div class="card-body">
-            <p>Esta es la página de inicio de tu aplicación Django.</p>
+        <div class="col-md-3">
+            <div class="card mb-4 shadow-sm">
+                <img src="{% static 'images/clientes.png' %}" class="card-img-top img-fluid" alt="Clientes" style="height: 200px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title">Sección de Clientes</h5>
+                    <p class="card-text">Gestiona la información de tus clientes.</p>
+                    <a href="/clientes/" class="btn btn-primary">Ver Clientes</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card mb-4 shadow-sm">
+                <img src="{% static 'images/productos.png' %}" class="card-img-top img-fluid" alt="Productos" style="height: 200px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title">Sección de Productos</h5>
+                    <p class="card-text">Gestiona tus productos de manera efectiva.</p>
+                    <a href="/productos/" class="btn btn-primary">Ver Productos</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card mb-4 shadow-sm">
+                <img src="{% static 'images/funcionarios.png' %}" class="card-img-top img-fluid" alt="Funcionarios" style="height: 200px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title">Sección de Funcionarios</h5>
+                    <p class="card-text">Gestiona la información de tus funcionarios.</p>
+                    <a href="/funcionarios/" class="btn btn-primary">Ver Funcionarios</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 {% endblock %}
+
