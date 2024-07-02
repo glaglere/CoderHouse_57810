@@ -1,35 +1,27 @@
 # webapp/views.py
 
-from django.db.models import Q
 from django.shortcuts import render, redirect
-
-from .forms import ProductoForm, ClienteForm, EmpleadoForm, CompraForm
-from .models import Producto, Cliente, Empleado, Compra
-
+from .forms import CompraForm
+from .models import Cliente, Compra
 
 def lista_productos(request):
     productos = Producto.objects.all()
     return render(request, 'webapp/lista_productos.html', {'productos': productos})
 
-
 def lista_clientes(request):
     clientes = Cliente.objects.all()
     return render(request, 'webapp/lista_clientes.html', {'clientes': clientes})
-
 
 def lista_empleados(request):
     empleados = Empleado.objects.all()
     return render(request, 'webapp/lista_empleados.html', {'empleados': empleados})
 
-
 def lista_compras(request):
     compras = Compra.objects.all()
     return render(request, 'webapp/lista_compras.html', {'compras': compras})
 
-
 def inicio(request):
     return render(request, 'webapp/inicio.html')
-
 
 def agregar_producto(request):
     if request.method == 'POST':
@@ -41,7 +33,6 @@ def agregar_producto(request):
         form = ProductoForm()
     return render(request, 'webapp/agregar_producto.html', {'form': form})
 
-
 def agregar_cliente(request):
     if request.method == 'POST':
         form = ClienteForm(request.POST)
@@ -51,7 +42,6 @@ def agregar_cliente(request):
     else:
         form = ClienteForm()
     return render(request, 'webapp/agregar_cliente.html', {'form': form})
-
 
 def agregar_empleado(request):
     if request.method == 'POST':
@@ -63,7 +53,6 @@ def agregar_empleado(request):
         form = EmpleadoForm()
     return render(request, 'webapp/agregar_empleado.html', {'form': form})
 
-
 def agregar_compra(request):
     if request.method == 'POST':
         form = CompraForm(request.POST)
@@ -72,8 +61,10 @@ def agregar_compra(request):
             return redirect('inicio')
     else:
         form = CompraForm()
-    return render(request, 'webapp/agregar_compra.html', {'form': form})
 
+    # Retrieve all clients to show in the combo box
+    clientes = Cliente.objects.all()
+    return render(request, 'webapp/agregar_compra.html', {'form': form, 'clientes': clientes})
 
 def buscar(request):
     query = request.GET.get('query')

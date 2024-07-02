@@ -13,7 +13,27 @@
         <div class="card-body">
             <form method="post">
                 {% csrf_token %}
-                {{ form.as_p }}
+
+                <!-- Combo box for selecting a client -->
+                <div class="form-group">
+                    <label for="cliente">Cliente</label>
+                    <select class="form-control" id="cliente" name="cliente">
+                        {% for cliente in clientes %}
+                            <option value="{{ cliente.id }}">{{ cliente.nombre }} {{ cliente.apellido }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <!-- Render the rest of the form fields, excluding the original client field -->
+                {% for field in form %}
+                    {% if field.name != 'cliente' %}
+                        <div class="form-group">
+                            {{ field.label_tag }}
+                            {{ field }}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+
                 <button type="submit" class="btn btn-primary">Guardar</button>
             </form>
         </div>
