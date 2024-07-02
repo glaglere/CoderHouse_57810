@@ -1,8 +1,9 @@
 # webapp/views.py
 
 from django.shortcuts import render, redirect
-from .forms import CompraForm
-from .models import Cliente, Compra
+from django.db.models import Q  # Añadir esta línea
+from .forms import ProductoForm, ClienteForm, EmpleadoForm, CompraForm
+from .models import Producto, Cliente, Empleado, Compra
 
 def lista_productos(request):
     productos = Producto.objects.all()
