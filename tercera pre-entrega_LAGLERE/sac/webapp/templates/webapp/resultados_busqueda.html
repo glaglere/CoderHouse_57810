@@ -29,21 +29,12 @@
             </ul>
             {% endif %}
 
-            {% if empleados %}
-            <h2>Empleados</h2>
-            <ul class="list-group">
-                {% for empleado in empleados %}
-                <li class="list-group-item">{{ empleado.nombre }} {{ empleado.apellido }}</li>
-                {% endfor %}
-            </ul>
-            {% endif %}
-
             {% if compras %}
             <h2>Compras</h2>
             <ul class="list-group">
                 {% for compra in compras %}
                 <li class="list-group-item">{{ compra.cliente.nombre }} compró {{ compra.cantidad }} de
-                    {{ compra.producto.nombre }}
+                    '{{ compra.producto.nombre }}' en la fecha '{{compra.fecha}}'
                 </li>
                 {% endfor %}
             </ul>

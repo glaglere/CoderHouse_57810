@@ -5,24 +5,30 @@ from django.db.models import Q  # Añadir esta línea
 from .forms import ProductoForm, ClienteForm, EmpleadoForm, CompraForm
 from .models import Producto, Cliente, Empleado, Compra
 
+
 def lista_productos(request):
     productos = Producto.objects.all()
     return render(request, 'webapp/lista_productos.html', {'productos': productos})
+
 
 def lista_clientes(request):
     clientes = Cliente.objects.all()
     return render(request, 'webapp/lista_clientes.html', {'clientes': clientes})
 
+
 def lista_empleados(request):
     empleados = Empleado.objects.all()
     return render(request, 'webapp/lista_empleados.html', {'empleados': empleados})
+
 
 def lista_compras(request):
     compras = Compra.objects.all()
     return render(request, 'webapp/lista_compras.html', {'compras': compras})
 
+
 def inicio(request):
     return render(request, 'webapp/inicio.html')
+
 
 def agregar_producto(request):
     if request.method == 'POST':
@@ -34,6 +40,7 @@ def agregar_producto(request):
         form = ProductoForm()
     return render(request, 'webapp/agregar_producto.html', {'form': form})
 
+
 def agregar_cliente(request):
     if request.method == 'POST':
         form = ClienteForm(request.POST)
@@ -44,6 +51,7 @@ def agregar_cliente(request):
         form = ClienteForm()
     return render(request, 'webapp/agregar_cliente.html', {'form': form})
 
+
 def agregar_empleado(request):
     if request.method == 'POST':
         form = EmpleadoForm(request.POST)
@@ -53,6 +61,7 @@ def agregar_empleado(request):
     else:
         form = EmpleadoForm()
     return render(request, 'webapp/agregar_empleado.html', {'form': form})
+
 
 def agregar_compra(request):
     if request.method == 'POST':
@@ -67,16 +76,31 @@ def agregar_compra(request):
     clientes = Cliente.objects.all()
     return render(request, 'webapp/agregar_compra.html', {'form': form, 'clientes': clientes})
 
+
 def buscar(request):
     query = request.GET.get('query')
-    productos = Producto.objects.filter(nombre__iexact=query)
-    clientes = Cliente.objects.filter(nombre__iexact=query)
-    empleados = Empleado.objects.filter(nombre__iexact=query)
-    compras = Compra.objects.filter(Q(cliente__nombre__iexact=query) | Q(producto__nombre__iexact=query))
+    productos = Producto.objects.filter(Q(nombre__icontains=query) | Q(descripcion__icontains=query))
+
+    search_terms = query.split()
+    if len(search_terms) == 2:
+        nombre, apellido = search_terms
+        clientes = Cliente.objects.filter(Q(nombre__icontains=nombre) & Q(apellido__icontains=apellido))
+    else:
+        clientes = Cliente.objects.filter(Q(nombre__icontains=query) | Q(apellido__icontains=query))
+
+    # empleados = Empleado.objects.filter(Q(nombre__icontains=query))
+
+    compras = Compra.objects.filter(
+        Q(cliente__nombre__icontains=query) |
+        Q(cliente__apellido__icontains=query) |
+        Q(producto__nombre__icontains=query) |
+        Q(fecha__icontains=query)
+    )
+
     context = {
         'productos': productos,
         'clientes': clientes,
-        'empleados': empleados,
+        # 'empleados': empleados,
         'compras': compras,
         'query': query
     }

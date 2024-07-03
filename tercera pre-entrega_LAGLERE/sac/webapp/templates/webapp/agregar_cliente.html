@@ -1,5 +1,3 @@
-<!-- templates/webapp/agregar_cliente.html -->
-
 {% extends 'webapp/base.html' %}
 
 {% block title %}Agregar Cliente{% endblock %}
@@ -13,7 +11,27 @@
         <div class="card-body">
             <form method="post">
                 {% csrf_token %}
-                {{ form.as_p }}
+                {% if form.non_field_errors %}
+                    <div class="alert alert-danger">
+                        {% for error in form.non_field_errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                {% for field in form %}
+                    <div class="form-group">
+                        {{ field.label_tag }}
+                        {{ field }}
+                        {% if field.errors %}
+                            <div class="alert alert-danger">
+                                {% for error in field.errors %}
+                                    <p>{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+
                 <button type="submit" class="btn btn-primary">Guardar</button>
             </form>
         </div>
