@@ -1,7 +1,11 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 
+
 class Persona(models.Model):
+    """
+    Clase abstracta que representa una persona.
+    """
     nombre = models.CharField(max_length=100, default='Nombre')
     apellido = models.CharField(max_length=100, default='Apellido')
     edad = models.PositiveIntegerField(
@@ -16,7 +20,11 @@ class Persona(models.Model):
     def __str__(self):
         return f"{self.nombre} {self.apellido}"
 
+
 class Cliente(Persona):
+    """
+    Clase que representa un cliente.
+    """
     email = models.EmailField(unique=True)
     direccion = models.CharField(max_length=255, default='Direccion')
     telefono = models.CharField(max_length=20, default='0000000000')
@@ -24,7 +32,11 @@ class Cliente(Persona):
     def __str__(self):
         return self.nombre
 
+
 class Empleado(Persona):
+    """
+    Clase que representa un empleado.
+    """
     numero_funcionario = models.CharField(max_length=20, unique=True)
     puesto = models.CharField(max_length=100, default='Puesto')
     salario = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
@@ -33,7 +45,11 @@ class Empleado(Persona):
     def __str__(self):
         return f"{self.nombre} {self.apellido} - {self.puesto}"
 
+
 class Producto(models.Model):
+    """
+    Clase que representa un producto.
+    """
     nombre = models.CharField(max_length=100)
     descripcion = models.TextField()
     precio = models.DecimalField(max_digits=10, decimal_places=2)
@@ -42,7 +58,11 @@ class Producto(models.Model):
     def __str__(self):
         return self.nombre
 
+
 class Compra(models.Model):
+    """
+    Clase que representa una compra realizada por un cliente.
+    """
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
     producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
     fecha = models.DateField()
