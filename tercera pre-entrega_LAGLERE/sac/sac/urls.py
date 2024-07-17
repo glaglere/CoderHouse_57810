@@ -1,10 +1,6 @@
-# sac/urls.py
-
 from django.contrib import admin
 from django.urls import path
 from webapp import views
-
-from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -21,4 +17,5 @@ urlpatterns = [
     path('registro/', views.registro, name='registro'),
     path('login/', views.user_login, name='login'),
     path('logout/', views.user_logout, name='logout'),
+    path('about/', views.about, name='about'),  # Nueva ruta para la vista "Acerca de mí"
 ]

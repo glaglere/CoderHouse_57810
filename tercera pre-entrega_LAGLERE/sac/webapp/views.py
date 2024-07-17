@@ -5,14 +5,12 @@ from django.contrib.auth.decorators import login_required
 from .forms import RegistroForm, LoginForm, ProductoForm, ClienteForm, EmpleadoForm, CompraForm
 from .models import Producto, Cliente, Empleado, Compra
 
-
 def lista_productos(request):
     """
     Vista para listar todos los productos.
     """
     productos = Producto.objects.all()
     return render(request, 'webapp/lista_productos.html', {'productos': productos})
-
 
 def lista_clientes(request):
     """
@@ -21,14 +19,12 @@ def lista_clientes(request):
     clientes = Cliente.objects.all()
     return render(request, 'webapp/lista_clientes.html', {'clientes': clientes})
 
-
 def lista_empleados(request):
     """
     Vista para listar todos los empleados.
     """
     empleados = Empleado.objects.all()
     return render(request, 'webapp/lista_empleados.html', {'empleados': empleados})
-
 
 def lista_compras(request):
     """
@@ -37,13 +33,11 @@ def lista_compras(request):
     compras = Compra.objects.all()
     return render(request, 'webapp/lista_compras.html', {'compras': compras})
 
-
 def inicio(request):
     """
     Vista para la página de inicio.
     """
     return render(request, 'webapp/inicio.html')
-
 
 def agregar_producto(request):
     """
@@ -58,7 +52,6 @@ def agregar_producto(request):
         form = ProductoForm()
     return render(request, 'webapp/agregar_producto.html', {'form': form})
 
-
 def agregar_cliente(request):
     """
     Vista para agregar un nuevo cliente.
@@ -72,7 +65,6 @@ def agregar_cliente(request):
         form = ClienteForm()
     return render(request, 'webapp/agregar_cliente.html', {'form': form})
 
-
 def agregar_empleado(request):
     """
     Vista para agregar un nuevo empleado.
@@ -85,7 +77,6 @@ def agregar_empleado(request):
     else:
         form = EmpleadoForm()
     return render(request, 'webapp/agregar_empleado.html', {'form': form})
-
 
 def agregar_compra(request):
     """
@@ -102,7 +93,6 @@ def agregar_compra(request):
     # Obtener todos los clientes para mostrar en el combo box
     clientes = Cliente.objects.all()
     return render(request, 'webapp/agregar_compra.html', {'form': form, 'clientes': clientes})
-
 
 def buscar(request):
     """
@@ -136,7 +126,6 @@ def buscar(request):
     }
     return render(request, 'webapp/resultados_busqueda.html', context)
 
-
 def registro(request):
     if request.method == 'POST':
         form = RegistroForm(request.POST)
@@ -146,7 +135,6 @@ def registro(request):
     else:
         form = RegistroForm()
     return render(request, 'webapp/registro.html', {'form': form})
-
 
 def user_login(request):
     if request.method == 'POST':
@@ -162,8 +150,25 @@ def user_login(request):
         form = LoginForm()
     return render(request, 'webapp/login.html', {'form': form})
 
-
 @login_required
 def user_logout(request):
     logout(request)
     return redirect('login')
+
+def about(request):
+    """
+    Vista para la página Acerca de mí.
+    """
+    context = {
+        'nombre': 'Ginette Laglere',
+        'profesion': 'Contadora Pública',
+        'experiencia': '12 años',
+        'descripcion': (
+            'Apasionada por la tecnología, comencé a formarme en CoderHouse, '
+            'inicialmente en Inteligencia Artificial y luego decidí aprender lenguajes de programación. '
+            'Mi camino inició con Python, un lenguaje exquisito y versátil que permite su aplicación para '
+            'infinidad de usos. El diseño y construcción de este sitio constituye mi proyecto final del curso '
+            'Python en CoderHouse.'
+        )
+    }
+    return render(request, 'webapp/about.html', context)
