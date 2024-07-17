@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.core.validators import MinValueValidator, MaxValueValidator
 
 
@@ -68,5 +69,36 @@ class Compra(models.Model):
     fecha = models.DateField()
     cantidad = models.IntegerField()
 
-    def __str__(self):
-        return f"{self.cliente} compró {self.cantidad} de {self.producto}"
+    # Nuevas clases para manejar los usuarios
+
+
+class UsuarioManager(BaseUserManager):
+    def create_user(self, username, password=None):
+        if not username:
+            raise ValueError("El usuario debe tener un nombre de usuario.")
+        if not password:
+            raise ValueError("El usuario debe tener una contraseña.")
+
+        user = self.model(username=username)
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
+
+    def create_superuser(self, username, password):
+        user = self.create_user(username=username, password=password)
+        user.is_admin = True
+        user.save(using=self._db)
+        return user
+
+
+class Usuario(AbstractBaseUser):
+    username = models.CharField(max_length=50, unique=True)
+    password = models.CharField(max_length=128)
+
+    objects = UsuarioManager()
+
+    USERNAME_FIELD = 'username'
+
+
+def __str__(self):
+    return f"{self.cliente} compró {self.cantidad} de {self.producto}"

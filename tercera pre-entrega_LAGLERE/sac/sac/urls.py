@@ -4,6 +4,8 @@ from django.contrib import admin
 from django.urls import path
 from webapp import views
 
+from django.urls import path
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('productos/', views.lista_productos, name='lista_productos'),
@@ -16,4 +18,7 @@ urlpatterns = [
     path('agregar_compra/', views.agregar_compra, name='agregar_compra'),
     path('buscar/', views.buscar, name='buscar'),
     path('', views.inicio, name='inicio'),
+    path('registro/', views.registro, name='registro'),
+    path('login/', views.user_login, name='login'),
+    path('logout/', views.user_logout, name='logout'),
 ]

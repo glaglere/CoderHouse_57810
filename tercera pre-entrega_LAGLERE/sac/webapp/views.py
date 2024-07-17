@@ -1,6 +1,8 @@
-from django.shortcuts import render, redirect
 from django.db.models import Q
-from .forms import ProductoForm, ClienteForm, EmpleadoForm, CompraForm
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from .forms import RegistroForm, LoginForm, ProductoForm, ClienteForm, EmpleadoForm, CompraForm
 from .models import Producto, Cliente, Empleado, Compra
 
 
@@ -133,3 +135,35 @@ def buscar(request):
         'query': query
     }
     return render(request, 'webapp/resultados_busqueda.html', context)
+
+
+def registro(request):
+    if request.method == 'POST':
+        form = RegistroForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('login')
+    else:
+        form = RegistroForm()
+    return render(request, 'webapp/registro.html', {'form': form})
+
+
+def user_login(request):
+    if request.method == 'POST':
+        form = LoginForm(data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('inicio')
+    else:
+        form = LoginForm()
+    return render(request, 'webapp/login.html', {'form': form})
+
+
+@login_required
+def user_logout(request):
+    logout(request)
+    return redirect('login')
